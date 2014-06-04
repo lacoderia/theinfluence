@@ -14,3 +14,15 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Local temp files
+/.sass-cache
+*.swp
+*.swn
+*.swm
+*.swo
+*.*~
+*~
+.DS_Store
+/config/environments/development.rb
+/config/environments/production.rb
