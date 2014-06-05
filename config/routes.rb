@@ -1,13 +1,13 @@
-Rails.application.routes.draw do
+Theinfluence::Application.routes.draw do
   root :to => "display#index"
-  get "nosotros" => "home#nosotros"
-  get "agencias" => "home#agencias"
-  get "anunciantes" => "home#anunciantes"
-  get "socios" => "home#socios"
-  get "social" => "home#social"
-  get "targeted_video" => "home#targeted_video"
-  get "media" => "home#media"
-  get "contacto" => "home#contacto"
+  get "nosotros" => "display#nosotros"
+  get "agencias" => "display#agencias"
+  get "anunciantes" => "display#anunciantes"
+  get "socios" => "display#socios"
+  get "social" => "display#social"
+  get "targeted_video" => "display#targeted_video"
+  get "media" => "display#media"
+  get "contacto" => "display#contacto"
 
 
 
