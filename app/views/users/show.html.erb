@@ -1,0 +1,225 @@
+<div id="Dashboard">
+
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+        	<div class="profileinfo">
+          	<h4>Bienvenido, <br>
+            <%= @user.name if @user.name %></h4>
+        	</div>
+
+            <ul class="nav nav-sidebar">
+              <li><a href="#">Social Intelligence</a></li>
+              <li><a href="#">Paid Media Optimization</a></li>
+              <li><a href="#">Targeted Video</a></li>
+              <li><a href="#sacdash">Servicio al Cliente</a></li>
+            </ul>
+        </div>
+        
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          
+          <div id="container" class="hidden-xs hidden-sm">
+            <div id="gallery">
+              <a href="http://youtube.com"><img src="/assets/dashboard/youtube.png"></a>
+              <img src="/assets/dashboard/twitter.png">
+              <img src="/assets/dashboard/facebook.png">
+              <img src="/assets/dashboard/manual.png">
+              <img src="/assets/dashboard/equipo.png">
+              <img src="/assets/dashboard/suite.png">
+            </div>
+
+            <div id="thumbs">
+              <img src="/assets/dashboard/1.png">
+              <img src="/assets/dashboard/2.png">
+              <img src="/assets/dashboard/3.png">
+              <img src="/assets/dashboard/4.png">
+              <img src="/assets/dashboard/5.png">
+            </div>
+
+            <a href="#" id="next"></a>
+
+          </div>
+
+
+
+
+      <br><br>
+      <h2 class="page-header">Mis tecnologías</h2>
+
+
+      <div id="tecsdashboard">
+
+    <!-- Empieza tabla con información de tecnologias disponibles -->
+   			 <div class="row"> 
+           <div class="col-md-6">
+              <h3>Tecnología</h3>
+           </div> <!-- column -->
+           <div class="col-md-2">
+              <h3>Disponible Mensual</h3>
+           </div> <!-- column -->
+            <div class="col-md-2">
+             <h3>Upgrade</h3>
+           </div><!-- column --> 
+        </div> <!-- row -->  
+
+      <!--   Información de Influencer Marketing -->
+         <div class="row"> 
+           <div class="col-md-6">
+              <h5 class="active">Influencer Marketing</h5>
+           </div> <!-- column -->
+           <div class="col-md-2">
+              <h5 class="active"><%= @user.Ebuzzing %></h5>
+           </div> <!-- column -->
+            <div class="col-md-2">
+               <h5>Upgrade</h5>
+           </div><!-- column --> 
+        </div> <!-- row -->   
+
+
+        <!--   Información de Content Curation -->
+         <div class="row"> 
+           <div class="col-md-6">
+               <h5 class="active">Content Curation</h5>
+           </div> <!-- column -->
+           <div class="col-md-2">
+              <h5 class="active"><%= @user.ContentDJ %></h5>
+           </div> <!-- column -->
+            <div class="col-md-2">
+              <h5>Upgrade</h5>
+           </div><!-- column --> 
+        </div> <!-- row -->   
+  
+         <!--   Información de Competitive Insights-->
+         <div class="row"> 
+           <div class="col-md-6">
+               <h5 class="active">Competitive Insights</h5>
+           </div> <!-- column -->
+           <div class="col-md-2">
+              <h5 class="active"><%= @user.Polygraph %></h5>
+           </div> <!-- column -->
+            <div class="col-md-2">
+              <h5>Upgrade</h5>
+           </div><!-- column --> 
+        </div> <!-- row -->   
+
+
+        <!--   Influenciadores-->
+         <div class="row"> 
+           <div class="col-md-6">
+               <h5 class="normal">Influenciadores</h5>
+           </div> <!-- column -->
+           <div class="col-md-2">
+              <h5 class="normal">0</h5>
+           </div> <!-- column -->
+            <div class="col-md-2">
+              <a href=""><h5 class="upgrade">Upgrade</h5></a>
+           </div><!-- column --> 
+        </div> <!-- row -->   
+
+        <!--   Otra Herramienta-->
+         <div class="row"> 
+           <div class="col-md-6">
+               <h5 class="normal">Otra Herramienta</h5>
+           </div> <!-- column -->
+           <div class="col-md-2">
+              <h5 class="normal">0</h5>
+           </div> <!-- column -->
+            <div class="col-md-2">
+              <a href=""><h5 class="upgrade">Upgrade</h5></a>
+           </div><!-- column --> 
+        </div> <!-- row -->   
+
+      </div> <!-- End id tecsdashboard -->
+
+
+
+      <h2 class="page-header">Servicio al Cliente</h2>
+        <div id="sacdash">
+            <div class="col-md-3">
+              <img src="/assets/team/carmen.png" class="img-circle">
+            </div>
+            <div class="col-md-9">
+              <h3>Conoce a tu agente de servicio al cliente:</h3>
+              <h4>Carmen Rodríguez</h4>
+              <h4>carmen@theinfluence.co</h4>
+            </div>
+        </div>
+
+  </div> <!-- End Column-9 sm-2 etc -->
+</div> <!-- End row -->
+</div> <!-- container-fluid -->
+</div> <!-- End dashboard -->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script>
+  $(document).ready(function() {
+    /* demo script */
+    var index = 0;
+    var tindex = 5;
+    var images = $("#gallery img");
+    var thumbs = $("#thumbs img");
+    var imgHeight = 100;
+
+    for (i=0; i<thumbs.length; i++) {
+      $(thumbs[i]).addClass("thumb-"+i);
+      $(images[i]).addClass("image-"+i);
+    }
+
+    show(index, tindex);
+    $autotimer = setInterval(sift, 8000);
+
+    $("#thumbs").animate({
+      scrollTop: 200
+    }, 400, 'easeOutSine');
+
+    function sift() {
+      $('#thumbs img:first-child').animate(
+        {
+          'margin-top': '100px'
+        },
+        400,
+        'easeOutSine',
+        function() {
+          $(thumbs).slice(tindex, (tindex + 1)).clone().prependTo("#thumbs");
+          $("#thumbs img:last-child").remove();
+          $('#thumbs img').css('margin-top', '0');
+        }
+      );
+
+      if ( index < 4){
+        index += 1;
+      } else {
+        index = 0;
+      }
+
+      if(tindex > 0) {
+        tindex = tindex - 1;
+      } else {
+        tindex = 4;
+      }
+
+      show(index, tindex);
+    }
+
+    function show(num, tnum) {
+      $(images).fadeOut(400);
+      $(".image-"+num).stop().fadeIn(400);
+    }
+
+    $("#next").on('click', function(e) {
+      sift();
+      if(typeof $autotimer != "undefined" && $autotimer != false) {
+        clearInterval($autotimer);
+        $autotimer = false;
+        setTimeout(function(){
+          $autotimer = setInterval(sift, 8000);
+        }, 8000);
+      }
+      e.preventDefault();
+    });
+
+  });
+</script>

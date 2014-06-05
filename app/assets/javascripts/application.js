@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require modernizr-2.6.2.min
+//= require prefixfree.min
+//= require angular.min
+//= require_tree ../../../vendor/assets/javascripts/.
+
+

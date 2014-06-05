@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <h3>Panel Administrativo</h3>
+    <div class="column">
+      <table class="table">
+        <th>Usuario</th>
+        <th></th>
+        <th></th>
+        <th>ContentDJ</th>
+        <th>Ebuzzing</th>
+        <th>Polygraph</th>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <%= render user %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

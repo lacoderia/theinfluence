@@ -1,0 +1,45 @@
+<div class="backgroundform">
+  <div class="container">
+<div class="authform morewidth">
+  <h3>Editar Usuario</h3>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="form-group">
+      <%= f.label :name, 'Nombre' %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    </div>
+    <fieldset>
+      <p>Deja los espacios en blanco si quieres mantener tu contraseña actual.</p>
+      <div class="form-group">
+        <%= f.label :password, 'Contraseña' %>
+        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirmar contraseña' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    </fieldset>
+    <fieldset>
+      <p>Debes escribir tu contraseña actual para hacer los cambios.</p>
+      <div class="form-group">
+        <%= f.label :current_password, 'Contraseña actual' %>
+        <%= f.password_field :current_password, class: 'form-control' %>
+      </div>
+    </fieldset>
+    <%= f.submit 'Actualizar', :class => 'btn btn-blue btn-small right' %>
+  <% end %>
+</div>
+<div class="authform">
+<h3>Cancelar Cuenta</h3>
+<%= button_to "Cancelar mi cuenta", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-blue btn-small right' %>
+</div>
+  
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<td>
+  <%= link_to user.email, user %>
+</td>
+<td>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role,role]}) %>
+    <%= f.submit 'Change Role', :class => 'button-xs' %>
+  <% end %>
+</td>
+<td>
+  <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
+</td>
+
+
+<td>
+	<%= user.ContentDJ %>
+  <br>
+    <%= form_for(user) do |f| %>
+    <%= f.select(:ContentDJ, [0,1,2,3,4,5]) %>
+    <%= f.submit 'Change amount', :class => 'button-xs' %>
+  <% end %>
+  
+</td>
+
+<td>
+
+  <%= user.Ebuzzing %>
+  <br>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:Ebuzzing, [0,1,2,3,4,5]) %>
+    <%= f.submit 'Change amount', :class => 'button-xs' %>
+  <% end %>
+  
+</td>
+
+<td>
+  <%= user.Polygraph %>
+  <br>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:Polygraph, [0,1,2,3,4,5]) %>
+    <%= f.submit 'Change amount', :class => 'button-xs' %>
+  <% end %>
+  
+</td>
+	
+	
+

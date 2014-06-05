@@ -1,0 +1,24 @@
+<div class="contactform">
+  <div class="container">
+
+    <div align="center">
+      <h3>Únete a la lista de espera. <br>Nuestro equipo te contactará pronto.</h3>
+
+      <div class="authform contactbox">
+        <%= simple_form_for @contact, :html => {:class => '' } do |f| %>
+        <div class="contactform-group"> <%= f.input :nombre, :required => true %> </div>
+        <div class="contactform-group">  <%= f.input :email, :required => true %> </div>
+        <div class="contactform-group">  <%= f.input :empresa, :required => true %> </div>
+        <div class="contactform-group">  <%= f.input :telefono, :as => :integer, :required => true %> </div>
+          <div class= "hidden">
+            <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+          </div>
+          <div>
+            </br>
+            <%= f.button :submit, 'Enviar', :class=> "btn btn-blue btn-small" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
