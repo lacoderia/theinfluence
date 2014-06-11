@@ -1,4 +1,9 @@
 Theinfluence::Application.routes.draw do
+
+  resources :contacts
+
+  resources :products
+
   root :to => "display#index"
   get "nosotros" => "display#nosotros"
   get "agencias" => "display#agencias"
@@ -11,8 +16,8 @@ Theinfluence::Application.routes.draw do
 
 
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
+  #devise_for :users, :controllers => {:registrations => "registrations"}
+  #resources :users
 
   match '/contacts',     to: 'contacts#new',             via: 'get'
   resources "contacts", only: [:new, :create]
