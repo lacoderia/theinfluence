@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Addon int:</strong>
+  <%= @addons_combo.addon_int %>
+</p>
+
+<p>
+  <strong>Combo:</strong>
+  <%= @addons_combo.combo_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @addons_combo.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @addons_combo.price %>
+</p>
+
+<%= link_to 'Edit', edit_addons_combo_path(@addons_combo) %> |
+<%= link_to 'Back', addons_combos_path %>

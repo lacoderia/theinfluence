@@ -1,5 +1,11 @@
 Theinfluence::Application.routes.draw do
 
+  resources :addons_combos
+
+  resources :addons
+
+  resources :combos
+
   resources :assets
 
   resources :contacts

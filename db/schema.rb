@@ -11,13 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611231820) do
+ActiveRecord::Schema.define(version: 20140611235034) do
+
+  create_table "addons", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "addons_combos", force: true do |t|
+    t.integer  "addon_int"
+    t.integer  "combo_id"
+    t.integer  "quantity"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assets", force: true do |t|
     t.integer  "product_id"
     t.string   "url"
     t.string   "utl_thumb"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "combos", force: true do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.text     "description"
+    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

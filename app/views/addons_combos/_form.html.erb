@@ -1,0 +1,33 @@
+<%= form_for(@addons_combo) do |f| %>
+  <% if @addons_combo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@addons_combo.errors.count, "error") %> prohibited this addons_combo from being saved:</h2>
+
+      <ul>
+      <% @addons_combo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :addon_int %><br>
+    <%= f.number_field :addon_int %>
+  </div>
+  <div class="field">
+    <%= f.label :combo_id %><br>
+    <%= f.number_field :combo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
