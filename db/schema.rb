@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611230058) do
+ActiveRecord::Schema.define(version: 20140611231820) do
+
+  create_table "assets", force: true do |t|
+    t.integer  "product_id"
+    t.string   "url"
+    t.string   "utl_thumb"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contacts", force: true do |t|
     t.string   "name"

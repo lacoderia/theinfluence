@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "products.js.js",
+  "sourceRoot": "",
+  "sources": [
+    "products.js.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA;CAAA"
+}

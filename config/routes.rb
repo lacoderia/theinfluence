@@ -1,5 +1,7 @@
 Theinfluence::Application.routes.draw do
 
+  resources :assets
+
   resources :contacts
 
   resources :products
