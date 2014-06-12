@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Theinfluence::Application.routes.draw do
 
   resources :purchases_addons
@@ -29,6 +30,8 @@ Theinfluence::Application.routes.draw do
   get "targeted_video" => "display#targeted_video"
   get "media" => "display#media"
   get "contacto" => "display#contacto"
+
+  get "dashboard" => "dashboard#index"
 
 
   #devise_for :users, :controllers => {:registrations => "registrations"}

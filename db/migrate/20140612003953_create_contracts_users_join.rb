@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateContractsUsersJoin < ActiveRecord::Migration
   def up
 	  create_table :contracts_users, :id => false do |t|

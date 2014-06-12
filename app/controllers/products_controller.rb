@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 

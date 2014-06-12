@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PurchasesCombosController < ApplicationController
   before_action :set_purchases_combo, only: [:show, :edit, :update, :destroy]
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
 

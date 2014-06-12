@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAssets < ActiveRecord::Migration
   def change
     create_table :assets do |t|

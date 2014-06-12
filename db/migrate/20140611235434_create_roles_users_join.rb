@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateRolesUsersJoin < ActiveRecord::Migration
   def up
   	create_table :roles_users, :id => false do |t|

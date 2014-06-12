@@ -1,0 +1,67 @@
+#chat {
+  border-top: 1px solid #cccccc;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  padding-top: 2em; }
+  #chat h4 {
+    font-size: 1.5em;
+    margin: 0 0 2em 0; }
+  #chat .avatar {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%; }
+    #chat .avatar .inner-avatar {
+      border: 2px solid #cccccc;
+      border-radius: 200px;
+      display: inline-block;
+      height: 150px;
+      overflow: hidden;
+      text-align: center;
+      vertical-align: top;
+      width: 150px; }
+      #chat .avatar .inner-avatar img {
+        left: -15%;
+        max-width: 200px;
+        position: relative;
+        top: 10%;
+        transform: translateY(-50%);
+        vertical-align: middle;
+        width: 150%; }
+  #chat .chat-info {
+    display: inline-block;
+    padding-top: 1em;
+    text-align: left;
+    vertical-align: top;
+    width: 75%; }
+    #chat .chat-info button {
+      display: block;
+      margin: 1.5em 0; }
+    #chat .chat-info p {
+      box-sizing: content-box;
+      vertical-align: top; }
+      #chat .chat-info p strong {
+        display: block;
+        font-size: 1.3em;
+        margin: 0.5em 0; }
+
+#my-products-list {
+  position: fixed; }
+
+#shop-container {
+  margin-top: 4em; }
+  #shop-container ul#products {
+    list-style: none;
+    margin: 8em 0 0; }
+    #shop-container ul#products li {
+      display: inline-block;
+      margin: 0% 4% 4% 0%;
+      padding: 0px;
+      text-align: center;
+      width: 30%; }
+      #shop-container ul#products li a {
+        display: block; }
+        #shop-container ul#products li a img {
+          display: block;
+          width: 100%; }
+    #shop-container ul#products li:nth-child(3n+3) {
+      margin-right: 0; }

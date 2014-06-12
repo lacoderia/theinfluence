@@ -3,20 +3,28 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/app/assets/javascripts/combos.js.js" />
+        <item url="file://$PROJECT_DIR$/app/assets/javascripts/purchases_addons.js.js" />
         <item url="file://$PROJECT_DIR$/app/assets/javascripts/assets.js.js" />
+        <item url="file://$PROJECT_DIR$/app/assets/javascripts/dashboard.js.js" />
         <item url="file://$PROJECT_DIR$/app/assets/javascripts/addons.js.js" />
         <item url="file://$PROJECT_DIR$/app/assets/javascripts/products.js.js" />
         <item url="file://$PROJECT_DIR$/app/assets/javascripts/addons_combos.js.js" />
+        <item url="file://$PROJECT_DIR$/app/assets/javascripts/contracts.js.js" />
+        <item url="file://$PROJECT_DIR$/app/assets/javascripts/purchases_combos.js.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/app/assets/javascripts/admin.js.js" />
       <root url="file://$PROJECT_DIR$/app/assets/javascripts/admin.js.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/javascripts/purchases_addons.js.js" />
       <root url="file://$PROJECT_DIR$/app/assets/javascripts/combos.js.js" />
       <root url="file://$PROJECT_DIR$/app/assets/javascripts/assets.js.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/javascripts/dashboard.js.js" />
       <root url="file://$PROJECT_DIR$/app/assets/javascripts/addons.js.js" />
       <root url="file://$PROJECT_DIR$/app/assets/javascripts/products.js.js" />
       <root url="file://$PROJECT_DIR$/app/assets/javascripts/addons_combos.js.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/javascripts/contracts.js.js" />
+      <root url="file://$PROJECT_DIR$/app/assets/javascripts/purchases_combos.js.js" />
     </CLASSES>
     <SOURCES />
   </library>

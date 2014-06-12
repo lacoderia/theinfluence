@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePurchasesCombos < ActiveRecord::Migration
   def change
     create_table :purchases_combos do |t|

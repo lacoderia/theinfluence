@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddonsCombosController < ApplicationController
   before_action :set_addons_combo, only: [:show, :edit, :update, :destroy]
 

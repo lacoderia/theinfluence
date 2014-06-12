@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DisplayController < ApplicationController
   include Pundit
   # Prevent CSRF attacks by raising an exception.

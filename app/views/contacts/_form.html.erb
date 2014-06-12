@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
+  <div class="contactform-group">
+    * <%= f.label "Nombre" %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
+  <div class="contactform-group">
+    * <%= f.label "Correo electrónico" %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
-    <%= f.label :business %><br>
+  <div class="contactform-group">
+    * <%= f.label "Empresa" %><br>
     <%= f.text_field :business %>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
+  <div class="contactform-group">
+    * <%= f.label "Teléfono" %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enviar", :class => 'btn btn btn-blue btn-small' %>
   </div>
 <% end %>

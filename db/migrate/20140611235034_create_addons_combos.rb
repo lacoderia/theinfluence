@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAddonsCombos < ActiveRecord::Migration
   def change
     create_table :addons_combos do |t|

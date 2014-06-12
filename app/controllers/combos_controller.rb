@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CombosController < ApplicationController
   before_action :set_combo, only: [:show, :edit, :update, :destroy]
 

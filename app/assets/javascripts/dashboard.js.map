@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "dashboard.js.js",
+  "sourceRoot": "",
+  "sources": [
+    "dashboard.js.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA;CAAA"
+}

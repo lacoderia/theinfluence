@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddonsController < ApplicationController
   before_action :set_addon, only: [:show, :edit, :update, :destroy]
 

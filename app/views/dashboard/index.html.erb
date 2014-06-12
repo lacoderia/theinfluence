@@ -1,0 +1,96 @@
+<div id="shop-container">
+    <div id="slider">
+      <div class="lecarousel">
+        <div id="carousel-example-generic" class="carousel slide">
+          <!-- Indicators -->
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+
+            <div class="item active">
+              <div class="row">
+                <div class="col-md-offset-1 col-md-4">
+                  <h4>Social Intelligence</h4>
+                  <p>Escucha, participa e influye en la conversación.<br><br><a href="/social"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
+                </div>
+                <div class="col-md-6 centered">
+                  <a href="/social"><img src="assets/socialscreen.png" style="max-height: 319px;" alt=""></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="row">
+                <div class="col-md-offset-1 col-md-4">
+                  <h4>Paid Media Optimization</h4>
+                  <p>Deja que un algorítmo compre tus medios en redes sociales y maximiza el rendimiento de tu inversión.<br><br><a href="/media"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
+                </div>
+                <div class="col-md-6 centered">
+                  <a href="/media"><img src="assets/screenmedia.png" style="max-height: 319px;"  alt=""></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="row">
+                <div class="col-md-offset-1 col-md-4">
+                  <h4>Targeted Video at Scale</h4>
+                  <p>Distribuye video masivamente de forma segmentada y costo-eficiente.<br><br><a href="/targeted_video"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
+                </div>
+                <div class="col-md-6 centered">
+                  <a href="/targeted_video"><img src="assets/screentargeted.png"  alt=""></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="row">
+                <div class="col-md-offset-1 col-md-4">
+                  <h4>Success Management</h4>
+                  <p>Uno de nuestros representantes te ayuda a obtener resultados.<br><br><a href="/nosotros"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
+                </div>
+                <div class="col-md-6 centered">
+                  <a href="/nosotros"><img src="assets/successscreen.png"  alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <ul id="products">
+      <% if @products.count() > 0 then %>
+          <% @products.each do |product| %>
+            <li>
+              <a href="#">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+                <%= product.name %>
+              </a>
+            </li>
+          <% end %>
+      <% end %>
+    </ul>
+</div>
+<div id="chat">
+    <h4>Servicio al Cliente</h4>
+    <div class="avatar">
+        <div class="inner-avatar">
+          <img src="/assets/dashboard/avatar.jpg">
+        </div>
+    </div>
+    <div class="chat-info">
+      <p>
+        Conoce a tu agente de servicio <br>
+        <strong>Abril Fernádez</strong>
+      </p>
+      <button class="btn btn-a btn-small btn-blue">Chatea ahora</button>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAdminService
   def call
     user = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do |user|

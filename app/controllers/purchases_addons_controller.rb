@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PurchasesAddonsController < ApplicationController
   before_action :set_purchases_addon, only: [:show, :edit, :update, :destroy]
 

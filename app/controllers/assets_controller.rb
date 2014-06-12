@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AssetsController < ApplicationController
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
