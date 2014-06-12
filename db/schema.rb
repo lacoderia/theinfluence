@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140611235034) do
   end
 
   create_table "addons_combos", force: true do |t|
-    t.integer  "addon_int"
+    t.integer  "addon_id"
     t.integer  "combo_id"
     t.integer  "quantity"
     t.float    "price"
