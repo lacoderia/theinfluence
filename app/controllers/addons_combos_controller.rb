@@ -69,6 +69,6 @@ class AddonsCombosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def addons_combo_params
-      params.require(:addons_combo).permit(:addon_int, :combo_id, :quantity, :price)
+      params.require(:addons_combo).permit(:addon_id, :combo_id, :quantity, :price)
     end
 end

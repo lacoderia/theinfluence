@@ -18,7 +18,7 @@ class AddonsCombosControllerTest < ActionController::TestCase
 
   test "should create addons_combo" do
     assert_difference('AddonsCombo.count') do
-      post :create, addons_combo: { addon_int: @addons_combo.addon_int, combo_id: @addons_combo.combo_id, price: @addons_combo.price, quantity: @addons_combo.quantity }
+      post :create, addons_combo: { addon_id: @addons_combo.addon_id, combo_id: @addons_combo.combo_id, price: @addons_combo.price, quantity: @addons_combo.quantity }
     end
 
     assert_redirected_to addons_combo_path(assigns(:addons_combo))
@@ -35,7 +35,7 @@ class AddonsCombosControllerTest < ActionController::TestCase
   end
 
   test "should update addons_combo" do
-    patch :update, id: @addons_combo, addons_combo: { addon_int: @addons_combo.addon_int, combo_id: @addons_combo.combo_id, price: @addons_combo.price, quantity: @addons_combo.quantity }
+    patch :update, id: @addons_combo, addons_combo: { addon_id: @addons_combo.addon_id, combo_id: @addons_combo.combo_id, price: @addons_combo.price, quantity: @addons_combo.quantity }
     assert_redirected_to addons_combo_path(assigns(:addons_combo))
   end
 
