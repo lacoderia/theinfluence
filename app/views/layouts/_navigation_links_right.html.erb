@@ -1,5 +1,5 @@
 
-<% if user_signed_in? and current_user.admin? %>
+<% if user_signed_in? and current_user.role? :admin %>
   <li><%= link_to 'Usuarios', users_path %></li>
 <% end %>
 

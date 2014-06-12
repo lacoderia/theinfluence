@@ -1,5 +1,9 @@
 Theinfluence::Application.routes.draw do
 
+  resources :purchases_addons
+
+  resources :purchases_combos
+
   resources :addons_combos
 
   resources :addons
@@ -7,6 +11,10 @@ Theinfluence::Application.routes.draw do
   resources :combos
 
   resources :assets
+
+  resources :contracts
+
+  devise_for :users
 
   resources :contacts
 
@@ -23,9 +31,12 @@ Theinfluence::Application.routes.draw do
   get "contacto" => "display#contacto"
 
 
-
   #devise_for :users, :controllers => {:registrations => "registrations"}
-  #resources :users
+  devise_scope :user do
+	  get 'logout', :to => "devise/sessions#destroy"
+	  get 'signin', :to => "devise/sessions#new"
+	  get 'signup', :to => "devise/registrations#new"
+  end
 
   match '/contacts',     to: 'contacts#new',             via: 'get'
   resources "contacts", only: [:new, :create]

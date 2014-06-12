@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @purchases_combo.user_id %>
+</p>
+
+<p>
+  <strong>Combo:</strong>
+  <%= @purchases_combo.combo_id %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @purchases_combo.total_price %>
+</p>
+
+<p>
+  <strong>Upgrade:</strong>
+  <%= @purchases_combo.upgrade %>
+</p>
+
+<%= link_to 'Edit', edit_purchases_combo_path(@purchases_combo) %> |
+<%= link_to 'Back', purchases_combos_path %>

@@ -1,0 +1,2 @@
+module PurchasesAddonsHelper
+end

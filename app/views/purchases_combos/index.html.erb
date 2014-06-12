@@ -1,0 +1,31 @@
+<h1>Listing purchases_combos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Combo</th>
+      <th>Total price</th>
+      <th>Upgrade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchases_combos.each do |purchases_combo| %>
+      <tr>
+        <td><%= purchases_combo.user_id %></td>
+        <td><%= purchases_combo.combo_id %></td>
+        <td><%= purchases_combo.total_price %></td>
+        <td><%= purchases_combo.upgrade %></td>
+        <td><%= link_to 'Show', purchases_combo %></td>
+        <td><%= link_to 'Edit', edit_purchases_combo_path(purchases_combo) %></td>
+        <td><%= link_to 'Destroy', purchases_combo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Purchases combo', new_purchases_combo_path %>
