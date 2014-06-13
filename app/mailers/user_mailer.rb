@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def contact_email(contact)
     @contact = contact 
-    mail(to: @contact.email, subject: "Nuevo contacto desde la página #{@contact.name}")
+    mail(to: "todos@theinfluence.co", subject: "Nuevo contacto desde la página #{@contact.name}")
   end
 end
