@@ -15,8 +15,6 @@ Theinfluence::Application.routes.draw do
 
   resources :contracts
 
-  devise_for :users
-
   resources :contacts
 
   resources :products
@@ -33,8 +31,8 @@ Theinfluence::Application.routes.draw do
 
   get "dashboard" => "dashboard#index"
 
+  devise_for :users
 
-  #devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
 	  get 'logout', :to => "devise/sessions#destroy"
 	  get 'signin', :to => "devise/sessions#new"
