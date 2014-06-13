@@ -30,14 +30,16 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { render :new }
-        #format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        #format.json { render :show, status: :created, location: @contact }
+        UserMailer.contact_email(@contact).deliver
+        format.html { redirect_to :new_contact, notice: 'Gracias por tu mensaje. En breve nos pondremos en contacto contigo.' }
+        format.json { render :show, status: :created, location: @contact }
       else
+        flash.now[:error] = 'No se pudo enviar el mensaje. Favor de llenar todos los campos.'
         format.html { render :new }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
+     
   end
 
   # PATCH/PUT /contacts/1
