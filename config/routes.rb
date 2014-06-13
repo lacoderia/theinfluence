@@ -29,9 +29,9 @@ Theinfluence::Application.routes.draw do
   get "media" => "display#media"
   get "contacto" => "display#contacto"
 
-  get "dashboard" => "dashboard#index"
+  get "dashboard" => "dashboard#index", :as => :dashboard
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   devise_scope :user do
 	  get 'logout', :to => "devise/sessions#destroy"

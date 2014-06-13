@@ -12,6 +12,12 @@ class DisplayController < ApplicationController
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def index
+    if user_signed_in?
+      redirect_to :dashboard
+    end
+  end
+
   private
 
   def user_not_authorized
