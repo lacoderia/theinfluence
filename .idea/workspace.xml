@@ -2,126 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d44153fc-d420-455a-b71f-721f4e7f51ed" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611223423_create_contacts.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611223423_create_contacts.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611230058_create_products.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611230058_create_products.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611231820_create_assets.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611231820_create_assets.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611233726_devise_create_users.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611233726_devise_create_users.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611234041_add_fields_to_users.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611234041_add_fields_to_users.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611234435_create_combos.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611234435_create_combos.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611234854_create_addons.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611234854_create_addons.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611235034_create_addons_combos.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611235034_create_addons_combos.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611235234_create_roles.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611235234_create_roles.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140611235434_create_roles_users_join.rb" afterPath="$PROJECT_DIR$/db/migrate/20140611235434_create_roles_users_join.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140612003829_create_contracts.rb" afterPath="$PROJECT_DIR$/db/migrate/20140612003829_create_contracts.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140612003953_create_contracts_users_join.rb" afterPath="$PROJECT_DIR$/db/migrate/20140612003953_create_contracts_users_join.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140612004923_create_purchases_combos.rb" afterPath="$PROJECT_DIR$/db/migrate/20140612004923_create_purchases_combos.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140612004951_create_purchases_addons.rb" afterPath="$PROJECT_DIR$/db/migrate/20140612004951_create_purchases_addons.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/dashboard/_dashboard_navigation.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard/_dashboard_navigation.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contacts/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/contacts/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/dashboard/_user_products.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard/_user_products.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/addon.rb" afterPath="$PROJECT_DIR$/app/models/addon.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/addon_test.rb" afterPath="$PROJECT_DIR$/test/models/addon_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/addons_combo.rb" afterPath="$PROJECT_DIR$/app/models/addons_combo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/addons_combo_test.rb" afterPath="$PROJECT_DIR$/test/models/addons_combo_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/addons_combos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/addons_combos_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/addons_combos_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/addons_combos_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/addons_combos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/addons_combos_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/addons_combos_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/addons_combos_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/addons_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/addons_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/addons_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/addons_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/addons_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/addons_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/addons_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/addons_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/admin_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/admin_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/admin_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/admin_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/admin_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/admin_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/asset.rb" afterPath="$PROJECT_DIR$/app/models/asset.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/asset_test.rb" afterPath="$PROJECT_DIR$/test/models/asset_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/assets_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/assets_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/assets_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/assets_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/assets_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/assets_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/assets_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/assets_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" afterPath="$PROJECT_DIR$/config/initializers/backtrace_silencers.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/boot.rb" afterPath="$PROJECT_DIR$/config/boot.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/combo.rb" afterPath="$PROJECT_DIR$/app/models/combo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/combo_test.rb" afterPath="$PROJECT_DIR$/test/models/combo_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/combos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/combos_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/combos_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/combos_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/combos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/combos_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/combos_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/combos_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/contact.rb" afterPath="$PROJECT_DIR$/app/models/contact.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/contact_test.rb" afterPath="$PROJECT_DIR$/test/models/contact_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/contacts.css.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/contacts.css.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/contacts.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/contacts.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/contacts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/contacts_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/contacts_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/contacts_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/contacts_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/contacts_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/contacts_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/contacts_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/contract.rb" afterPath="$PROJECT_DIR$/app/models/contract.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/contract_test.rb" afterPath="$PROJECT_DIR$/test/models/contract_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/contracts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/contracts_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/contracts_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/contracts_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/contracts_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/contracts_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/contracts_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/contracts_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/cookies_serializer.rb" afterPath="$PROJECT_DIR$/config/initializers/cookies_serializer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/create_admin_service.rb" afterPath="$PROJECT_DIR$/app/services/create_admin_service.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/dashboard.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboard.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/dashboard.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/devise.rb" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/display_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/display_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/display_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/display_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/display_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/display_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/display_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/display_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environment.rb" afterPath="$PROJECT_DIR$/config/environment.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" afterPath="$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" afterPath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/inflections.rb" afterPath="$PROJECT_DIR$/config/initializers/inflections.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/mime_types.rb" afterPath="$PROJECT_DIR$/config/initializers/mime_types.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contacts/new.html.erb" afterPath="$PROJECT_DIR$/app/views/contacts/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/product.rb" afterPath="$PROJECT_DIR$/app/models/product.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/product_test.rb" afterPath="$PROJECT_DIR$/test/models/product_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/products_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/products_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/products_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/products_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/products_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/products_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/products_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/products_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/purchases_addon.rb" afterPath="$PROJECT_DIR$/app/models/purchases_addon.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/purchases_addon_test.rb" afterPath="$PROJECT_DIR$/test/models/purchases_addon_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/purchases_addons_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/purchases_addons_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/purchases_addons_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/purchases_addons_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/purchases_addons_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/purchases_addons_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/purchases_addons_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/purchases_addons_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/purchases_combo.rb" afterPath="$PROJECT_DIR$/app/models/purchases_combo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/purchases_combo_test.rb" afterPath="$PROJECT_DIR$/test/models/purchases_combo_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/purchases_combos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/purchases_combos_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/controllers/purchases_combos_controller_test.rb" afterPath="$PROJECT_DIR$/test/controllers/purchases_combos_controller_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/purchases_combos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/purchases_combos_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/helpers/purchases_combos_helper_test.rb" afterPath="$PROJECT_DIR$/test/helpers/purchases_combos_helper_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/role.rb" afterPath="$PROJECT_DIR$/app/models/role.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/role_test.rb" afterPath="$PROJECT_DIR$/test/models/role_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/session_store.rb" afterPath="$PROJECT_DIR$/config/initializers/session_store.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/simple_form.rb" afterPath="$PROJECT_DIR$/config/initializers/simple_form.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/simple_form_bootstrap.rb" afterPath="$PROJECT_DIR$/config/initializers/simple_form_bootstrap.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="$PROJECT_DIR$/config/environments/test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_helper.rb" afterPath="$PROJECT_DIR$/test/test_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/user_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/policies/user_policy.rb" afterPath="$PROJECT_DIR$/app/policies/user_policy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/user_test.rb" afterPath="$PROJECT_DIR$/test/models/user_test.rb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/dashboardslider.css.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/display.css.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/contracts.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/contracts.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/dashboardslider.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/dashboardslider.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/purchases_addons.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/purchases_addons.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" afterPath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" />
     </list>
     <ignored path="theinfluence.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -133,7 +19,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/theinfluence@Development__theinfluence.coverage" NAME="Development: theinfluence Coverage Results" MODIFIED="1402584464671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="theinfluence" />
+    <SUITE FILE_PATH="coverage/theinfluence@Development__theinfluence.coverage" NAME="Development: theinfluence Coverage Results" MODIFIED="1402705494182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="theinfluence" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -148,71 +34,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="38" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="795">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_user_products.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/dashboard/_user_products.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="20" selection-start="12" selection-end="20" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/dashboard.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="986" selection-end="986" vertical-scroll-proportion="-1.8333334" vertical-offset="256" max-vertical-offset="765">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/dashboard_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="154" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/dashboard/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="39" selection-start="3815" selection-end="3815" vertical-scroll-proportion="-15.541667" vertical-offset="992" max-vertical-offset="1515">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.css.scss" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dashboard.css.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="19" selection-start="1263" selection-end="1263" vertical-scroll-proportion="1.71875" vertical-offset="540" max-vertical-offset="1755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="display.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/display.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="25" selection-start="989" selection-end="989" vertical-scroll-proportion="-8.125" vertical-offset="105" max-vertical-offset="660">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -372,104 +194,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="theinfluence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -479,7 +203,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="Errors" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -720,25 +444,25 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3909396" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6208054" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25201938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3305369" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26009694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3305369" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -791,18 +515,24 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/font-awesome.min.css">
+    <entry file="file://$PROJECT_DIR$/app/views/dashboard/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6015">
-          <folding />
-        </state>
+        <state line="91" column="39" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1530" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dashboard.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="5" selection-start="504" selection-end="504" vertical-scroll-proportion="0.37903225" vertical-offset="219" max-vertical-offset="690">
-          <folding />
-        </state>
+        <state line="69" column="19" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1755" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/display.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="25" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/font-awesome.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6015" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
@@ -817,23 +547,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="974" selection-end="1149" vertical-scroll-proportion="0.58810574" vertical-offset="63" max-vertical-offset="525">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="974" selection-end="1149" vertical-scroll-proportion="0.58810574" vertical-offset="63" max-vertical-offset="525" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/display_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="39" selection-start="211" selection-end="211" vertical-scroll-proportion="0.1056338" vertical-offset="0" max-vertical-offset="568">
-          <folding />
-        </state>
+        <state line="4" column="39" selection-start="211" selection-end="211" vertical-scroll-proportion="0.1056338" vertical-offset="0" max-vertical-offset="568" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="39" selection-start="199" selection-end="199" vertical-scroll-proportion="0.079225354" vertical-offset="0" max-vertical-offset="568">
-          <folding />
-        </state>
+        <state line="3" column="39" selection-start="199" selection-end="199" vertical-scroll-proportion="0.079225354" vertical-offset="0" max-vertical-offset="568" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/create_admin_service.rb">
@@ -851,11 +575,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-9.918919" vertical-offset="5505" max-vertical-offset="25455" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/display.js.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="568" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="371" />
@@ -868,23 +587,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140611234854_create_addons.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140611234435_create_combos.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140611235034_create_addons_combos.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="201" selection-end="201" vertical-scroll-proportion="0.27272728" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
+        <state line="6" column="20" selection-start="201" selection-end="201" vertical-scroll-proportion="0.27272728" vertical-offset="0" max-vertical-offset="330" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/addons_combo.rb">
@@ -904,9 +617,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/asset.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="21" selection-start="54" selection-end="54" vertical-scroll-proportion="0.04249292" vertical-offset="0" max-vertical-offset="353">
-          <folding />
-        </state>
+        <state line="1" column="21" selection-start="54" selection-end="54" vertical-scroll-proportion="0.04249292" vertical-offset="0" max-vertical-offset="353" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/addons_combos/index.html.erb">
@@ -922,11 +633,6 @@
     <entry file="file://$PROJECT_DIR$/test/controllers/addons_combos_controller_test.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="78" selection-start="997" selection-end="997" vertical-scroll-proportion="0.33333334" vertical-offset="451" max-vertical-offset="825" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/development.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26037" column="34" selection-start="1810932" selection-end="1810932" vertical-scroll-proportion="0.3313433" vertical-offset="390444" max-vertical-offset="393000" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/addons_combos/show.json.jbuilder">
@@ -961,150 +667,107 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/display/contacto.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="555" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/contacts.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="16" selection-start="205" selection-end="205" vertical-scroll-proportion="0.11516315" vertical-offset="0" max-vertical-offset="521">
-          <folding />
-        </state>
+        <state line="4" column="16" selection-start="205" selection-end="205" vertical-scroll-proportion="0.11516315" vertical-offset="0" max-vertical-offset="521" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="0.24816176" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
+        <state line="9" column="0" selection-start="271" selection-end="271" vertical-scroll-proportion="0.24816176" vertical-offset="0" max-vertical-offset="544" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="21" selection-start="823" selection-end="830" vertical-scroll-proportion="0.7996324" vertical-offset="0" max-vertical-offset="585">
-          <folding />
-        </state>
+        <state line="29" column="21" selection-start="823" selection-end="830" vertical-scroll-proportion="0.7996324" vertical-offset="0" max-vertical-offset="585" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="45" selection-start="248" selection-end="248" vertical-scroll-proportion="0.16544117" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
+        <state line="6" column="45" selection-start="248" selection-end="248" vertical-scroll-proportion="0.16544117" vertical-offset="0" max-vertical-offset="544" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="1" selection-start="532" selection-end="532" vertical-scroll-proportion="0.6658416" vertical-offset="106" max-vertical-offset="540">
-          <folding />
-        </state>
+        <state line="25" column="1" selection-start="532" selection-end="532" vertical-scroll-proportion="0.6658416" vertical-offset="106" max-vertical-offset="540" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation_links_right.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="79" selection-start="262" selection-end="340" vertical-scroll-proportion="0.5462185" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
+        <state line="13" column="79" selection-start="262" selection-end="340" vertical-scroll-proportion="0.5462185" vertical-offset="0" max-vertical-offset="357" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/assets_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="116" selection-end="194" vertical-scroll-proportion="0.11811024" vertical-offset="0" max-vertical-offset="1200">
-          <folding />
-        </state>
+        <state line="3" column="0" selection-start="116" selection-end="194" vertical-scroll-proportion="0.11811024" vertical-offset="0" max-vertical-offset="1200" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/dashboard/_dashboard_navigation.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="35" selection-start="855" selection-end="855" vertical-scroll-proportion="0.6722689" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
+        <state line="16" column="35" selection-start="855" selection-end="855" vertical-scroll-proportion="0.6722689" vertical-offset="0" max-vertical-offset="405" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/contacts_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="585" selection-end="751" vertical-scroll-proportion="0.511811" vertical-offset="285" max-vertical-offset="1230">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="38" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="795">
-          <folding />
-        </state>
+        <state line="32" column="0" selection-start="585" selection-end="751" vertical-scroll-proportion="0.511811" vertical-offset="285" max-vertical-offset="1230" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/display.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="25" selection-start="989" selection-end="989" vertical-scroll-proportion="-8.125" vertical-offset="105" max-vertical-offset="660">
-          <folding />
-        </state>
+        <state line="20" column="25" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="660" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/display/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="12" selection-start="230" selection-end="3319" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1185">
-          <folding>
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0" expanded="false" />
-            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#div#0;tag#div#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/dashboard/_user_products.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="20" selection-start="12" selection-end="20" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/dashboard.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="986" selection-end="986" vertical-scroll-proportion="-1.8333334" vertical-offset="256" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/dashboard_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="154" selection-end="163" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
+        <state line="74" column="12" selection-start="230" selection-end="3319" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1185" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboard/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="39" selection-start="3815" selection-end="3815" vertical-scroll-proportion="-15.541667" vertical-offset="992" max-vertical-offset="1515">
-          <folding />
-        </state>
+        <state line="91" column="39" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1530" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dashboard.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="19" selection-start="1263" selection-end="1263" vertical-scroll-proportion="1.71875" vertical-offset="540" max-vertical-offset="1755">
+        <state line="69" column="19" selection-start="1263" selection-end="1263" vertical-scroll-proportion="1.5916399" vertical-offset="540" max-vertical-offset="1755" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/dashboard_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="154" selection-end="163" vertical-scroll-proportion="0.31343284" vertical-offset="0" max-vertical-offset="335" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/dashboard.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="986" selection-end="986" vertical-scroll-proportion="0.147651" vertical-offset="256" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/dashboard/_user_products.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="20" selection-start="12" selection-end="20" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="38" selection-start="736" selection-end="736" vertical-scroll-proportion="0.19402985" vertical-offset="430" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
