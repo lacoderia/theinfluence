@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Mi dashboard', dashboard_path  %></li>
         <li><%= link_to 'Mis productos', destroy_user_session_path %></li>
-        <li><%= link_to @user.name, edit_user_registration_path  %></li>
+        <li><%= link_to current_user.name, edit_user_registration_path if current_user  %></li>
         <li><%= link_to 'Cerrar sesión', destroy_user_session_path, :method=>'delete' %></li>
       </ul>
 

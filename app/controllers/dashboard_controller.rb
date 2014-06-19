@@ -8,9 +8,7 @@ class DashboardController < ApplicationController
       flash[:alert] = "Not logged in."
       redirect_to :root
     else
-      @user = current_user
       @products = Product.all
-
     end
   end
 

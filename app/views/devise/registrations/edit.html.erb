@@ -1,31 +1,8 @@
-<nav id="navigation" class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="row">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to image_tag("logo.png", :class => "logosm"), root_path, class: 'navbar-brand' %>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to 'Mi Cuenta', edit_user_registration_path  %></li>
-        <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, :method=>'delete' %></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 <div class="backgroundform">
   <div class="container">
 <div class="authform morewidth">
   <h3>Editar Usuario</h3>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
-    <%= devise_error_messages! %>
     <div class="form-group">
       <%= f.label :name, 'Nombre' %>
       <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
