@@ -3,11 +3,11 @@
 one:
   product_id: 1
   url: MyString
-  utl_thumb: MyString
+  url_thumb: MyString
   name: MyString
 
 two:
   product_id: 1
   url: MyString
-  utl_thumb: MyString
+  url_thumb: MyString
   name: MyString

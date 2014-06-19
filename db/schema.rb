@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140612004951) do
   create_table "assets", force: true do |t|
     t.integer  "product_id"
     t.string   "url"
-    t.string   "utl_thumb"
+    t.string   "url_thumb"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

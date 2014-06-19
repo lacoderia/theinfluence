@@ -70,6 +70,6 @@ class AssetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit(:product_id, :url, :utl_thumb, :name)
+      params.require(:asset).permit(:product_id, :url, :url_thumb, :name)
     end
 end

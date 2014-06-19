@@ -30,6 +30,7 @@ Theinfluence::Application.routes.draw do
   get "contacto" => "display#contacto"
 
   get "dashboard" => "dashboard#index", :as => :dashboard
+  get "product-detail" => "dashboard#product_detail"
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 

@@ -1,0 +1,35 @@
+<div id="dashboard-container" class="col-lg-12">
+  <% if not @product_array.empty?  %>
+      <div id="product-resume">
+        <img src="<%= @product.image %>" alt="<%= @product.name %>" class="col-md-2">
+        <h3 class="col-md-10 product-name"><%= @product.name %></h3>
+        <p  class="col-md-10"><%= @product.short_description %></p>
+        <div class="clearfix"></div>
+      </div>
+      <div id="product-detail">
+        <div id="#gallery" class="col-md-7"></div>
+        <div class="col-md-5">
+          <p class="product-description"><%= @description.html_safe %></p>
+          <ul class="product-benefits">
+            <% @benefits_array.each do |benefit| %>
+                <li><%= benefit %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div id="product-combos">
+        <h2>Elige tu paquete</h2>
+      </div>
+  <% else %>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Lo sentimos...</div>
+        <div class="panel-body">
+          <p>
+            Por el momento no hay información del producto que buscas. Por favor, intenta más tarde.
+          </p>
+        </div>
+      </div>
+  <% end %>
+</div>

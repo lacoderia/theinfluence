@@ -9,103 +9,101 @@ $color-gray: #CCC;
 //Styles
 
 #chat{
-  border-top: 1px solid $color-gray;
-  margin-top: 4em;
-  margin-bottom: 4em;
-  padding-top: 2em;
 
-  h4{
-    font-size: 1.5em;
-    margin: 0 0 2em 0;
-  }
+  margin-bottom: 4em;
 
   .avatar{
 
-    display: inline-block;
-    vertical-align: top;
-    width: 20%;
+    img{
+      border-radius: 50%;
+      max-width: 150px;
+      width: 100%;
+    }
+  }
 
-    .inner-avatar{
+  .chat-info{
+    margin-top: 1em;
+  }
 
-      border: 2px solid $color-gray;
-      border-radius: 200px;
+}
+
+#dashboard-container{
+  padding-right: 40px;
+  padding-left: 40px;
+
+  h2{
+    border-bottom: 1px solid #eee;
+    margin: 0em 0em 1em 0em;
+    padding: 0.5em 0em;
+  }
+
+  .lecarousel{
+    margin-bottom: 4em;
+  }
+}
+
+#dashboard-menu{
+  ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    a{
       display: inline-block;
-      height: 150px;
-      overflow: hidden;
-      text-align: center;
-      vertical-align: top;
-      width: 150px;
+      padding: 1em;
+      width: 100%;
+    }
+
+    a:hover{
+
+    }
+  }
+}
+
+#main-dashboard-container{
+  padding-top: 2em;
+}
+
+#products{
+  list-style: none;
+  margin: 0em 0em 6em 0em;
+  padding: 0em;
+
+  li{
+    text-align: center;
+
+    a{
+      display: inline-block;
+      margin-bottom: 1em;
 
       img{
-        left: -15%;
-        max-width: 200px;
-        position: relative;
-        top: 10%;
-        transform: translateY(-50%);
-        vertical-align: middle;
-        width: 150%;
+        margin-bottom: 0.5em;
+        width: 100%;
       }
     }
 
   }
-  .chat-info{
-    display: inline-block;
-    padding-top: 1em;
-    text-align: left;
-    vertical-align: top;
-    width: 75%;
+}
 
-    button{
-      display: block;
-      margin: 1.5em 0;
-    }
+#product-resume{
+  margin-bottom: 3em;
 
-    p{
-      box-sizing: content-box;
-      vertical-align: top;
+  h3.product-name{
+    margin-bottom: 2px;
+  }
+}
 
-      strong{
-        display: block;
-        font-size: 1.3em;
-        margin: 0.5em 0;
-      }
-    }
+#product-detail{
+  margin-bottom: 3em;
+
+  p.product-description{
+    font-size: 1em;
+    margin-bottom: 2em;
   }
 
-}
-
-#my-products-list{
-  position: fixed;
-}
-
-#shop-container{
-  margin-top: 4em;
-
-  ul#products{
-    list-style:  none;
-    margin: 8em 0 0;
-
+  ul.product-benefits{
     li{
-      display: inline-block;
-      margin: 0% 4% 4% 0%;
-      padding: 0px;
-      text-align: center;
-      width: 30%;
-
-      a{
-
-        display: block;
-
-        img{
-          display: block;
-          width: 100%;
-        }
-      }
-    }
-
-    li:nth-child(3n+3) {
-      margin-right: 0;
+      margin-bottom: 0.5em;
     }
   }
-
 }

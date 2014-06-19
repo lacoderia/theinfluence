@@ -4,7 +4,7 @@ class CreateAssets < ActiveRecord::Migration
     create_table :assets do |t|
       t.integer :product_id
       t.string :url
-      t.string :utl_thumb
+      t.string :url_thumb
       t.string :name
 
       t.timestamps
