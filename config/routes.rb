@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Theinfluence::Application.routes.draw do
 
+  resources :categories
+
   resources :purchases_addons
 
   resources :purchases_combos

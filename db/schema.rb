@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612004951) do
+ActiveRecord::Schema.define(version: 20140619221315) do
 
   create_table "addons", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
   create_table "addons_combos", force: true do |t|
@@ -27,13 +28,20 @@ ActiveRecord::Schema.define(version: 20140612004951) do
     t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "assets", force: true do |t|
     t.integer  "product_id"
     t.string   "url"
-    t.string   "url_thumb"
+    t.string   "utl_thumb"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
