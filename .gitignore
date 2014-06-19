@@ -28,3 +28,4 @@
 .DS_Store
 /config/environments/development.rb
 /config/environments/production.rb
+/config/initializers/setup_mail.rb
