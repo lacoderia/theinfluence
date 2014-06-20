@@ -10,6 +10,10 @@ function onReady() {
             large_directory: '/assets/gallery/large/'
         });
     }
+
+    if($('#solucion').length){
+        $('#carousel-example-generic').carousel({interval: 5000, pause:'hover', wrap:true})
+    }
 }
 
 function fixFooter(){

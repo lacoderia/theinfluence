@@ -16,6 +16,8 @@
 //= require bootstrap
 //= require modernizr-2.6.2.min
 //= require slider
+//= require dashboard
+//= require slider
 //= require_tree .
 
 

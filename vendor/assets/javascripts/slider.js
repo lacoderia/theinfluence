@@ -10,10 +10,6 @@
             'large_directory': '/images/large/'
         };
 
-        var changeImage = function(image){
-            //console.log(image);
-        };
-
         if(options){
             settings = $.extend({
                 'thumbnail_directory': options.thumbnail_directory,
@@ -27,7 +23,7 @@
             var thumbDOMArray = thumbContainer.find('li');
 
             var videoContainer = '<video id="video-container" src="" style="display: none;"  />';
-            var imageContainer = '<img src="" alt="">';
+            var imageContainer = '<img id="image-container" src="" alt="">';
 
             galleryContainer.append(imageContainer);
 
@@ -41,14 +37,15 @@
                     thumbImage.src = imageFile;
 
                     if(itemIndex == 0){
-
                         var largeImageFile = settings.large_directory + $(thumbDOMArray[itemIndex]).attr('data-file');
-                        console.log(largeImageFile)
-                        $(videoContainer).attr('src', largeImageFile);
+                        $('#image-container').attr('src',largeImageFile);
                     }
 
+                    $(thumbDOMArray[itemIndex]).on('click', function(event){
 
-                    //thumbImage.on('click', changeImage);
+                        var largeImageFile = settings.large_directory + $(event.currentTarget).attr('data-file');
+                        $('#image-container').attr('src',largeImageFile);
+                    });
                 }
             }else{
 
