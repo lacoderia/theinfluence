@@ -37,6 +37,9 @@ Theinfluence::Application.routes.draw do
   get "contract" => "dashboard#contract"
 
   devise_for :users, :controllers => {:registrations => "registrations"}
+  scope "/admin" do
+    resources :users
+  end
 
   devise_scope :user do
 	  get 'logout', :to => "devise/sessions#destroy"

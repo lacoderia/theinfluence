@@ -1,0 +1,22 @@
+<div class="authform">
+  <%= form_for(@user) do |f| %> 
+
+    <div class="form-group">
+      <%= f.label :name, 'Nombre' %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control', required: true  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, 'Contraseña' %>
+      <%= f.password_field :password, class: 'form-control', required: true  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, 'Confirma contraseña' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', required: true  %>
+    </div>
+     <%= f.submit 'Sign up', :class => 'btn btn-blue btn-small right' %>
+  <% end %>
+</div>
