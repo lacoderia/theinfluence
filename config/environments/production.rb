@@ -80,4 +80,29 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.smtp_settings = {
+    address: "theinfluence.co",
+    port: 587,
+    domain: ENV["DOMAIN_NAME"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'theinfluence.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+
+
+  config.to_prepare do
+    Devise::SessionsController.layout "display"
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "dashboard"   : "display" }    
+    Devise::ConfirmationsController.layout "display"
+    Devise::UnlocksController.layout "display"            
+    Devise::PasswordsController.layout "display"        
+  end
+
 end

@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Theinfluence::Application.routes.draw do
 
+  resources :categories
+
   resources :purchases_addons
 
   resources :purchases_combos
@@ -29,6 +31,7 @@ Theinfluence::Application.routes.draw do
   get "media" => "display#media"
   get "contacto" => "display#contacto"
 
+  get "admin" => "admin_dashboard#index", :as => :admin
   get "dashboard" => "dashboard#index", :as => :dashboard
   get "product-detail/:id" => "dashboard#product_detail"
   get "contract" => "dashboard#contract"
@@ -37,8 +40,6 @@ Theinfluence::Application.routes.draw do
 
   devise_scope :user do
 	  get 'logout', :to => "devise/sessions#destroy"
-	  get 'signin', :to => "devise/sessions#new"
-	  get 'signup', :to => "devise/registrations#new"
   end
 
   match '/contacts',     to: 'contacts#new',             via: 'get'

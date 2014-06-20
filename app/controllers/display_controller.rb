@@ -21,7 +21,7 @@ class DisplayController < ApplicationController
   private
 
   def user_not_authorized
-    flash[:alert] = "Access denied."
+    flash[:alert] = "Acceso denegado."
     redirect_to (request.referrer || root_path)
   end
 end

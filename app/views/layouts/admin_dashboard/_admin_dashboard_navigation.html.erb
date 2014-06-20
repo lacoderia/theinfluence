@@ -15,16 +15,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Mi dashboard', dashboard_path  %></li>
-        <li><%= link_to 'Mis productos', destroy_user_session_path %></li>
-        <li><a data-toggle="dropdown" href="#"><%= current_user.name %><span class="caret"></span></a>
-            <ul class="dropdown-menu"l>
-              <li><%= link_to 'Cuenta', edit_user_registration_path  %></li>
-              <li><%= link_to 'Contrato', "/contract"  %></li>
-              <li><%= link_to 'Perfil', edit_user_registration_path if current_user %></li>
-              <li><%= link_to 'Cerrar sesión', destroy_user_session_path, :method=>'delete' %></li>
-            </ul>
-        </li>
+      <li><%= link_to 'Crear usuarios', "#"  %></li>
+        <li><%= link_to 'Cerrar sesión', destroy_user_session_path, :method=>'delete' %></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->

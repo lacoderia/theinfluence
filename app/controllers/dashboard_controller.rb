@@ -9,7 +9,6 @@ class DashboardController < ApplicationController
       redirect_to :root
     else
       @products = Product.all
-
     end
   end
 
