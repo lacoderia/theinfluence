@@ -69,7 +69,7 @@
       <% if @products.count() > 0 then %>
           <% @products.each do |product| %>
               <li class="col-lg-4 col-med-2 col-sm-12">
-                <a href="#">
+                <a href="product-detail/<%= product.id %>">
                   <img src="<%= product.image %>" alt="<%= product.name %>">
                   <%= product.name %>
                 </a>

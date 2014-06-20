@@ -510,6 +510,7 @@ box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 /*FOOTER*/
 #footer {
   padding: 50px 0px;
+  position: static;
   background-color: #1B1F23;
   color: #7F8C8D;
   font-size: 14px;

@@ -1,26 +1,174 @@
 <div id="dashboard-container" class="col-lg-12">
+
   <% if not @product_array.empty?  %>
-      <div id="product-resume">
+    <div id="product-resume">
         <img src="<%= @product.image %>" alt="<%= @product.name %>" class="col-md-2">
         <h3 class="col-md-10 product-name"><%= @product.name %></h3>
         <p  class="col-md-10"><%= @product.short_description %></p>
         <div class="clearfix"></div>
-      </div>
-      <div id="product-detail">
-        <div id="#gallery" class="col-md-7"></div>
-        <div class="col-md-5">
-          <p class="product-description"><%= @description.html_safe %></p>
-          <ul class="product-benefits">
-            <% @benefits_array.each do |benefit| %>
-                <li><%= benefit %></li>
-            <% end %>
-          </ul>
+    </div>
+
+    <div id="product-detail">
+        <div id="product-gallery" class="col-md-6">
+            <div id="inner-gallery"></div>
+            <ul id="thumb-gallery">
+                <li data-file="1.png" data-name="prueba" data-type="image"></li>
+                <li data-file="2.png" data-name="prueba" data-type="image"></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <p class="product-description"><%= @description.html_safe %></p>
+            <div class="panel panel-default">
+              <div class="panel-heading">Beneficios</div>
+              <div class="panel-body">
+                <ul class="product-benefits">
+                  <% @benefits_array.each do |benefit| %>
+                      <li><%= benefit %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
         </div>
         <div class="clearfix"></div>
       </div>
-      <div id="product-combos">
+
+
+    <% if not @combos_array.empty? %>
+        <div id="product-combos">
         <h2>Elige tu paquete</h2>
+        <table>
+          <thead>
+          <tr>
+            <th class="addon">Productos</th>
+            <th>
+              <span class="combo-title">Básico</span>
+              <span class="combo-price">$ 750</span>
+              <span class="combo-description">Ideal para empresas medianas</span>
+            </th>
+            <th>
+              <span class="combo-title">Completo</span>
+              <span class="combo-price">$ 1,500</span>
+              <span class="combo-description">Ideal para empresas grandes con más de una marca</span>
+            </th>
+            <th>
+              <span class="combo-title">Avanzado</span>
+              <span class="combo-price">$ 2,350</span>
+              <span class="combo-description">Ideal para multi-nacionales con varias marcas</span>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td class="addon-title">Tópicos</td>
+            <td>3</td>
+            <td>8</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td class="addon-title">Perfiles que pueden publicar</td>
+            <td>1</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td class="addon-title">Central de Información</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Sentimiento</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr class="section">
+            <td class="addon-title"></td>
+            <td colspan="3">Funcionalidades</td>
+          </tr>
+          <tr>
+            <td class="addon-title">Conversaciones</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Audiencias</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Influenciadores</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Cuando Publicar</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Mapa de Calor</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Analisis de Picos</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Tendencias</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Sitios Top</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Soporte Al Cliente Social</td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
+          </tr>
+          <tr class="section">
+            <td class="addon-title"></td>
+            <td colspan="3">Servicio</td>
+          </tr>
+          <tr>
+            <td class="addon-title">Soporte Al Cliente Social</td>
+            <td><span>Respuesta por email y chat</span></td>
+            <td><span>Respuesta por email y chat</span></td>
+            <td><span>Respuesta por email, chat y teléfono</span></td>
+          </tr>
+          <tr>
+            <td class="addon-title">Servicio al cliente</td>
+            <td><span>1 hr / mes</span></td>
+            <td><span>2 hrs / mes</span></td>
+            <td><span>4 hrs / mes</span></td>
+          </tr>
+          <tr class="select-combo-button">
+            <td class="addon-title"></td>
+            <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan Básico</button></td>
+            <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan Completo</button></td>
+            <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan Avanzado</button></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
+    <% else %>
+
+    <% end %>
+
   <% else %>
       <div class="panel panel-default">
         <!-- Default panel contents -->
@@ -32,4 +180,5 @@
         </div>
       </div>
   <% end %>
+
 </div>

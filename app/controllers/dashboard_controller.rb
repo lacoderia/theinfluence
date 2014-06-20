@@ -8,22 +8,31 @@ class DashboardController < ApplicationController
       flash[:alert] = "Not logged in."
       redirect_to :root
     else
-      @user = current_user
       @products = Product.all
 
     end
   end
 
-  def product_detail
+  def contract
     if not user_signed_in?
       flash[:alert] = "Not logged in."
       redirect_to :root
     else
-      #getting the current logged user
-      @user = current_user
+
+    end
+  end
+
+  def product_detail
+
+    if not user_signed_in?
+      flash[:alert] = "Not logged in."
+      redirect_to :root
+    else
+      #Get the product id
+      @product_id = params[:id]
 
       #Pick the product selected by the user
-      @product_array = Product.where('id = ?', 1)
+      @product_array = Product.where('id = ?', @product_id)
 
       if not @product_array.empty?
         @product = @product_array.first();
@@ -37,6 +46,9 @@ class DashboardController < ApplicationController
         if @product.benefits
           @benefits_array = (@product.benefits).split("\r\n")
         end
+
+        #Get the combos product
+        @combos_array = @product.combos
 
       end
 

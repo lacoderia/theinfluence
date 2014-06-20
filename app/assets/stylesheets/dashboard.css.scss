@@ -4,9 +4,46 @@
 
 //Variable definitions
 
-$color-gray: #CCC;
+$color-blue: #12A7FB;
+$color-dark-blue: #017DD2;
+$color-gray: #555;
+$color-light-gray: #f2f2f2;
+$color-green: #3c763d;
 
 //Styles
+
+ul.nav{
+
+  margin-right: 0px !important;
+
+  li{
+    display: inline-block;
+    min-width: 150px;
+    text-overflow: ellipsis;
+    width: auto;
+
+    a{
+      padding-left: 1em;
+      padding-right: 1em;
+      width: 100%;
+    }
+  }
+
+  .caret{
+    margin-left: 0.4em;
+  }
+}
+
+ul.dropdown-menu{
+  li{
+
+    width: 100%;
+
+    a{
+      width: 100%;
+    }
+  }
+}
 
 #chat{
 
@@ -54,9 +91,6 @@ $color-gray: #CCC;
       width: 100%;
     }
 
-    a:hover{
-
-    }
   }
 }
 
@@ -73,8 +107,10 @@ $color-gray: #CCC;
     text-align: center;
 
     a{
+      box-sizing: content-box;
       display: inline-block;
       margin-bottom: 1em;
+      padding: 1em;
 
       img{
         margin-bottom: 0.5em;
@@ -82,6 +118,139 @@ $color-gray: #CCC;
       }
     }
 
+    a:hover{
+      background-color: $color-light-gray;
+      box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.2);
+    }
+
+  }
+}
+
+#product-combos{
+  margin-bottom: 3em;
+
+  table{
+    border-collapse: separate;
+    border-spacing: 1em 0em;
+    margin: 0px auto;
+    table-layout: fixed;
+    width: 90%;
+
+    th{
+      background-color: $color-blue;
+      border-radius: 10px 10px 0px 0px;
+      color: white;
+      font-size: 1em;
+      padding: 1em;
+      text-align: center;
+
+      span{
+        display: inline-block;
+        width: 100%;
+      }
+
+      span.combo-title{
+        font-size: 1.3em;
+      }
+      span.combo-price{
+        font-size: 3em;
+        letter-spacing: -2px;
+      }
+      span.combo-description{
+        font-size: 1em;
+        height: 50px;
+        line-height: 1em;
+      }
+    }
+
+    td{
+      border: 1px solid $color-gray;
+      border-bottom: none;
+      padding: 0.8em;
+      text-align: center;
+    }
+
+    tr.section{
+      td{
+        background-color: $color-gray;
+        font-weight: bolder;
+      }
+
+      td.addon-title{
+        background-color: transparent;
+      }
+    }
+
+    tr.select-combo-button{
+      td{
+        border: 1px solid $color-gray;
+        border-radius: 0px 0px 10px 10px;
+      }
+
+      td.addon-title{
+        border: none;
+      }
+    }
+
+    .addon{
+      background-color: transparent;
+      width: 30%;
+    }
+
+    .addon-included{
+      color: $color-green;
+    }
+
+    .addon-title{
+      border: none;
+      font-weight: bold;
+      text-align: right;
+    }
+  }
+}
+
+
+#product-detail{
+  font-size: 1em;
+  margin-bottom: 3em;
+
+  p.product-description{
+    margin-bottom: 2em;
+  }
+
+
+  ul.product-benefits{
+    li{
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+#product-gallery{
+
+  ul#thumb-gallery{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li{
+      background-color: white;
+      border: 1px solid $color-light-gray;
+      box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);
+      display: inline-block;
+      margin: 1em 1em 1em 0em;
+      padding: 0.5em;
+      vertical-align: top;
+
+      img{
+        max-width: 70px;
+        width: 100%;
+      }
+    }
+
+    li:last-child{
+      margin-right: 0em;
+    }
   }
 }
 
@@ -90,20 +259,5 @@ $color-gray: #CCC;
 
   h3.product-name{
     margin-bottom: 2px;
-  }
-}
-
-#product-detail{
-  margin-bottom: 3em;
-
-  p.product-description{
-    font-size: 1em;
-    margin-bottom: 2em;
-  }
-
-  ul.product-benefits{
-    li{
-      margin-bottom: 0.5em;
-    }
   }
 }
