@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require modernizr-2.6.2.min
-//= require prefixfree.min
 //= require slider
 //= require_tree .
 
