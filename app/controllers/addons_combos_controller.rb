@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class AddonsCombosController < ApplicationController
+  authorize_resource 
   before_action :set_addons_combo, only: [:show, :edit, :update, :destroy]
 
   # GET /addons_combos

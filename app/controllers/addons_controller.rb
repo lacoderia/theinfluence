@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class AddonsController < ApplicationController
+  authorize_resource 
   before_action :set_addon, only: [:show, :edit, :update, :destroy]
 
   # GET /addons

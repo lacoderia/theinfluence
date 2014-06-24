@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ContractsController < ApplicationController
+  authorize_resource 
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
 
   # GET /contracts

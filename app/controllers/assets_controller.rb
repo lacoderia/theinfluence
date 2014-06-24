@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class AssetsController < ApplicationController
+  authorize_resource 
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
   # GET /assets

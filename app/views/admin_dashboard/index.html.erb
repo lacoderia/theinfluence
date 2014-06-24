@@ -14,7 +14,12 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalle', :admin_user_detail %></td>
+        <% if user.active? %>
+          <td><%= link_to 'Desactivar', deactivate_user_path(:user_id => user.id), method: :get, data: { confirm: '¿Estás seguro?' } %></td>
+        <% else %>
+          <td><%= link_to 'Activate', activate_user_path(:user_id => user.id), method: :get, data: { confirm: '¿Estás seguro?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

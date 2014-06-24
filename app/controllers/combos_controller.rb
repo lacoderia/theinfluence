@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class CombosController < ApplicationController
+  authorize_resource 
   before_action :set_combo, only: [:show, :edit, :update, :destroy]
 
   # GET /combos

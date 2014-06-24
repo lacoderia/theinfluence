@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ContactsController < ApplicationController
+  authorize_resource 
   layout 'display'
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 

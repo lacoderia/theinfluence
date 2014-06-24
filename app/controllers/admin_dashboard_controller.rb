@@ -1,9 +1,7 @@
 class AdminDashboardController < ApplicationController
+  authorize_resource :class => false
 
   def index
-    if not user_signed_in? or not current_user.role? :admin 
-      redirect_to :root
-    end
 
     admin_users = []
     User.joins(:roles).where("roles.name = ?", "admin").each do |user|
@@ -11,5 +9,25 @@ class AdminDashboardController < ApplicationController
     end
     @users = User.where("id not in (?)", admin_users)
   end
+
+  def user_detail
+    
+  end
+
+  def activate_user
+    user = User.find(params[:user_id])
+    user.active = true
+    user.save!
+
+    redirect_to :admin
+  end 
+  
+  def deactivate_user
+    user = User.find(params[:user_id])
+    user.active = false
+    user.save!
+
+    redirect_to :admin
+  end 
 
 end

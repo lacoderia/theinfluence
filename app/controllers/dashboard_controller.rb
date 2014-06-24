@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class DashboardController < ApplicationController
+  authorize_resource :class => false 
 
   # GET /assets
   # GET /assets.json

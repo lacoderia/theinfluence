@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class PurchasesAddonsController < ApplicationController
+  authorize_resource
   before_action :set_purchases_addon, only: [:show, :edit, :update, :destroy]
 
   # GET /purchases_addons

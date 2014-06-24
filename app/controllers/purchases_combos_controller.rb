@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class PurchasesCombosController < ApplicationController
+  authorize_resource
   before_action :set_purchases_combo, only: [:show, :edit, :update, :destroy]
 
   # GET /purchases_combos

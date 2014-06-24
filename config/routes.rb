@@ -32,11 +32,15 @@ Theinfluence::Application.routes.draw do
   get "contacto" => "display#contacto"
 
   get "admin" => "admin_dashboard#index", :as => :admin
+  get "admin_user_detail" => "admin_dashboard#user_detail", :as => :admin_user_detail
+  get "activate_user" => "admin_dashboard#activate_user", :as => :activate_user
+  get "deactivate_user" => "admin_dashboard#deactivate_user", :as => :deactivate_user
+
   get "dashboard" => "dashboard#index", :as => :dashboard
   get "product-detail/:id" => "dashboard#product_detail"
   get "contract" => "dashboard#contract"
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions'}
   scope "/admin" do
     resources :users
   end
