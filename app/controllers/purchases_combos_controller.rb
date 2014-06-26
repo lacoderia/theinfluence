@@ -42,12 +42,13 @@ class PurchasesCombosController < ApplicationController
   # PATCH/PUT /purchases_combos/1
   # PATCH/PUT /purchases_combos/1.json
   def update
+
     respond_to do |format|
       if @purchases_combo.update(purchases_combo_params)
-        format.html { redirect_to @purchases_combo, notice: 'Purchases combo was successfully updated.' }
+        format.html { redirect_to admin_user_detail_path(:user_id => @purchases_combo.user_id), notice: 'El producto fue actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @purchases_combo }
       else
-        format.html { render :edit }
+        format.html { render admin_user_detail_path(:user_id => @purchases_combo.user_id), alert: 'El producto no pudo ser actualizado.' }
         format.json { render json: @purchases_combo.errors, status: :unprocessable_entity }
       end
     end
@@ -71,6 +72,6 @@ class PurchasesCombosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchases_combo_params
-      params.require(:purchases_combo).permit(:user_id, :combo_id, :total_price, :upgrade)
+      params.require(:purchases_combo).permit(:user_id, :combo_id, :total_price, :upgrade, :user_name, :password)
     end
 end

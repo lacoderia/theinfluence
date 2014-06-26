@@ -1,0 +1,113 @@
+<h1>Cuenta del usuario</h1>
+<h2>Información personal</h2>
+<p>Nombre: <%= @user.name %></p> 
+<p>Correo electrónico: <%= @user.email %></p> 
+<p>
+<% if @user.active? %>
+  <%= link_to 'Desactivar', deactivate_user_path(:user_id => @user.id), method: :get, data: { confirm: '¿Estás seguro?' } %>
+<% else %>
+  <%= link_to 'Activar', activate_user_path(:user_id => @user.id), method: :get, data: { confirm: '¿Estás seguro?' } %>
+<% end %>
+  <%= link_to 'Editar', "#", "data-toggle" => "modal", "data-target" => "#editUser" %>
+</p>
+<% if not @user.purchases_combos.empty? %>
+<h2>Productos contratados</h2>
+  <% @user.purchases_combos.each do |pc| %>
+    <p><h3><%= pc.combo.product.name %></h3></p>
+    <ul>
+      <li><%= pc.user_name %></li>
+      <li><%= pc.password %></li>
+    </ul>
+    <p><%= link_to 'Editar', "#", "data-toggle" => "modal", "data-target" => "#editComboPurchase" %></p>
+
+    <!-- Modal Edit Combo Purchase -->
+    <div class="modal fade" id="editComboPurchase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
+        </div>
+        <div class="modal-body"> 
+          <%= form_for(pc) do |f| %> 
+          <div class="authform">
+            <div class="form-group">
+              <%= f.label :user_name, 'Nombre' %>
+              <%= f.text_field :user_name, :autofocus => true, class: 'form-control', required: true  %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.text_field :password, class: 'form-control', required: true %>
+            </div>
+            <div style="text-align: right;">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <%= f.submit 'Salvar', :class=>"btn btn-primary" %>
+            </div>
+          </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Paquetes</h3>
+    <% pc.combo.product.combos.each do |combo| %>
+      <p><%= combo.name %> <%= "$#{combo.price}" %> <%= combo == pc.combo ? "Paquete Actual" : (link_to 'Asignar Paquete', "#") %></p>
+      <% purchasable_addons = combo.addons_combos.where("purchasable = ?", true) %>
+      <% if not purchasable_addons.empty? %>
+        <h2>Adicionales</h2>
+        <% purchasable_addons.each do |addon_combo| %>
+          <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %> <% link_to 'Asignar Addon', "#" %> </p> 
+          <% if not @user.purchases_addons.empty? %>
+            <% @user.purchases_addons.each do |pa| %>
+              <% if pa.addon == addon_combo.addon %>
+                <p>Addon comprado</p>
+              <% end %>         
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  <% end %>
+<% end %>
+
+<p><%= link_to 'Agregar producto', "#" %></p>
+<!-- Modal Edit User -->
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
+      </div>
+      <div class="modal-body"> 
+      <%= form_for(@user) do |f| %> 
+      <div class="authform">
+
+        <div class="form-group">
+          <%= f.label :name, 'Nombre' %>
+          <%= f.text_field :name, :autofocus => true, class: 'form-control', required: true  %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control', required: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, 'Contraseña' %>
+          <%= f.password_field :password, class: 'form-control', required: true  %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, 'Confirma contraseña' %>
+          <%= f.password_field :password_confirmation, class: 'form-control', required: true  %>
+        </div>
+        <div style="text-align: right;">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <%= f.submit 'Salvar', :class=>"btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

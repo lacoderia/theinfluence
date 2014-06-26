@@ -11,7 +11,8 @@ class AdminDashboardController < ApplicationController
   end
 
   def user_detail
-    
+    @user = User.find(params[:user_id])
+
   end
 
   def activate_user
@@ -19,7 +20,11 @@ class AdminDashboardController < ApplicationController
     user.active = true
     user.save!
 
-    redirect_to :admin
+    if params[:redirected]
+      redirect_to :admin
+    else
+      redirect_to admin_user_detail_path(:user_id => user.id)
+    end
   end 
   
   def deactivate_user
@@ -27,7 +32,11 @@ class AdminDashboardController < ApplicationController
     user.active = false
     user.save!
 
-    redirect_to :admin
+    if params[:redirected]
+      redirect_to :admin
+    else
+      redirect_to admin_user_detail_path(:user_id => user.id)
+    end
   end 
 
 end

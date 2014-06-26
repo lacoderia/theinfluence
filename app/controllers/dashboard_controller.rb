@@ -55,7 +55,10 @@ class DashboardController < ApplicationController
         @product_addons_set = {}
 
         @product_addons_array.each do |addon|
-          @product_addons_set[addon.name] << addon
+          if not @product_addons_set[addon.name]
+            @product_addons_set[addon.name] = []
+          end
+          @product_addons_set[addon.name] << addon 
         end
 
 

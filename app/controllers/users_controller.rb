@@ -36,7 +36,16 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update(user_params)
+        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to admin_user_detail_path(:user_id => @user.id), notice: 'El usuario fue actualizado correctamente.' }
+      else
+        format.html { redirect_to admin_user_detail_path(:user_id => @user.id), alert: 'El usuario no pudo ser actualizado.' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
