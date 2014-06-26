@@ -6,13 +6,13 @@ function onReady() {
 
     if($('#product-gallery').length){
         $('#product-gallery').slider({
-            thumbnail_directory: '/assets/gallery/thumbs/',
-            large_directory: '/assets/gallery/large/'
+            auto: false,
+            assetTypesAllowed: ['Imagen', 'Video']
         });
     }
 
     if($('#solucion').length){
-        $('#carousel-example-generic').carousel({interval: 5000, pause:'hover', wrap:true})
+        $('#carousel-example-generic-dashboard').carousel({interval: 5000, pause:'hover', wrap:true})
     }
 }
 

@@ -38,6 +38,7 @@ class DashboardController < ApplicationController
         @product = @product_array.first();
         @description = ""
         @benefits_array = []
+        @assets_json = ''
 
         if @product.description
           @description = (@product.description).gsub("\n",'<br />')
@@ -49,6 +50,20 @@ class DashboardController < ApplicationController
 
         #Get the combos product
         @combos_array = @product.combos
+        @product_addons_array = Addon.joins(combos: :product).where('product_id =?', @product_id).distinct('id').group('category_id')
+
+        @product_addons_set = {}
+
+        @product_addons_array.each do |addon|
+          @product_addons_set[addon.name] << addon
+        end
+
+
+        #Get the product assets
+        if @product.assets
+          @assets_json = @product.assets.to_json
+        end
+
 
       end
 

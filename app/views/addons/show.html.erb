@@ -10,5 +10,10 @@
   <%= @addon.description %>
 </p>
 
+<p>
+  <strong>Category:</strong>
+  <%= @addon.category_id %>
+</p>
+
 <%= link_to 'Edit', edit_addon_path(@addon) %> |
 <%= link_to 'Back', addons_path %>

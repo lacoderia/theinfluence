@@ -1,56 +1,17 @@
 <div id="dashboard-container" class="col-lg-12">
-  <div class="lecarousel">
-    <div id="carousel-example-generic" class="carousel slide">
-      <!-- Indicators -->
+    <div id="carousel-example-generic-dashboard" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-
         <div class="item active">
-          <div class="row">
-            <div class="col-md-offset-1 col-md-4">
-              <h4>Escucha</h4>
-              <p>Escucha, participa e influye en la conversación.<br><br><a href="/social"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
-            </div>
-            <div class="col-md-6 centered">
-              <a href="/social"><img src="assets/socialscreen.png" style="max-height: 319px;" alt=""></a>
-            </div>
-          </div>
+          <img src="/assets/mediaimac.png" alt="Media">
         </div>
-
         <div class="item">
-          <div class="row">
-            <div class="col-md-offset-1 col-md-4">
-              <h4>Optimiza</h4>
-              <p>Deja que un algorítmo compre tus medios en redes sociales y maximiza el rendimiento de tu inversión.<br><br><a href="/media"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
-            </div>
-            <div class="col-md-6 centered">
-              <a href="/media"><img src="assets/screenmedia.png" style="max-height: 319px;"  alt=""></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="row">
-            <div class="col-md-offset-1 col-md-4">
-              <h4>Viraliza</h4>
-              <p>Distribuye video masivamente de forma segmentada y costo-eficiente.<br><br><a href="/targeted_video"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
-            </div>
-            <div class="col-md-6 centered">
-              <a href="/targeted_video"><img src="assets/screentargeted.png"  alt=""></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="row">
-            <div class="col-md-offset-1 col-md-4">
-              <h4>Success Management</h4>
-              <p>Uno de nuestros representantes te ayuda a obtener resultados.<br><br><a href="/nosotros"><button type="button" class="btn btn-a btn-small btn-white2">Conoce más</button></a></a></p>
-            </div>
-            <div class="col-md-6 centered">
-              <a href="/nosotros"><img src="assets/successscreen.png"  alt=""></a>
-            </div>
-          </div>
+          <img src="/assets/mediaimac.png" alt="Media">
         </div>
       </div>
 
@@ -62,8 +23,6 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
-  </div>
-
     <h2>Productos</h2>
     <ul id="products" class="row">
       <% if @products.count() > 0 then %>

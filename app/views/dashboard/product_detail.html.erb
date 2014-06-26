@@ -9,15 +9,14 @@
     </div>
 
     <div id="product-detail">
-        <div id="product-gallery" class="col-md-6">
-            <div id="inner-gallery"></div>
-            <ul id="thumb-gallery">
-                <li data-file="1.png" data-name="prueba" data-type="image"></li>
-                <li data-file="2.png" data-name="prueba" data-type="image"></li>
-            </ul>
-            <div class="clearfix"></div>
+        <div id="product-gallery" class="col-md-7" data-items="<%= @assets_json %>">
+          <div id="inner-gallery">
+            <ul id="gallery-items"></ul>
+          </div>
+          <ul id="thumb-gallery"></ul>
+          <div class="clearfix"></div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <p class="product-description"><%= @description.html_safe %></p>
             <div class="panel panel-default">
               <div class="panel-heading">Beneficios</div>
@@ -38,28 +37,29 @@
     <% if not @combos_array.empty? %>
         <div id="product-combos">
         <h2>Elige tu paquete</h2>
+
         <table>
           <thead>
           <tr>
-            <th class="addon">Productos</th>
-            <th>
-              <span class="combo-title">Básico</span>
-              <span class="combo-price">$ 750</span>
-              <span class="combo-description">Ideal para empresas medianas</span>
-            </th>
-            <th>
-              <span class="combo-title">Completo</span>
-              <span class="combo-price">$ 1,500</span>
-              <span class="combo-description">Ideal para empresas grandes con más de una marca</span>
-            </th>
-            <th>
-              <span class="combo-title">Avanzado</span>
-              <span class="combo-price">$ 2,350</span>
-              <span class="combo-description">Ideal para multi-nacionales con varias marcas</span>
-            </th>
-          </tr>
+            <th class="addon"></th>
+                <% @combos_array.each do |combo| %>
+                    <th>
+                      <span class="combo-title"><%= combo.name %>></span>
+                      <span class="combo-price"><%= number_to_currency(combo.price, precision: 0, locale: :en) %></span>
+                      <span class="combo-description"><%= combo.description %></span>
+                    </th>
+                <% end %>
+            </tr>
           </thead>
           <tbody>
+          <%=  @product_addons_set.keys.each do |key| %>
+            <tr>
+              <td class="addon-title"><%= key %></td>
+              <% @product_addons_set[key].each do |addon| %>
+                <td><%= addon %></td>
+              <% end %>
+            </tr>
+          <% end %>
           <tr>
             <td class="addon-title">Tópicos</td>
             <td>3</td>

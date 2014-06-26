@@ -7,6 +7,7 @@
       <th>Combo</th>
       <th>Quantity</th>
       <th>Price</th>
+      <th>Active</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= addons_combo.combo_id %></td>
         <td><%= addons_combo.quantity %></td>
         <td><%= addons_combo.price %></td>
+        <td><%= addons_combo.active %></td>
         <td><%= link_to 'Show', addons_combo %></td>
         <td><%= link_to 'Edit', edit_addons_combo_path(addons_combo) %></td>
         <td><%= link_to 'Destroy', addons_combo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
