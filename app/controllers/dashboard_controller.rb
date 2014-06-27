@@ -52,7 +52,6 @@ class DashboardController < ApplicationController
         @combos_array = @product.combos
         @product_addons_array = Addon.joins(combos: :product).where('product_id =?', @product_id).distinct('id').order('addon_order')
 
-
         #Get the product assets
         if @product.assets
           @assets_json = @product.assets.to_json
