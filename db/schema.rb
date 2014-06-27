@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140627003702) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
     t.string   "asset_type"
     t.string   "type"
   end

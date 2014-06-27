@@ -238,3 +238,43 @@ ul.dropdown-menu{
     margin-bottom: 2px;
   }
 }
+
+#purchases{
+  margin-bottom: 4em;
+
+  .purchase{
+    border: 1px solid $color-light-gray;
+    border-radius: 10px;
+    width: 100%;
+
+    .purchase-account{
+      background: #eeeeee; /* Old browsers */
+      background: -moz-radial-gradient(center, ellipse cover, #eeeeee 0%, #ffffff 100%); /* FF3.6+ */
+      background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+      background: -webkit-radial-gradient(center, ellipse cover, #eeeeee 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-radial-gradient(center, ellipse cover, #eeeeee 0%,#ffffff 100%); /* Opera 12+ */
+      background: -ms-radial-gradient(center, ellipse cover, #eeeeee 0%,#ffffff 100%); /* IE10+ */
+      background: radial-gradient(ellipse at center, #eeeeee 0%,#ffffff 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      border-right: 1px dotted $color-light-gray;
+      padding: 1em 0em;
+      text-align: center;
+
+      img{
+        width: 50%;
+      }
+
+      p{
+        font-size: 1em;
+        line-height: 1em;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .total-price{
+      border: none;
+      margin: 0;
+    }
+  }
+}

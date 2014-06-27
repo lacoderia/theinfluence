@@ -37,14 +37,13 @@
     <% if not @combos_array.empty? %>
         <div id="product-combos">
         <h2>Elige tu paquete</h2>
-
         <table>
           <thead>
           <tr>
             <th class="addon"></th>
                 <% @combos_array.each do |combo| %>
                     <th>
-                      <span class="combo-title"><%= combo.name %>></span>
+                      <span class="combo-title"><%= combo.name %></span>
                       <span class="combo-price"><%= number_to_currency(combo.price, precision: 0, locale: :en) %></span>
                       <span class="combo-description"><%= combo.description %></span>
                     </th>
@@ -52,117 +51,29 @@
             </tr>
           </thead>
           <tbody>
-          <%=  @product_addons_set.keys.each do |key| %>
+          <%  @product_addons_array.each do |addon| %>
             <tr>
-              <td class="addon-title"><%= key %></td>
-              <% @product_addons_set[key].each do |addon| %>
-                <td><%= addon %></td>
+              <td class="addon-title"><%= addon.name %></td>
+              <% addon.addons_combos.each do |addon_combo| %>
+                <td>
+                  <% if addon_combo.purchasable then %>
+                    <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
+                  <% elsif addon_combo.active then %>
+                    <span class="glyphicon glyphicon-ok addon-included"></span>
+                  <% elsif addon_combo.quantity && !addon_combo.description then %>
+                    <%= addon_combo.quantity %>
+                  <% elsif !addon_combo.quantity && addon_combo.description then %>
+                      <%= addon_combo.description %>
+                  <% end %>
+                </td>
               <% end %>
             </tr>
           <% end %>
-          <tr>
-            <td class="addon-title">Tópicos</td>
-            <td>3</td>
-            <td>8</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td class="addon-title">Perfiles que pueden publicar</td>
-            <td>1</td>
-            <td>1</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td class="addon-title">Central de Información</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Sentimiento</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr class="section">
-            <td class="addon-title"></td>
-            <td colspan="3">Funcionalidades</td>
-          </tr>
-          <tr>
-            <td class="addon-title">Conversaciones</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Audiencias</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Influenciadores</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Cuando Publicar</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Mapa de Calor</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Analisis de Picos</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Tendencias</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Sitios Top</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Soporte Al Cliente Social</td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-            <td><span class="glyphicon glyphicon-ok addon-included"></span></td>
-          </tr>
-          <tr class="section">
-            <td class="addon-title"></td>
-            <td colspan="3">Servicio</td>
-          </tr>
-          <tr>
-            <td class="addon-title">Soporte Al Cliente Social</td>
-            <td><span>Respuesta por email y chat</span></td>
-            <td><span>Respuesta por email y chat</span></td>
-            <td><span>Respuesta por email, chat y teléfono</span></td>
-          </tr>
-          <tr>
-            <td class="addon-title">Servicio al cliente</td>
-            <td><span>1 hr / mes</span></td>
-            <td><span>2 hrs / mes</span></td>
-            <td><span>4 hrs / mes</span></td>
-          </tr>
           <tr class="select-combo-button">
             <td class="addon-title"></td>
-            <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan Básico</button></td>
-            <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan Completo</button></td>
-            <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan Avanzado</button></td>
+            <% @combos_array.each do |combo| %>
+                <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan <%= combo.name %></button></td>
+            <% end %>
           </tr>
           </tbody>
         </table>

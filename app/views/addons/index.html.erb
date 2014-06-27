@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Order</th>
       <th>Name</th>
       <th>Description</th>
       <th>Category</th>
@@ -13,6 +14,7 @@
   <tbody>
     <% @addons.each do |addon| %>
       <tr>
+        <td><%= addon.addon_order %></td>
         <td><%= addon.name %></td>
         <td><%= addon.description %></td>
         <td><%= addon.category_id %></td>
