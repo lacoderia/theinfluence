@@ -35,6 +35,8 @@ Theinfluence::Application.routes.draw do
   get "admin_user_detail" => "admin_dashboard#user_detail", :as => :admin_user_detail
   get "activate_user" => "admin_dashboard#activate_user", :as => :activate_user
   get "deactivate_user" => "admin_dashboard#deactivate_user", :as => :deactivate_user
+  get "assign_combo" => "admin_dashboard#assign_combo", :as => :assign_combo
+  get "assign_addon" => "admin_dashboard#assign_addon", :as => :assign_addon
 
   get "dashboard" => "dashboard#index", :as => :dashboard
   get "product-detail/:id" => "dashboard#product_detail"

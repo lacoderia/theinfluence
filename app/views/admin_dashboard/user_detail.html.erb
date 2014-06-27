@@ -52,29 +52,58 @@
 
     <h3>Paquetes</h3>
     <% Combo.all.each do |combo| %>
-      <h3><%= combo.name %> <%= "$#{combo.price}" %> <%= combo == pc.combo ? raw("<strong>Paquete Actual</strong>") : (link_to 'Asignar Paquete', "#") %></h3>
+      <% paquete_actual = (combo == pc.combo) %>
+      <h3><%= combo.name %> <%= "$#{combo.price}" %> <%= paquete_actual ? raw("<strong>Paquete Actual</strong>") : (link_to 'Asignar Paquete', assign_combo_path(:user_id => @user.id, :combo_id => combo.id, :product_id => combo.product_id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este paquete?' }) %></h3>
+
       <% purchasable_addons = combo.addons_combos.where("purchasable = ?", true) %>
       <% if not purchasable_addons.empty? %>
+        <% subtotal = 0 %>
         <p>Adicionales</p>
         <% purchasable_addons.each do |addon_combo| %>
-          <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %> <% link_to 'Asignar Addon', "#" %> 
+          <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %>
+          <% nuevo_addon = true %>
           <% if not @user.purchases_addons.empty? %>
             <% @user.purchases_addons.each do |pa| %>
               <% if pa.addon == addon_combo.addon and combo == pc.combo %>
-                - <%= pa.quantity %> <strong>Addon(s) comprado(s)</strong>
+                <% nuevo_addon = false %>
+                <% subtotal += pa.total_price %>
+                - <strong><%= pa.quantity %> Addon(s) comprado(s)</strong> - 
               <% end %>         
             <% end %>
           <% end %>
-          <%= link_to 'Agregar Addon', "#" %><p>
+          <% if paquete_actual %>
+            <%= nuevo_addon ? (link_to 'Asignar Addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => false, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este addon?' }) : (link_to 'Aumentar Addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => true, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres aumentar este addon?' }) %> 
+          <% end %>
           </div>
+        <% end %>
+        <% if paquete_actual %>
+          <div>Total mensual: <%= pc.total_price + subtotal %></div>
         <% end %>
       <% end %>
     <% end %>
 
   <% end %>
 <% end %>
+<br/>
+<p><%= link_to 'Agregar producto', "#", "data-toggle" => "modal", "data-target" => "#addProduct" %></p>
 
-<p><%= link_to 'Agregar producto', "#" %></p>
+<!-- Modal Add Product -->
+<div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Agregar Producto</h4>
+      </div>
+      <div class="modal-body"> 
+        <div class="authform">
+          ...en construcción...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal Edit User -->
 <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
