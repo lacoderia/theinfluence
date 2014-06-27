@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626230827) do
+ActiveRecord::Schema.define(version: 20140627003702) do
 
   create_table "addons", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140626230827) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.integer  "addon_order"
   end
 
   create_table "addons_combos", force: true do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140626230827) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "asset_type"
+    t.string   "type"
   end
 
   create_table "categories", force: true do |t|
