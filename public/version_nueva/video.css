@@ -1,0 +1,80 @@
+.content-23 .btn.btn-clear {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: none;
+  border: 2px solid #fff;
+  font-size: 24px;
+  font-weight: normal;
+  font-weight: 500;
+  font-family: "lato", Helvetica, Arial, sans-serif;
+  margin-top: 30px;
+  padding: 18px 28px 18px;
+  color: #fff;
+}
+.content-23 .btn.btn-clear:hover,
+.content-23 .btn.btn-clear:focus {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+.content-23 .btn.btn-clear:active,
+.content-23 .btn.btn-clear.active {
+  border-color: #c44133;
+  background: #c44133;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.content-23 {
+  overflow: hidden;
+  background-color: #28b4d3;
+}
+
+#newcolor {
+  background-color: gray;
+}
+
+.content-23 #bgVideo {
+  overflow: hidden;
+  background-image: url('assets/img/webpreview.png');
+  background-position: 50% 50%;
+  z-index: 200;
+}
+.content-23 #bgVideo > video {
+  position: absolute !important;
+  top: 0 !important;
+}
+.content-23 .control-btn {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.content-23.custom-bg {
+  background-image: url('assets/img/Italy_001.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: 50% 50% no-repeat;
+  background-image: url('assets/img/webpreview.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.2;
+  filter: alpha(opacity=40);
+}
+@media (max-width: 768px) {
+  .background {
+    -webkit-background-size: auto 200%;
+    -moz-background-size: auto 200%;
+    -o-background-size: auto 200%;
+    background-size: auto 200%;
+  }
+}
