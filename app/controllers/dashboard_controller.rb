@@ -50,7 +50,7 @@ class DashboardController < ApplicationController
 
         #Get the combos product
         @combos_array = @product.combos
-        @product_addons_array = Addon.joins(combos: :product).where('product_id =?', @product_id).distinct('id').group('category_id')
+        @product_addons_array = Addon.joins(combos: :product).where('product_id =?', @product_id).distinct('id')
 
         @product_addons_set = {}
 
