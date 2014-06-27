@@ -51,20 +51,22 @@
     </div>
 
     <h3>Paquetes</h3>
-    <% pc.combo.product.combos.each do |combo| %>
-      <p><%= combo.name %> <%= "$#{combo.price}" %> <%= combo == pc.combo ? "Paquete Actual" : (link_to 'Asignar Paquete', "#") %></p>
+    <% Combo.all.each do |combo| %>
+      <h3><%= combo.name %> <%= "$#{combo.price}" %> <%= combo == pc.combo ? raw("<strong>Paquete Actual</strong>") : (link_to 'Asignar Paquete', "#") %></h3>
       <% purchasable_addons = combo.addons_combos.where("purchasable = ?", true) %>
       <% if not purchasable_addons.empty? %>
-        <h2>Adicionales</h2>
+        <p>Adicionales</p>
         <% purchasable_addons.each do |addon_combo| %>
-          <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %> <% link_to 'Asignar Addon', "#" %> </p> 
+          <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %> <% link_to 'Asignar Addon', "#" %> 
           <% if not @user.purchases_addons.empty? %>
             <% @user.purchases_addons.each do |pa| %>
-              <% if pa.addon == addon_combo.addon %>
-                <p>Addon comprado</p>
+              <% if pa.addon == addon_combo.addon and combo == pc.combo %>
+                - <%= pa.quantity %> <strong>Addon(s) comprado(s)</strong>
               <% end %>         
             <% end %>
           <% end %>
+          <%= link_to 'Agregar Addon', "#" %><p>
+          </div>
         <% end %>
       <% end %>
     <% end %>

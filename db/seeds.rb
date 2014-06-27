@@ -134,7 +134,9 @@ AddonsCombo.create(addon_id: addon_hora_estrategia_adicional.id, combo_id: escuc
 #contrato
 contract = Contract.create(details: "<p>General</p> <ul><li>Nombre de la empresa: </li><li>Nombre del contacto dentro de la empresa: </li><li>Vendedor: </li><li>Nombre del proyecto: </li><li>Duración del contrato: </li><li>Fecha de inicio del proyecto: </li><li>Recargo de configuración: </li><li>Monto total del contrato:</li></ul><p>Términos de pago</p><ul><li>Fecha de facturación: </li><li>Fecha de envío de la primera factura: </li><li>Otros recargos: </li></ul>")
 
+user_pc = PurchasesCombo.create(user_id: user.id, combo_id: escucha_combo_completo.id, total_price: 1449.00, user_name: 'benja', password: 'pass123')
+
+user_pa = PurchasesAddon.create(user_id: user.id, addon_id: addon_perfil_adicional.id, total_price: 398.00, quantity: 2 )
+
 user.contracts << contract
 user.save!
-
-
