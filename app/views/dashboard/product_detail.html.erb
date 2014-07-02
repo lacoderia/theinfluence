@@ -79,8 +79,12 @@
         </table>
       </div>
     <% else %>
-
+      <!-- SIN PAQUETES -->
+      <p>Solicita una cotización.</p>
     <% end %>
+    <div>
+      <p><%= @product.footnote %></p>
+    </div>
 
   <% else %>
       <div class="panel panel-default">

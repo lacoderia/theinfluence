@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627003702) do
+ActiveRecord::Schema.define(version: 20140701172352) do
 
   create_table "addons", force: true do |t|
     t.string   "name"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20140627003702) do
     t.datetime "updated_at"
     t.string   "type"
     t.string   "asset_type"
-    t.string   "type"
   end
 
   create_table "categories", force: true do |t|
@@ -90,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140627003702) do
     t.string   "short_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "footnote"
   end
 
   create_table "purchases_addons", force: true do |t|
