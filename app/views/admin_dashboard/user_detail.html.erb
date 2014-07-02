@@ -72,7 +72,7 @@
             <% end %>
           <% end %>
           <% if paquete_actual %>
-            <%= nuevo_addon ? (link_to 'Asignar Addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => false, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este addon?' }) : (link_to 'Aumentar Addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => true, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres aumentar este addon?' }) %> 
+            <%= nuevo_addon ? (link_to 'Asignar Addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => false, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este addon?' }) : ( "#{link_to('Aumentar un addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => true, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres aumentar este addon?' })} #{link_to('Remover un addon', remove_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres remover este addon?' })}".html_safe )  %> 
           <% end %>
           </div>
         <% end %>

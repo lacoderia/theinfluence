@@ -75,7 +75,7 @@ class AdminDashboardController < ApplicationController
     current = params[:current]
     if current == "true"
       pa = PurchasesAddon.where("user_id = ? and addon_id = ?", params[:user_id], params[:addon_id]).first
-      pa.quantity = pa.quantity + 1
+      pa.quantity += 1
     else
       pa = PurchasesAddon.new
       pa.user_id = params[:user_id]
@@ -87,6 +87,21 @@ class AdminDashboardController < ApplicationController
 
     pa.total_price = ac.price * pa.quantity
     pa.save!
+
+    redirect_to admin_user_detail_path(:user_id => params[:user_id])
+  end
+
+  def remove_addon
+    
+    pa = PurchasesAddon.where("user_id = ? and addon_id = ?", params[:user_id], params[:addon_id]).first
+    if (pa.quantity <= 1)
+      pa.destroy
+    else
+      pa.quantity -= 1
+      ac = AddonsCombo.where("addon_id = ? and combo_id = ?", params[:addon_id], params[:combo_id]).first
+      pa.total_price = ac.price * pa.quantity
+      pa.save!
+    end
 
     redirect_to admin_user_detail_path(:user_id => params[:user_id])
   end
