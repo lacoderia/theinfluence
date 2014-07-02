@@ -1,73 +1,63 @@
 <div id="dashboard-container" class="col-lg-12">
 
-  <% if not @product_array.empty?  %>
     <div id="product-resume">
-        <img src="<%= @product.image %>" alt="<%= @product.name %>" class="col-md-2">
-        <h3 class="col-md-10 product-name"><%= @product.name %></h3>
-        <p  class="col-md-10"><%= @product.short_description %></p>
-        <div class="clearfix"></div>
+      <img src="<%= @product.image %>" alt="<%= @product.name %>" class="col-md-2">
+      <h3 class="col-md-10 product-name"><%= @product.name %></h3>
+      <p  class="col-md-10"><%= @product.short_description %></p>
+      <div class="clearfix"></div>
     </div>
 
     <div id="product-detail">
-        <div id="product-gallery" class="col-md-7" data-items="<%= @assets_json %>">
-          <div id="inner-gallery">
-            <ul id="gallery-items"></ul>
-          </div>
-          <ul id="thumb-gallery"></ul>
-          <div class="clearfix"></div>
+      <div id="product-gallery" class="col-md-6" data-items="<%= @assets_json %>">
+        <div id="inner-gallery">
+          <ul id="gallery-items"></ul>
         </div>
-        <div class="col-md-5">
-            <p class="product-description"><%= @description.html_safe %></p>
-            <div class="panel panel-default">
-              <div class="panel-heading">Beneficios</div>
-              <div class="panel-body">
-                <ul class="product-benefits">
-                  <% @benefits_array.each do |benefit| %>
-                      <li><%= benefit %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
+        <ul id="thumb-gallery"></ul>
       </div>
-
-
+      <div class="col-md-6">
+        <p><%= @product.description.html_safe %></p>
+        <ul class="benefits">
+          <% @benefits_array.each do |benefit| %>
+              <li><%= benefit %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
     <% if not @combos_array.empty? %>
-        <div id="product-combos">
+      <div id="product-combos">
         <h2>Elige tu paquete</h2>
         <table>
           <thead>
           <tr>
             <th class="addon"></th>
-                <% @combos_array.each do |combo| %>
-                    <th>
-                      <span class="combo-title"><%= combo.name %></span>
-                      <span class="combo-price"><%= number_to_currency(combo.price, precision: 0, locale: :en) %></span>
-                      <span class="combo-description"><%= combo.description %></span>
-                    </th>
-                <% end %>
-            </tr>
+            <% @combos_array.each do |combo| %>
+                <th>
+                  <span class="combo-title"><%= combo.name %></span>
+                  <span class="combo-price"><%= number_to_currency(combo.price, precision: 0, locale: :en) %></span>
+                  <span class="combo-description"><%= combo.description %></span>
+                </th>
+            <% end %>
+          </tr>
           </thead>
           <tbody>
           <%  @product_addons_array.each do |addon| %>
-            <tr>
-              <td class="addon-title"><%= addon.name %></td>
-              <% addon.addons_combos.each do |addon_combo| %>
-                <td>
-                  <% if addon_combo.purchasable then %>
-                    <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
-                  <% elsif addon_combo.active then %>
-                    <span class="glyphicon glyphicon-ok addon-included"></span>
-                  <% elsif addon_combo.quantity && !addon_combo.description then %>
-                    <%= addon_combo.quantity %>
-                  <% elsif !addon_combo.quantity && addon_combo.description then %>
-                      <%= addon_combo.description %>
-                  <% end %>
-                </td>
-              <% end %>
-            </tr>
+              <tr>
+                <td class="addon-title"><%= addon.name %></td>
+                <% addon.addons_combos.each do |addon_combo| %>
+                    <td>
+                      <% if addon_combo.purchasable then %>
+                          <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
+                      <% elsif addon_combo.active then %>
+                          <span class="glyphicon glyphicon-ok addon-included"></span>
+                      <% elsif addon_combo.quantity && !addon_combo.description then %>
+                          <%= addon_combo.quantity %>
+                      <% elsif !addon_combo.quantity && addon_combo.description then %>
+                          <%= addon_combo.description %>
+                      <% end %>
+                    </td>
+                <% end %>
+              </tr>
           <% end %>
           <tr class="select-combo-button">
             <td class="addon-title"></td>
@@ -85,17 +75,4 @@
     <div>
       <p><%= @product.footnote %></p>
     </div>
-
-  <% else %>
-      <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Lo sentimos...</div>
-        <div class="panel-body">
-          <p>
-            Por el momento no hay información del producto que buscas. Por favor, intenta más tarde.
-          </p>
-        </div>
-      </div>
-  <% end %>
-
 </div>
