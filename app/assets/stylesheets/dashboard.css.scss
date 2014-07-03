@@ -49,7 +49,9 @@ ul.dropdown-menu{
 
 #chat{
 
-  margin-bottom: 4em;
+  background: white;
+  margin-bottom: 2em;
+  padding: 2em;
 
   .avatar{
 
@@ -66,12 +68,15 @@ ul.dropdown-menu{
 
 }
 
+#carousel-example-generic-dashboard{
+  margin-bottom: 2em;
+}
+
 #dashboard-container{
   padding-right: 40px;
   padding-left: 40px;
 
   h2{
-    border-bottom: 1px solid #eee;
     margin: 0em 0em 1em 0em;
     padding: 0.5em 0em;
   }
@@ -107,30 +112,51 @@ ul.dropdown-menu{
   padding: 0em;
 
   li{
-    text-align: center;
+    border: 1px solid $color-light-gray;
+    box-sizing: content-box;
+    padding: 1em 0.5em;
+    text-align: left;
 
-    a{
+    div.product-image{
       box-sizing: content-box;
       display: inline-block;
-      margin-bottom: 1em;
-      padding: 1em;
+      padding: 0.5em;
+      vertical-align: top;
+      width: 25%;
 
       img{
-        margin-bottom: 0.5em;
+        display: block;
+        margin: 0em auto;
         width: 100%;
       }
     }
 
-    a:hover{
-      background-color: $color-light-gray;
-      box-shadow: inset 0px 0px 5px 0px rgba(50, 50, 50, 0.2);
+    div.product-info{
+      box-sizing: content-box;
+      display: inline-block;
+      padding: 0.6em;
+      vertical-align: top;
+      width: 60%;
+
+      h3{
+        margin: 0px;
+        padding: 0px;
+      }
+
+      a{
+        display: block;
+        margin: 0em;
+        padding: 0em;
+      }
     }
 
   }
 }
 
 #product-combos{
-  margin-bottom: 3em;
+  background-color: white;
+  margin-bottom: 2em;
+  padding: 2em;
 
   table{
     border-collapse: separate;
@@ -213,18 +239,12 @@ ul.dropdown-menu{
   }
 }
 
-#product-combos {
-  background-color: white;
-  margin-bottom: 2em;
-  padding: 2em 1em;
-}
-
 #product-detail{
   background-color: white;
   font-weight: 300;
   line-height: 21px;
   margin-bottom: 2em;
-  padding: 2em 1em;
+  padding: 2em;
 
   p{
     font-size: 1em !important;
@@ -256,45 +276,54 @@ ul.dropdown-menu{
 #product-resume{
   background: white;
   margin-bottom: 2em;
-  padding: 2em 1em;
+  padding: 2em;
 }
 
 #purchases{
-  margin-bottom: 4em;
+  background: white;
+  margin-bottom: 2em;
+  padding: 2em;
 
-  .purchase{
+  .purchase-account{
+    background: #eeeeee; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, $color-light-gray 0%, white 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$color-light-gray), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center, $color-light-gray 0%,white 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-light-gray', endColorstr='white',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     border: 1px solid $color-light-gray;
     border-radius: 10px;
-    width: 100%;
+    padding: 1em 0em;
+    text-align: center;
 
-    .purchase-account{
-      background: #eeeeee; /* Old browsers */
-      background: -moz-radial-gradient(center, ellipse cover, #eeeeee 0%, #ffffff 100%); /* FF3.6+ */
-      background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#eeeeee), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-      background: -webkit-radial-gradient(center, ellipse cover, #eeeeee 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-radial-gradient(center, ellipse cover, #eeeeee 0%,#ffffff 100%); /* Opera 12+ */
-      background: -ms-radial-gradient(center, ellipse cover, #eeeeee 0%,#ffffff 100%); /* IE10+ */
-      background: radial-gradient(ellipse at center, #eeeeee 0%,#ffffff 100%); /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-      border-right: 1px dotted $color-light-gray;
-      padding: 1em 0em;
-      text-align: center;
-
-      img{
-        width: 50%;
-      }
-
-      p{
-        font-size: 1em;
-        line-height: 1em;
-        margin: 0;
-        padding: 0;
-      }
+    a.btn{
+      margin-top: 0.6em;
+      padding-top: 0.7em;
+      font-weight: bold;
     }
 
-    .total-price{
-      border: none;
-      margin: 0;
+    hr{
+      margin: 0.8em auto;
+      width: 80%;
+    }
+
+    img{
+      width: 50%;
+    }
+
+    p{
+      font-size: 1em;
+      line-height: 1em;
+      margin: 0.5em 0em;
+      padding: 0;
     }
   }
+}
+
+#shop{
+  background: white;
+  margin-bottom: 2em;
+  padding: 2em;
 }
