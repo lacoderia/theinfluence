@@ -12,6 +12,8 @@ class AdminDashboardController < ApplicationController
 
   def user_detail
     @user = User.find(params[:user_id])
+    @user_pc = @user.purchases_combos
+    @user_pa = @user.purchases_addons
 
   end
 

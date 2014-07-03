@@ -10,9 +10,9 @@
 <% end %>
   <%= link_to 'Editar', "#", "data-toggle" => "modal", "data-target" => "#editUser" %>
 </p>
-<% if not @user.purchases_combos.empty? %>
+<% if not @user_pc.empty? %>
 <h2>Productos contratados</h2>
-  <% @user.purchases_combos.each do |pc| %>
+  <% @user_pc.each do |pc| %>
     <p><h3><%= pc.combo.product.name %></h3></p>
     <ul>
       <li><%= pc.user_name %></li>
@@ -51,7 +51,7 @@
     </div>
 
     <h3>Paquetes</h3>
-    <% Combo.all.each do |combo| %>
+    <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
       <% paquete_actual = (combo == pc.combo) %>
       <h3><%= combo.name %> <%= "$#{combo.price}" %> <%= paquete_actual ? raw("<strong>Paquete Actual</strong>") : (link_to 'Asignar Paquete', assign_combo_path(:user_id => @user.id, :combo_id => combo.id, :product_id => combo.product_id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este paquete?' }) %></h3>
 
@@ -62,8 +62,8 @@
         <% purchasable_addons.each do |addon_combo| %>
           <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %>
           <% nuevo_addon = true %>
-          <% if not @user.purchases_addons.empty? %>
-            <% @user.purchases_addons.each do |pa| %>
+          <% if not @user_pa.empty? %>
+            <% @user_pa.each do |pa| %>
               <% if pa.addon == addon_combo.addon and combo == pc.combo %>
                 <% nuevo_addon = false %>
                 <% subtotal += pa.total_price %>
