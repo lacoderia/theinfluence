@@ -43,7 +43,12 @@
           <tbody>
           <%  @product_addons_array.each do |addon| %>
               <tr>
-                <td class="addon-title"><%= addon.name %></td>
+                <td class="addon-title">
+                  <% if not addon.description.empty? then %>
+                      <i class="fa fa-info-circle addon-description" data-toggle="popover"  title="<%= addon.name %>" data-content="<%= addon.description %>"></i>
+                  <% end %>
+                  <%= addon.name %>
+                </td>
                 <% addon.addons_combos.each do |addon_combo| %>
                     <td>
                       <% if addon_combo.purchasable then %>

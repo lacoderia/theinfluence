@@ -119,12 +119,12 @@ ul.dropdown-menu{
 
   li{
     border: 1px solid $color-light-gray;
-    box-sizing: content-box;
+    box-sizing: border-box;
     padding: 1em 0.5em;
     text-align: left;
 
     div.product-image{
-      box-sizing: content-box;
+      box-sizing: border-box;
       display: inline-block;
       padding: 0.5em;
       vertical-align: top;
@@ -225,6 +225,7 @@ ul.dropdown-menu{
 
       td.addon-title{
         border: none;
+
       }
     }
 
@@ -241,6 +242,12 @@ ul.dropdown-menu{
       border: none;
       font-weight: bold;
       text-align: right;
+
+      .popover{
+        text-align: left;
+        font-weight: 300;
+      }
+
     }
   }
 }

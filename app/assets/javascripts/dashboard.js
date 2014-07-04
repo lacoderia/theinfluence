@@ -9,6 +9,10 @@ function onReady() {
             auto: false,
             assetTypesAllowed: ['Imagen', 'Video']
         });
+
+        $('.addon-description').popover({
+            trigger: 'hover'
+        });
     }
 
     if($('#solucion').length){

@@ -27,7 +27,7 @@
         <% @user_pc.each do |pc| %>
             <div class="purchase-account col-md-3">
               <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
-              <h3><%= pc.combo.product.name %></h3>
+              <h3><strong><%= pc.combo.product.name %></strong></h3>
               <div class="tools">
                 <%= link_to 'Eliminar producto', remove_combo_path(:pc_id => pc.id, :user_id => @user.id), :class => 'delete-action edit', method: :get, data: { confirm: '¿Estás seguro?' } %>
               </div>
@@ -52,6 +52,7 @@
                     <i class="fa fa-edit"></i> Editar cuenta
                 <% end %>
               </div>
+              <div class="clearfix"></div>
             </div>
 
               <!-- Modal Edit Combo Purchase -->
@@ -83,9 +84,8 @@
                   </div>
                 </div>
               </div>
-
-              <h3>Paquetes</h3>
-              <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
+              <div class="product-combo product-<%= pc.combo.product_id %>-combo">
+                <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
                   <% paquete_actual = (combo == pc.combo) %>
                   <h3><%= combo.name %> <%= "$#{combo.price}" %> <%= paquete_actual ? raw("<strong>Paquete Actual</strong>") : (link_to 'Asignar Paquete', assign_combo_path(:user_id => @user.id, :combo_id => combo.id, :product_id => combo.product_id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este paquete?' }) %></h3>
 
@@ -115,8 +115,18 @@
                       <% end %>
                   <% end %>
               <% end %>
+              </div>
 
           <% end %>
+      <% else %>
+          <div id="user-purchases">
+              <div class="empty">
+                <h3>EL usuario no tiene productos comprados.</h3>
+                <%= link_to "#", :class => "btn btn-a btn-small btn-blue", "data-toggle" => "modal", "data-target" => "#addProduct" do %>
+                    <i class="fa fa-user"></i> Agregar producto
+                <% end %>
+              </div>
+          </div>
       <% end %>
   </div>
 

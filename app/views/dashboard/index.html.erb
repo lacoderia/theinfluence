@@ -51,7 +51,7 @@
     <ul id="products" class="row">
       <% if @products.count() > 0 then %>
           <% @products.each do |product| %>
-              <li class="col-lg-3 col-med-3 col-sm-12">
+              <li class="col-lg-4 col-med-3 col-sm-12">
                 <div class="product-image">
                   <img src="<%= product.image %>" alt="<%= product.name %>">
                 </div>
