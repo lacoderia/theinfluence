@@ -1,25 +1,25 @@
 <div id="dashboard-container" class="col-lg-12">
+  <% if not current_user.purchases_combos.empty? %>
   <div id="purchases">
       <h2>Productos contratados</h2>
-      <% if not current_user.purchases_combos.empty? %>
-          <% current_user.purchases_combos.each do |pc| %>
-            <div class="purchase-account col-md-2">
-              <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
-              <h3 class="product-name"><%= pc.combo.product.name %></h3>
-              <% Combo.all.each do |combo| %>
-                  <% if combo == pc.combo %>
-                      <h4><%= combo.name %></h4>
-                      <hr>
-                  <% end %>
+      <% current_user.purchases_combos.each do |pc| %>
+        <div class="purchase-account col-md-3">
+          <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
+          <h3 class="product-name"><%= pc.combo.product.name %></h3>
+          <% Combo.all.each do |combo| %>
+              <% if combo == pc.combo %>
+                  <h4><%= combo.name %></h4>
+                  <hr>
               <% end %>
-              <p><strong>Usuario:</strong> <%= pc.user_name %></p>
-              <p><strong>Password:</strong> <%= pc.password %></p>
-              <a class="btn btn-a btn-small btn-blue" href="pc.signup_link" title="Ingresa a tu cuenta" role="button">Ingresa a tu cuenta</a>
-            </div>
           <% end %>
-        <div class="clearfix"></div>
-  <% end %>
+          <p><strong>Usuario:</strong> <%= pc.user_name %></p>
+          <p><strong>Password:</strong> <%= pc.password %></p>
+          <a class="btn btn-a btn-small btn-blue" href="pc.signup_link" title="Ingresa a tu cuenta" role="button">Ingresa a tu cuenta</a>
+        </div>
+      <% end %>
+      <div class="clearfix"></div>
   </div>
+  <% end %>
 
   <div id="shop">
     <h2>Tienda</h2>

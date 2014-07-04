@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   authorize_resource
-  layout "admin_dashboard"
 
   def index
     @users = User.all

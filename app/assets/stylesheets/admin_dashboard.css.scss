@@ -1,3 +1,161 @@
 // Place all the styles related to the admin_dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$color-blue: #12A7FB;
+$color-dark-blue: #017DD2;
+$color-gray: #555;
+$color-light-gray: #f2f2f2;
+$color-green: #3c763d;
+
+a.active-action{
+  color: green;
+}
+
+a.active-action:hover{
+  color: green;
+}
+
+a.delete-action{
+  color: red;
+}
+
+a.delete-action:hover{
+  color: red;
+}
+
+a.active-action,a.delete-action{
+  margin-left: 1em;
+  vertical-align: bottom;
+}
+
+a.btn{
+  margin-top: 0.6em;
+  padding-top: 0.8em;
+  font-weight: bold;
+}
+
+#personal-information{
+  background: white;
+  margin-bottom: 2em;
+  padding: 2em;
+
+  .tools{
+    margin-top: 1.5em;
+  }
+}
+
+#users-list{
+  background: white;
+  margin-bottom: 2em;
+  padding: 2em;
+
+  table{
+    border: 1px solid $color-light-gray;
+    margin-top: 0.5em;
+
+    thead{
+      background-color: $color-blue;
+      color: white;
+
+      th{
+        padding: 0.5em 1.2em;
+      }
+    }
+
+    tbody{
+      td{
+        padding: 0.8em 1.2em;
+      }
+      td.actions{
+        text-align: right;
+      }
+    }
+
+    width: 100%;
+  }
+
+}
+
+#user-purchases{
+  background: white;
+  margin-bottom: 2em;
+  padding: 2em;
+
+  .purchase-account{
+    background: #eeeeee; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, $color-light-gray 0%, white 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$color-light-gray), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center, $color-light-gray 0%,white 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-light-gray', endColorstr='white',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    border: 1px solid $color-light-gray;
+    border-radius: 10px;
+    margin-top: 1em;
+    padding: 1em 0em;
+    text-align: center;
+
+    ul{
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    a.edit{
+      display: inline-block;
+      margin: 0.8em 0em;
+    }
+
+    a.btn{
+      margin-top: 0.6em;
+      padding-top: 0.7em;
+      font-weight: bold;
+    }
+
+    hr{
+      margin: 0.8em auto;
+      width: 80%;
+    }
+
+    img{
+      width: 50%;
+    }
+
+    p{
+      font-size: 1em;
+      line-height: 1em;
+      margin: 0.5em 0em;
+      padding: 0;
+    }
+  }
+}
+
+.empty{
+  border: 1px solid $color-light-gray;
+  box-sizing: content-box;
+  margin-top: 2em;
+  padding: 3em;
+  text-align: center;
+}
+
+.tools{
+  margin-top: 2em;
+
+  span.left{
+    display: inline-block;
+    font-size: 0.8em;
+    text-align: left;
+    vertical-align: bottom;
+    width: 49%;
+  }
+
+  span.right{
+    display: inline-block;
+    text-align: right;
+    vertical-align: bottom;
+    width: 50%;
+  }
+
+}
