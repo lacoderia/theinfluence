@@ -63,4 +63,18 @@ class DashboardController < ApplicationController
     end
   end
 
+  def send_compra_email
+    @combo = Combo.find(params[:combo_id])
+    @product = Product.find(@combo.product.id)
+    @user = User.find(params[:user_id])
+    @addon_combo = nil
+    if params[:addon_combo_id]
+      @addon_combo = AddonsCombo.find(params[:addon_combo_id])
+    end
+    
+    UserMailer.compra_email(@product, @combo, @addon_combo, @user).deliver
+    
+    redirect_to product_detail_path(:id => @product.id)
+  end
+
 end
