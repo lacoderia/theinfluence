@@ -21,7 +21,13 @@ class AdminDashboardController < ApplicationController
     end
 
     @products_combos = {}
-    Combo.where("product_id not in (?)", pc_ids ).each do |ctp|
+    if pc_ids.size > 0 
+      combos = Combo.where("product_id not in (?)", pc_ids )
+    else
+      combos = Combo.all
+    end
+
+    combos.each do |ctp|
       if not @products_combos[ctp.product]
         @products_combos[ctp.product] = []
       end
