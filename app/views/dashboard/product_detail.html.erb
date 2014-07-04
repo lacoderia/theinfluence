@@ -62,7 +62,8 @@
           <tr class="select-combo-button">
             <td class="addon-title"></td>
             <% @combos_array.each do |combo| %>
-                <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan <%= combo.name %></button></td>
+              <!-- <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan <%= combo.name %></button></td> -->
+              <td><%= link_to 'Contratá el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get %></td>
             <% end %>
           </tr>
           </tbody>
@@ -75,4 +76,21 @@
     <div>
       <p><%= @product.footnote %></p>
     </div>
+</div>
+
+
+<div class="modal fade" id="mensaje_enviado_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Solicitud Exitosa</h4>
+      </div>
+      <div class="modal-body">
+        <p>¡Muchas gracias!</p><br/>
+        <p>Tu solicitud ha sido ingresada exitosamente.</p>
+        <p>Pronto recibirás un correo electrónico para finalizar tu compra. En caso que no lo recibieras, haz clic <a href="mailto:todos@theinfluence.co?subject=Problemas procesando mi compra">aquí</a> para notificarnos.</p>
+      </div>
+    </div>
+  </div>
 </div>

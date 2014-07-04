@@ -3,6 +3,15 @@ class UserMailer < ActionMailer::Base
 
   def contact_email(contact)
     @contact = contact 
-    mail(to: "todos@theinfluence.co", subject: "Nuevo contacto desde la página #{@contact.name}")
+    mail(to: "todos@theinfluence.co", subject: "Nuevo contacto desde la página - #{@contact.name}")
   end
+
+  def compra_email(product, combo, addon_combo, user)
+    @product = product
+    @combo = combo
+    @addon_combo = addon_combo 
+    @user = user
+    mail(to: "todos@theinfluence.co", subject: "Petición de compra desde la página") 
+  end
+
 end

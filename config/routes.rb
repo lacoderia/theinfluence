@@ -39,9 +39,10 @@ Theinfluence::Application.routes.draw do
   get "assign_addon" => "admin_dashboard#assign_addon", :as => :assign_addon
   get "remove_addon" => "admin_dashboard#remove_addon", :as => :remove_addon
   get "remove_combo" => "admin_dashboard#remove_combo", :as => :remove_combo
+  get "send_compra_email" => "admin_dashboard#send_compra_email", :as => :send_compra_email
 
   get "dashboard" => "dashboard#index", :as => :dashboard
-  get "product-detail/:id" => "dashboard#product_detail"
+  get "product-detail/:id" => "dashboard#product_detail", :as => :product_detail
   get "contract" => "dashboard#contract"
 
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions'}

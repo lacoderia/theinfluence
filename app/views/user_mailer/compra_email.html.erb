@@ -1,0 +1,12 @@
+<p>Nombre: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<p>Nombre: <%= @user.name %></p>
+<p>Producto: <%= @product.name %></p>
+<p>Paquete: <%= @combo.name %></p>
+<% if not @addon_combo %>
+<p>Costo: <%= @combo.price %></p>
+<% else %>
+<p>Addon: <%= @addon_combo.addon.name %></p>
+<p>Costo: <%= @addon_combo.price %></p>
+<% end %>
+
