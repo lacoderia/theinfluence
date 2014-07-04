@@ -29,7 +29,7 @@
               <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
               <h3><%= pc.combo.product.name %></h3>
               <div class="tools">
-                <%= link_to 'Eliminar paquete', remove_combo_path(:pc_id => pc.id, :user_id => @user.id), :class => 'delete-action edit', method: :get, data: { confirm: '¿Estás seguro?' } %>
+                <%= link_to 'Eliminar producto', remove_combo_path(:pc_id => pc.id, :user_id => @user.id), :class => 'delete-action edit', method: :get, data: { confirm: '¿Estás seguro?' } %>
               </div>
               <hr>
               <% Combo.all.each do |combo| %>
@@ -48,7 +48,7 @@
                 <li><strong>Contraseña:</strong> <%= pc.password %></li>
               </ul>
               <div class="tools">
-                <%= link_to "#", :class => 'edit', "data-toggle" => "modal", "data-target" => "#editComboPurchase#{pc.id}" do %>
+                <%= link_to "#", :class => 'btn btn-a btn-small btn-blue', "data-toggle" => "modal", "data-target" => "#editComboPurchase#{pc.id}" do %>
                     <i class="fa fa-edit"></i> Editar cuenta
                 <% end %>
               </div>
