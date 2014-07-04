@@ -18,10 +18,10 @@
       <li><%= pc.user_name %></li>
       <li><%= pc.password %></li>
     </ul>
-    <p><%= link_to 'Editar', "#", "data-toggle" => "modal", "data-target" => "#editComboPurchase" %></p>
+    <p><%= link_to 'Editar', "#", "data-toggle" => "modal", "data-target" => "#editComboPurchase#{pc.id}" %> <%= link_to 'Eliminar', remove_combo_path(:pc_id => pc.id, :user_id => @user.id), method: :get, data: { confirm: '¿Estás seguro?' } %></p>
 
     <!-- Modal Edit Combo Purchase -->
-    <div class="modal fade" id="editComboPurchase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editComboPurchase<%=pc.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -97,7 +97,15 @@
       </div>
       <div class="modal-body"> 
         <div class="authform">
-          ...en construcción...
+          <% @products_combos.each do |key, value| %>
+            <h3><%= key.name %></h3>
+            <div style='width: 100%;'><label style="width: 25%;">User</label> <input class='form-control' id='usrcombo_<%= key.id %>' style='display: inline-block; width: 60%;' /> </div>
+            <div style='width: 100%;'><label style="width: 25%;">Password</label> <input class='form-control' id='passcombo_<%= key.id %>' style='display: inline-block; width: 60%;' /> </div>
+            <br/>
+            <% value.each do |ctp| %>
+              <p><%= ctp.name %> <a href='javascript:void(0)' onclick="asignar_producto(<%=@user.id%>, <%= ctp.id %>, <%=key.id%>)">Asignar paquete</a></p>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

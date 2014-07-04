@@ -70,9 +70,9 @@ escucha_combo_basico = Combo.create(product_id: producto_escucha.id, name: 'Bás
 escucha_combo_completo = Combo.create(product_id: producto_escucha.id, name: 'Completo', description: 'Ideal para empresas grandes con más de una marca.', price: 1449.00)
 escucha_combo_avanzado = Combo.create(product_id: producto_escucha.id, name: 'Avanzado', description: 'Ideal para multi-nacionales con varias marcas.', price: 2350.00)
 
-viraliza_combo_10000 = Combo.create(product_id: producto_viraliza.id, name: '', description: '', price: 10000)
-viraliza_combo_20000 = Combo.create(product_id: producto_viraliza.id, name: '', description: '', price: 20000)
-viraliza_combo_50000 = Combo.create(product_id: producto_viraliza.id, name: '', description: '', price: 50000)
+viraliza_combo_10000 = Combo.create(product_id: producto_viraliza.id, name: 'Básico', description: '', price: 10000)
+viraliza_combo_20000 = Combo.create(product_id: producto_viraliza.id, name: 'Completo', description: '', price: 20000)
+viraliza_combo_50000 = Combo.create(product_id: producto_viraliza.id, name: 'Avanzado', description: '', price: 50000)
 
 monitorea_combo_basico = Combo.create(product_id: producto_monitorea.id, name: 'Básico', description:'', price: 499.00)
 monitorea_combo_avanzado = Combo.create(product_id: producto_monitorea.id, name: 'Avanzado', description:'', price: 850.00)
@@ -81,7 +81,7 @@ compara_combo_basico = Combo.create(product_id: producto_compara.id, name: 'Bás
 compara_combo_avanzado = Combo.create(product_id: producto_compara.id, name: 'Avanzado', description:'', price: 1699)
 
 influye_combo_basico = Combo.create(product_id: producto_influye.id, name: 'Básico', description: '', price: 499)
-influye_combo_avanzado = Combo.create(product_id: producto_influye.id, name: 'Básico', description: '', price: 850)
+influye_combo_avanzado = Combo.create(product_id: producto_influye.id, name: 'Avanzado', description: '', price: 850)
 
 #addons escucha
 addon_topico = Addon.create(name: 'Tópicos', category_id: cat_general.id)

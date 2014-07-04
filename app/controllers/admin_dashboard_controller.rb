@@ -15,6 +15,19 @@ class AdminDashboardController < ApplicationController
     @user_pc = @user.purchases_combos
     @user_pa = @user.purchases_addons
 
+    pc_ids = []
+    @user_pc.each do |pc|
+      pc_ids << pc.combo.product.id
+    end
+
+    @products_combos = {}
+    Combo.where("product_id not in (?)", pc_ids ).each do |ctp|
+      if not @products_combos[ctp.product]
+        @products_combos[ctp.product] = []
+      end
+      @products_combos[ctp.product] << ctp
+    end
+
   end
 
   def activate_user
@@ -64,6 +77,8 @@ class AdminDashboardController < ApplicationController
     else
       pc = PurchasesCombo.new
       pc.user_id = params[:user_id]
+      pc.user_name = params[:user_name]
+      pc.password = params[:password]
     end
 
     pc.combo_id = params[:combo_id]
@@ -71,6 +86,14 @@ class AdminDashboardController < ApplicationController
     pc.save!
 
     redirect_to admin_user_detail_path(:user_id => user.id)
+  end
+
+  def remove_combo
+    pc = PurchasesCombo.find(params[:pc_id])
+    pc.destroy!
+
+    redirect_to admin_user_detail_path(:user_id => params[:user_id])
+
   end
 
   def assign_addon
