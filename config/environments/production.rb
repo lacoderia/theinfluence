@@ -99,7 +99,7 @@ Rails.application.configure do
 
   config.to_prepare do
     Devise::SessionsController.layout "display"
-    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "dashboard"   : "display" }    
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "dashboard" : "display" }    
     Devise::ConfirmationsController.layout "display"
     Devise::UnlocksController.layout "display"            
     Devise::PasswordsController.layout "display"        
