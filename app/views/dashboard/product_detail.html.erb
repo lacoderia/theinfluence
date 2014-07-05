@@ -41,10 +41,11 @@
           </tr>
           </thead>
           <tbody>
+          <% current_combo = nil %>
           <%  @product_addons_array.each do |addon| %>
               <tr>
                 <td class="addon-title">
-                  <% if not addon.description.empty? then %>
+                  <% if addon.description then %>
                       <i class="fa fa-info-circle addon-description" data-toggle="popover"  title="<%= addon.name %>" data-content="<%= addon.description %>"></i>
                   <% end %>
                   <%= addon.name %>
@@ -53,6 +54,16 @@
                     <td>
                       <% if addon_combo.purchasable then %>
                           <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
+                          
+                          <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
+                            <% if ix = @current_user_addons[:addons].index(addon_combo.addon) %>
+                              <input value='<%= @current_user_addons[:quantity][ix]%>'/>
+                            <% else %>
+                              <input  value='0'/>
+                            <% end %>
+                            <a href="#" >Agregar</a>
+                            <% current_combo = addon_combo.combo %>
+                          <% end %>
                       <% elsif addon_combo.active then %>
                           <span class="glyphicon glyphicon-ok addon-included"></span>
                       <% elsif addon_combo.quantity && !addon_combo.description then %>
@@ -67,8 +78,7 @@
           <tr class="select-combo-button">
             <td class="addon-title"></td>
             <% @combos_array.each do |combo| %>
-              <!-- <td><button type="button" class="btn btn-a btn-small btn-blue">Contráta el plan <%= combo.name %></button></td> -->
-              <td><%= link_to 'Contratá el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get %></td>
+              <td><%= link_to('Contratá el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get) unless current_combo == combo %></td>
             <% end %>
           </tr>
           </tbody>

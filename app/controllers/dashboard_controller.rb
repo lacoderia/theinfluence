@@ -51,6 +51,13 @@ class DashboardController < ApplicationController
         #Get the combos product
         @combos_array = @product.combos
         @product_addons_array = Addon.joins(combos: :product).where('product_id =?', @product_id).distinct('id').order('addon_order')
+        @current_user_addons = {}
+        @current_user_addons[:addons] = []
+        @current_user_addons[:quantity] = []
+        current_user.purchases_addons.each do |cu_pa|
+          @current_user_addons[:addons] << cu_pa.addon
+          @current_user_addons[:quantity] << cu_pa.quantity
+        end
 
         #Get the product assets
         if @product.assets
