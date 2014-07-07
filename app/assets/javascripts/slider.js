@@ -22,7 +22,6 @@
                         $.extend(settings, options);
                     }
 
-                    var loadingItems = true;
                     var $container = $('#product-gallery');
                     var $galleryContainer = $('#inner-gallery');
                     var $thumbContainer = $('#thumb-gallery');

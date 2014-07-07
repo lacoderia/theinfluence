@@ -69,11 +69,7 @@
                                         <% if pa.addon == addon_combo.addon %>
                                             <% nuevo_addon = false %>
                                             <% subtotal += pa.total_price %>
-                                            <%if pa.quantity > 1 %>
-                                                <strong><span class="hidden-sm hidden-xs">Componente adicional - </span>(<%= pa.quantity %>)</strong>
-                                            <% else %>
-                                                <strong><span class="hidden-sm hidden-xs">Componentes adicionales - (<%= pa.quantity %>)</span></strong>
-                                            <% end %>
+                                            <strong><span class="hidden-sm hidden-xs"></span>(<%= pa.quantity %>)</strong>
                                         <% end %>
                                     <% end %>
                                 <% end %>

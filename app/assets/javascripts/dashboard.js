@@ -16,7 +16,11 @@ function onReady() {
     }
 
     if($('#solucion').length){
-        $('#carousel-example-generic-dashboard').carousel({interval: 5000, pause:'hover', wrap:true})
+        $('#carousel-example-generic-dashboard').carousel({
+            interval: 5000,
+            pause:'hover',
+            wrap:true
+        });
     }
 }
 
