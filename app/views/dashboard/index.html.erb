@@ -14,7 +14,9 @@
           <% end %>
           <p><strong>Usuario:</strong> <%= pc.user_name %></p>
           <p><strong>Password:</strong> <%= pc.password %></p>
-          <a class="btn btn-a btn-small btn-blue" href="pc.signup_link" title="Ingresa a tu cuenta" role="button">Ingresa a tu cuenta</a>
+          <%= link_to pc.combo.product.signin_link, :target => '_blank', :class => 'btn btn-a btn-small btn-blue', :role => 'button', :title => 'Ingresa a tu cuenta' do %>
+              <i class="fa fa-external-link"></i> Ingresa a tu cuenta
+          <% end %>
         </div>
       <% end %>
       <div class="clearfix"></div>
