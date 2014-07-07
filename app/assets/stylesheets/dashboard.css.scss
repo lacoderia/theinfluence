@@ -107,6 +107,12 @@ ul.dropdown-menu{
   }
 }
 
+#footnote{
+  background: white;
+  margin-bottom: 2em;
+  padding: 2em;
+}
+
 #main-dashboard-container{
   background-color: $color-light-gray;
   padding-top: 2em;
@@ -314,7 +320,7 @@ ul.dropdown-menu{
 
     a.btn{
       margin-top: 0.6em;
-      padding-top: 0.7em;
+      padding-top: 0.8em;
       font-weight: bold;
     }
 
@@ -340,4 +346,8 @@ ul.dropdown-menu{
   background: white;
   margin-bottom: 2em;
   padding: 2em;
+
+  .carousel-control{
+    height: 100%;
+  }
 }

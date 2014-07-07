@@ -1,47 +1,37 @@
 <div id="dashboard-container" class="col-lg-12">
-    <div id="personal-information">
-        <h3><strong><%= @user.name %></strong></h3>
-        <a href="mailto:<%= @user.email %>" title="Enviar correo a  <%= @user.email %>"><%= @user.email %></a>
-        <div class="tools">
-            <%= link_to "#", :class => "btn btn-a btn-small btn-blue", "data-toggle" => "modal", "data-target" => "#editUser" do %>
-                <i class="fa fa-edit"></i> Editar
-            <% end %>
-            <% if @user.active? %>
-                <%= link_to 'Desactivar', deactivate_user_path(:user_id => @user.id), :class => 'delete-action', method: :get, data: { confirm: '¿Estás seguro?' } %>
-            <% else %>
-                <%= link_to 'Activar', activate_user_path(:user_id => @user.id), :class => 'active-action', method: :get, data: { confirm: '¿Estás seguro?' } %>
-            <% end %>
-        </div>
+<div id="personal-information">
+  <h3><strong><%= @user.name %></strong></h3>
+  <a href="mailto:<%= @user.email %>" title="Enviar correo a  <%= @user.email %>"><%= @user.email %></a>
+  <div class="tools">
+    <%= link_to "#", :class => "btn btn-a btn-small btn-blue", "data-toggle" => "modal", "data-target" => "#editUser" do %>
+        <i class="fa fa-edit"></i> Editar
+    <% end %>
+    <% if @user.active? %>
+        <%= link_to 'Desactivar', deactivate_user_path(:user_id => @user.id), :class => 'delete-action', method: :get, data: { confirm: '¿Estás seguro?' } %>
+    <% else %>
+        <%= link_to 'Activar', activate_user_path(:user_id => @user.id), :class => 'active-action', method: :get, data: { confirm: '¿Estás seguro?' } %>
+    <% end %>
   </div>
-  <% if not @user_pc.empty? %>
-      <div id="user-purchases">
-        <h2>Productos contratados</h2>
-        <div class="tools">
-          <span class="left">TODOS LOS PRODUCTOS (<%= @user_pc.each.count() %>)</span>
+</div>
+<% if not @user_pc.empty? %>
+    <div id="user-purchases">
+      <h2>Productos contratados</h2>
+      <div class="tools">
+        <span class="left">TODOS LOS PRODUCTOS (<%= @user_pc.each.count() %>)</span>
             <span class="right">
                 <%= link_to "#", :class => "btn btn-a btn-small btn-blue", "data-toggle" => "modal", "data-target" => "#addProduct" do %>
                     <i class="fa fa-user"></i> Agregar producto
                 <% end %>
             </span>
-        </div>
-        <% @user_pc.each do |pc| %>
-            <div class="purchase-account col-md-3">
+      </div>
+      <% @user_pc.each do |pc| %>
+          <div class="purchase-account col-lg-12 col-md-12 col-sm-12">
+            <div class="purchase-info">
               <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
               <h3><strong><%= pc.combo.product.name %></strong></h3>
               <div class="tools">
                 <%= link_to 'Eliminar producto', remove_combo_path(:pc_id => pc.id, :user_id => @user.id), :class => 'delete-action edit', method: :get, data: { confirm: '¿Estás seguro?' } %>
               </div>
-              <hr>
-              <% Combo.all.each do |combo| %>
-                  <% if combo == pc.combo %>
-                      <h4><%= combo.name %></h4>
-                      <div class="tools">
-                        <%= link_to "#", :class => "btn btn-a btn-small btn-blue", "data-toggle" => "modal", "data-target" => "#editComboPurchase" do %>
-                            <i class="fa fa-exchange"></i> Cambiar paquete
-                        <% end %>
-                      </div>
-                  <% end %>
-              <% end %>
               <hr>
               <ul>
                 <li><strong>Usuario:</strong> <%= pc.user_name %></li>
@@ -52,145 +42,167 @@
                     <i class="fa fa-edit"></i> Editar cuenta
                 <% end %>
               </div>
-              <div class="clearfix"></div>
+              <hr>
             </div>
+            <div class="purchases-combos">
+              <h4>Paquetes disponibles</h4>
+              <div class="product-info assigned">
+                <h3><%= pc.combo.name %></h3>
+                <p><%= number_to_currency(pc.combo.price, precision: 0, locale: :en) %></p>
+              </div>
+              <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
 
-              <!-- Modal Edit Combo Purchase -->
-              <div class="modal fade" id="editComboPurchase<%=pc.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
-                    </div>
-                    <div class="modal-body">
-                      <%= form_for(pc) do |f| %>
-                          <div class="authform">
-                            <div class="form-group">
-                              <%= f.label :user_name, 'Nombre' %>
-                              <%= f.text_field :user_name, :autofocus => true, class: 'form-control', required: true  %>
-                            </div>
-                            <div class="form-group">
-                              <%= f.label :password %>
-                              <%= f.text_field :password, class: 'form-control', required: true %>
-                            </div>
-                            <div style="text-align: right;">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                              <%= f.submit 'Salvar', :class=>"btn btn-primary" %>
-                            </div>
-                          </div>
-                      <% end %>
-                    </div>
+
+                  <% paquete_actual = (combo == pc.combo) %>
+                  <div class="product-info">
+                    <h3><%= combo.name %></h3>
+                    <% if not paquete_actual then %>
+                        <div class="tools">
+                          <%= link_to  assign_combo_path(:user_id => @user.id, :combo_id => combo.id, :product_id => combo.product_id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este paquete?' }, :class => "btn btn-a btn-small btn-blue" do %>
+                            Cambiar paquete <%= number_to_currency(combo.price, precision: 2, locale: :en) %>
+                          <% end %>
+                        </div>
+                    <%end %>
+                    <% purchasable_addons = combo.addons_combos.where("purchasable = ?", true) %>
+                    <% if not purchasable_addons.empty? %>
+                        <% subtotal = 0 %>
+                        <p>Adicionales</p>
+                        <% purchasable_addons.each do |addon_combo| %>
+                            <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %>
+                              <% nuevo_addon = true %>
+                              <% if not @user_pa.empty? %>
+                                  <% @user_pa.each do |pa| %>
+                                      <% if pa.addon == addon_combo.addon and combo == pc.combo %>
+                                          <% nuevo_addon = false %>
+                                          <% subtotal += pa.total_price %>
+                                          - <strong><%= pa.quantity %> Addon(s) comprado(s)</strong> -
+                                      <% end %>
+                                  <% end %>
+                              <% end %>
+                              <% if paquete_actual %>
+                                  <%= nuevo_addon ? (link_to 'Asignar Addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => false, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este addon?' }) : ( "#{link_to('Aumentar un addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => true, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres aumentar este addon?' })} #{link_to('Remover un addon', remove_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres remover este addon?' })}".html_safe )  %>
+                              <% end %>
+                              </div>
+                        <% end %>
+                        <% if paquete_actual %>
+                            <div>Total mensual: <%= pc.total_price + subtotal %></div>
+                        <% end %>
+                    <% end %>
                   </div>
+              <% end %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <!-- Modal Edit Combo Purchase -->
+          <div class="modal fade" id="editComboPurchase<%=pc.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
+                </div>
+                <div class="modal-body">
+                  <%= form_for(pc) do |f| %>
+                      <div class="authform">
+                        <div class="form-group">
+                          <%= f.label :user_name, 'Nombre' %>
+                          <%= f.text_field :user_name, :autofocus => true, class: 'form-control', required: true  %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.label :password %>
+                          <%= f.text_field :password, class: 'form-control', required: true %>
+                        </div>
+                        <div style="text-align: right;">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          <%= f.submit 'Salvar', :class=>"btn btn-primary" %>
+                        </div>
+                      </div>
+                  <% end %>
                 </div>
               </div>
-              <div class="product-combo product-<%= pc.combo.product_id %>-combo">
-                <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
-                  <% paquete_actual = (combo == pc.combo) %>
-                  <h3><%= combo.name %> <%= "$#{combo.price}" %> <%= paquete_actual ? raw("<strong>Paquete Actual</strong>") : (link_to 'Asignar Paquete', assign_combo_path(:user_id => @user.id, :combo_id => combo.id, :product_id => combo.product_id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este paquete?' }) %></h3>
+            </div>
+          </div>
 
-                  <% purchasable_addons = combo.addons_combos.where("purchasable = ?", true) %>
-                  <% if not purchasable_addons.empty? %>
-                      <% subtotal = 0 %>
-                      <p>Adicionales</p>
-                      <% purchasable_addons.each do |addon_combo| %>
-                          <div><p><%= addon_combo.addon.name %> <%= addon_combo.quantity %> <%= "$#{addon_combo.price}" %>
-                            <% nuevo_addon = true %>
-                            <% if not @user_pa.empty? %>
-                                <% @user_pa.each do |pa| %>
-                                    <% if pa.addon == addon_combo.addon and combo == pc.combo %>
-                                        <% nuevo_addon = false %>
-                                        <% subtotal += pa.total_price %>
-                                        - <strong><%= pa.quantity %> Addon(s) comprado(s)</strong> -
-                                    <% end %>
-                                <% end %>
-                            <% end %>
-                            <% if paquete_actual %>
-                                <%= nuevo_addon ? (link_to 'Asignar Addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => false, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este addon?' }) : ( "#{link_to('Aumentar un addon', assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => true, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres aumentar este addon?' })} #{link_to('Remover un addon', remove_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :combo_id => combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres remover este addon?' })}".html_safe )  %>
-                            <% end %>
-                            </div>
-                      <% end %>
-                      <% if paquete_actual %>
-                          <div>Total mensual: <%= pc.total_price + subtotal %></div>
-                      <% end %>
+      <% end %>
+<% else %>
+    <div id="user-purchases">
+      <div class="empty">
+        <h3>EL usuario no tiene productos comprados.</h3>
+        <%= link_to "#", :class => "btn btn-a btn-small btn-blue", "data-toggle" => "modal", "data-target" => "#addProduct" do %>
+            <i class="fa fa-user"></i> Agregar producto
+        <% end %>
+      </div>
+    </div>
+<% end %>
+<div class="clearfix"></div>
+</div>
+
+<!-- Modal Add Product -->
+<div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Agregar Producto</h4>
+      </div>
+      <div class="modal-body">
+        <div class="authform">
+          <% if not @products_combos.empty? then %>
+              <% @products_combos.each do |key, value| %>
+                  <h3><%= key.name %></h3>
+                  <div style='width: 100%;'><label style="width: 25%;">User</label> <input class='form-control' id='usrcombo_<%= key.id %>' style='display: inline-block; width: 60%;' /> </div>
+                  <div style='width: 100%;'><label style="width: 25%;">Password</label> <input class='form-control' id='passcombo_<%= key.id %>' style='display: inline-block; width: 60%;' /> </div>
+                  <br/>
+                  <% value.each do |ctp| %>
+                      <p><%= ctp.name %> <a href='javascript:void(0)' onclick="asignar_producto(<%=@user.id%>, <%= ctp.id %>, <%=key.id%>)">Asignar paquete</a></p>
                   <% end %>
               <% end %>
-              </div>
-
-          <% end %>
-      <% else %>
-          <div id="user-purchases">
-              <div class="empty">
-                <h3>EL usuario no tiene productos comprados.</h3>
-                <%= link_to "#", :class => "btn btn-a btn-small btn-blue", "data-toggle" => "modal", "data-target" => "#addProduct" do %>
-                    <i class="fa fa-user"></i> Agregar producto
-                <% end %>
-              </div>
-          </div>
-      <% end %>
-  </div>
-
-  <!-- Modal Add Product -->
-  <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Agregar Producto</h4>
-        </div>
-        <div class="modal-body">
-          <div class="authform">
-            <% @products_combos.each do |key, value| %>
-                <h3><%= key.name %></h3>
-                <div style='width: 100%;'><label style="width: 25%;">User</label> <input class='form-control' id='usrcombo_<%= key.id %>' style='display: inline-block; width: 60%;' /> </div>
-                <div style='width: 100%;'><label style="width: 25%;">Password</label> <input class='form-control' id='passcombo_<%= key.id %>' style='display: inline-block; width: 60%;' /> </div>
-                <br/>
-                <% value.each do |ctp| %>
-                    <p><%= ctp.name %> <a href='javascript:void(0)' onclick="asignar_producto(<%=@user.id%>, <%= ctp.id %>, <%=key.id%>)">Asignar paquete</a></p>
-                <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Edit User -->
-  <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
-        </div>
-        <div class="modal-body">
-          <%= form_for(@user) do |f| %>
-              <div class="authform">
-
-                <div class="form-group">
-                  <%= f.label :name, 'Nombre' %>
-                  <%= f.text_field :name, :autofocus => true, class: 'form-control', required: true  %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :email %>
-                  <%= f.email_field :email, class: 'form-control', required: true %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :password, 'Contraseña' %>
-                  <%= f.password_field :password, class: 'form-control', required: true  %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :password_confirmation, 'Confirma contraseña' %>
-                  <%= f.password_field :password_confirmation, class: 'form-control', required: true  %>
-                </div>
-                <div style="text-align: right;">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <%= f.submit 'Salvar', :class=>"btn btn-primary" %>
-                </div>
-              </div>
+          <% else %>
+              <h3>No hay más productos disponibles en este momento. </h3>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Modal Edit User -->
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@user) do |f| %>
+            <div class="authform">
+
+              <div class="form-group">
+                <%= f.label :name, 'Nombre' %>
+                <%= f.text_field :name, :autofocus => true, class: 'form-control', required: true  %>
+              </div>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control', required: true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password, 'Contraseña' %>
+                <%= f.password_field :password, class: 'form-control', required: true  %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation, 'Confirma contraseña' %>
+                <%= f.password_field :password_confirmation, class: 'form-control', required: true  %>
+              </div>
+              <div style="text-align: right;">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <%= f.submit 'Salvar', :class=>"btn btn-primary" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

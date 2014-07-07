@@ -86,9 +86,12 @@
       </div>
     <% else %>
       <!-- SIN PAQUETES -->
-      <p>Solicita una cotización.</p>
+      <div id="product-combos">
+        <p>Solicita una cotización para conocer los precios del producto.</p>
+        <button type="button" class="btn btn-a btn-big btn-blue">Cotiza Aquí</button>
+      </div>
     <% end %>
-    <div>
+    <div id="footnote">
       <p><%= @product.footnote %></p>
     </div>
 </div>
