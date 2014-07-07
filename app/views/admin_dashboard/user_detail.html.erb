@@ -93,22 +93,22 @@
                               </td>
                             </tr>
                         <% end %>
-                            <tr class="total">
-                              <td>Total mensual:</td>
-                              <td colspan="2"><%= number_to_currency((pc.total_price + subtotal), precision: 2, locale: :en) %></td>
-                            </tr>
+                        <tr class="total">
+                          <td>Total mensual:</td>
+                          <td colspan="2"><%= number_to_currency((pc.total_price + subtotal), precision: 2, locale: :en) %></td>
+                        </tr>
                       </table>
                     </div>
                 <% end %>
               </div>
               <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
                   <% paquete_actual = (combo == pc.combo) %>
-                  <div class="product-info">
-                    <% if not paquete_actual then %>
+                  <% if not paquete_actual then %>
+                      <div class="product-info">
                         <h3><%= combo.name %></h3>
                         <p class="baseprice"><%= number_to_currency(combo.price, precision: 2, locale: :en) %></p>
                         <div class="tools">
-                          <%= link_to  assign_combo_path(:user_id => @user.id, :combo_id => combo.id, :product_id => combo.product_id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este paquete?' }, :class => "btn btn-a btn-small btn-blue" do %>
+                          <%= link_to  assign_combo_path(:user_id => @user.id, :combo_id => combo.id, :product_id => combo.product_id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este paquete?' } do %>
                               Cambiar paquete
                           <% end %>
                         </div>
@@ -117,17 +117,18 @@
                             <% subtotal = 0 %>
                             <h4>Adicionales</h4>
                             <table class="extra">
-                            <% purchasable_addons.each do |addon_combo| %>
-                                <tr>
+                              <% purchasable_addons.each do |addon_combo| %>
+                                  <tr>
                                     <td><%= addon_combo.addon.name %></td>
                                     <td><%= addon_combo.quantity %></td>
                                     <td><%= "$#{addon_combo.price}" %></td>
-                                </tr>
-                            <% end %>
+                                  </tr>
+                              <% end %>
                             </table>
                         <% end %>
+                      </div>
                   <%end %>
-                  </div>
+
               <% end %>
             </div>
             <div class="clearfix"></div>
