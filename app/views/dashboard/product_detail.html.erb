@@ -54,19 +54,19 @@
                     <td>
                       <% if addon_combo.purchasable then %>
                           <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
-                          <div>
+
                             <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
                                 <% if ix = @current_user_addons[:addons].index(addon_combo.addon) %>
                                     <input class="input-addon" value='<%= @current_user_addons[:quantity][ix]%>'/>
                                 <% else %>
                                     <input class="input-addon"  value='0'/>
                                 <% end %>
-                                <%= link_to "#", :current => false, :title => "Comprar componenete adicional" do %>
-                                    <i class="fa fa-plus-circle"></i>
+                                <%= link_to "#", :current => false, :title => "Comprar componenete adicional", :class => "btn btn-a btn-small btn-blue" do %>
+                                    <i class="fa fa-shopping-cart"></i> Comprar
                                 <% end %>
                                 <% current_combo = addon_combo.combo %>
                             <% end %>
-                          </div>
+
                       <% elsif addon_combo.active then %>
                           <span class="glyphicon glyphicon-ok addon-included"></span>
                       <% elsif addon_combo.quantity && !addon_combo.description then %>
