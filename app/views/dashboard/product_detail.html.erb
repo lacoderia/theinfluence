@@ -45,7 +45,7 @@
           <%  @product_addons_array.each do |addon| %>
               <tr>
                 <td class="addon-title">
-                  <% if addon.description then %>
+                  <% if not addon.description.to_s == '' then %>
                       <i class="fa fa-info-circle addon-description" data-toggle="popover"  title="<%= addon.name %>" data-content="<%= addon.description %>"></i>
                   <% end %>
                   <%= addon.name %>
