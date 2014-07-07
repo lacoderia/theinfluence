@@ -14,4 +14,12 @@ class UserMailer < ActionMailer::Base
     mail(to: "todos@theinfluence.co", subject: "Petición de compra desde la página") 
   end
 
+  def cotiza_email(product, user)
+    @product = product
+    @user = user
+
+    mail(to: "tonklis@gmail.com", subject: "Petición de cotización desde la página")
+
+  end
+
 end

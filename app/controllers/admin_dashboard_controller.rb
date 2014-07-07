@@ -96,8 +96,8 @@ class AdminDashboardController < ApplicationController
 
   def remove_combo
     pc = PurchasesCombo.find(params[:pc_id])
+    User.find(params[:user_id]).purchases_addons.joins(addon: :addons_combos).where("addons_combos.combo_id = ?", pc.combo.id).destroy_all
     pc.destroy!
-
     redirect_to admin_user_detail_path(:user_id => params[:user_id])
 
   end

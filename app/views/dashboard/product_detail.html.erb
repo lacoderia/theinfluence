@@ -88,7 +88,7 @@
       <!-- SIN PAQUETES -->
       <div id="product-combos">
         <p>Solicita una cotización para conocer los precios del producto.</p>
-        <button type="button" class="btn btn-a btn-big btn-blue">Cotiza Aquí</button>
+        <%= link_to('Cotiza aquí', "javascript:void(0);", :onclick => "enviar_cotizacion(#{current_user.id}, #{@product.id})", :class => 'btn btn-a btn-big btn-blue', :method => :get) %>
       </div>
     <% end %>
     <% if @product.footnote then %>
@@ -107,7 +107,7 @@
         <h4 class="modal-title" id="myModalLabel">Solicitud Exitosa</h4>
       </div>
       <div class="modal-body">
-        <p>¡Muchas gracias!</p><br/>
+        <p>¡Muchas gracias!</p>
         <p>Tu solicitud ha sido ingresada exitosamente.</p>
         <p>Pronto recibirás un correo electrónico para finalizar tu compra. En caso que no lo recibieras, haz clic <a href="mailto:todos@theinfluence.co?subject=Problemas procesando mi compra">aquí</a> para notificarnos.</p>
       </div>

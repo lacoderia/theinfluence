@@ -51,9 +51,11 @@ class DashboardController < ApplicationController
         #Get the combos product
         @combos_array = @product.combos
         @product_addons_array = Addon.joins(combos: :product).where('product_id =?', @product_id).distinct('id').order('addon_order')
+        
         @current_user_addons = {}
         @current_user_addons[:addons] = []
         @current_user_addons[:quantity] = []
+
         current_user.purchases_addons.each do |cu_pa|
           @current_user_addons[:addons] << cu_pa.addon
           @current_user_addons[:quantity] << cu_pa.quantity
@@ -82,6 +84,17 @@ class DashboardController < ApplicationController
     UserMailer.compra_email(@product, @combo, @addon_combo, @user).deliver
     
     redirect_to product_detail_path(:id => @product.id)
+  end
+
+  def send_cotiza_email
+
+    @product = Product.find(params[:product_id])
+    @user = User.find(params[:user_id])
+    
+    UserMailer.cotiza_email(@product, @user).deliver
+    
+    redirect_to product_detail_path(:id => @product.id)
+
   end
 
 end
