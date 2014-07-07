@@ -91,9 +91,11 @@
         <button type="button" class="btn btn-a btn-big btn-blue">Cotiza Aquí</button>
       </div>
     <% end %>
-    <div id="footnote">
-      <p><%= @product.footnote %></p>
-    </div>
+    <% if @product.footnote then %>
+        <div id="footnote">
+          <p><%= @product.footnote %></p>
+        </div>
+    <% end %>
 </div>
 
 
