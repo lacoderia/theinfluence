@@ -26,7 +26,7 @@
       </div>
       <% @user_pc.each do |pc| %>
           <div class="purchase-account col-lg-12 col-md-12 col-sm-12">
-            <div class="purchase-info">
+            <div class="purchase-info col-lg-4 col-md-3 col-sm-12">
               <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
               <h3><strong><%= pc.combo.product.name %></strong></h3>
               <div class="tools">
@@ -43,8 +43,9 @@
                 <% end %>
               </div>
               <hr>
+              <div class="clearfix"></div>
             </div>
-            <div class="purchases-combos">
+            <div class="purchases-combos col-lg-8 col-md-9 col-sm-12">
               <h4>Paquetes disponibles</h4>
               <div class="product-info assigned">
                 <h3><%= pc.combo.name %></h3>
@@ -69,9 +70,9 @@
                                             <% nuevo_addon = false %>
                                             <% subtotal += pa.total_price %>
                                             <%if pa.quantity > 1 %>
-                                                <strong>Componente adicional - (<%= pa.quantity %>)</strong>
+                                                <strong><span class="hidden-sm hidden-xs">Componente adicional - </span>(<%= pa.quantity %>)</strong>
                                             <% else %>
-                                                <strong>Componentes adicionales - (<%= pa.quantity %>)</strong>
+                                                <strong><span class="hidden-sm hidden-xs">Componentes adicionales - (<%= pa.quantity %>)</span></strong>
                                             <% end %>
                                         <% end %>
                                     <% end %>
@@ -130,6 +131,7 @@
                   <%end %>
 
               <% end %>
+              <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
           </div>

@@ -7,6 +7,7 @@ $color-dark-blue: #017DD2;
 $color-gray: #555;
 $color-light-gray: #f2f2f2;
 $color-green: #3c763d;
+$screen-sm-min: 768px;
 
 a.active-action{
   color: green;
@@ -103,7 +104,6 @@ a.btn{
       box-sizing: border-box;
       display: inline-block;
       vertical-align: top;
-      width: 68%;
 
       .product-info{
         border-radius: 10px;
@@ -170,7 +170,6 @@ a.btn{
       margin: 0em 0em 1em;
       text-align: center;
       vertical-align: top;
-      width: 30%;
     }
 
     .tools{
@@ -295,3 +294,20 @@ a.btn{
     }
   }
 }
+
+@media (max-width: $screen-sm-min) {
+  td.extra-tools{
+    a{
+      margin-right: 0.5em;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-min) {
+  td.extra-tools{
+    a{
+      margin-right: 0.5em;
+    }
+  }
+}
+
