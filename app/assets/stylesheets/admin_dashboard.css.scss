@@ -295,15 +295,13 @@ a.btn{
   }
 }
 
-@media (max-width: $screen-sm-min) {
-  td.extra-tools{
-    a{
-      margin-right: 0.5em;
-    }
-  }
-}
 
 @media (max-width: $screen-sm-min) {
+  #dashboard-container{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   td.extra-tools{
     a{
       margin-right: 0.5em;
