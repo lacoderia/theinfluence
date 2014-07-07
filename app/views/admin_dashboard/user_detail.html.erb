@@ -121,7 +121,7 @@
                                   <tr>
                                     <td><%= addon_combo.addon.name %></td>
                                     <td><%= addon_combo.quantity %></td>
-                                    <td><%= "$#{addon_combo.price}" %></td>
+                                    <td><%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %></td>
                                   </tr>
                               <% end %>
                             </table>
