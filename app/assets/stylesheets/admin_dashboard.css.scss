@@ -93,14 +93,6 @@ a.btn{
   padding: 2em;
 
   .purchase-account{
-    background: #eeeeee; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, $color-light-gray 0%, white 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$color-light-gray), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center, $color-light-gray 0%,white 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-light-gray', endColorstr='white',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     border: 1px solid $color-light-gray;
     box-sizing: border-box;
     border-radius: 10px;
@@ -114,7 +106,6 @@ a.btn{
       width: 68%;
 
       .product-info{
-        background-color: $color-light-gray;
         border-radius: 10px;
         box-sizing: border-box;
         margin-bottom: 1em;
@@ -123,12 +114,53 @@ a.btn{
         h3{
           margin-top: 10px;
         }
+
+        h4{
+          margin-top: 1.3em;
+        }
+
+        table.extra{
+          margin: 0.5em 0em;
+          td{
+            padding-right: 1em;
+          }
+
+          td.extra-tools{
+            a{
+              margin-right: 0.5em;
+            }
+          }
+        }
       }
 
       .assigned{
-        -webkit-box-shadow: 1px 1px 16px 0px rgba(50, 50, 50, 0.39);
-        -moz-box-shadow:    1px 1px 16px 0px rgba(50, 50, 50, 0.39);
-        box-shadow:         1px 1px 16px 0px rgba(50, 50, 50, 0.39);
+        background: #eeeeee; /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, $color-light-gray 0%, white 100%); /* FF3.6+ */
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$color-light-gray), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+        background: -webkit-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* Opera 12+ */
+        background: -ms-radial-gradient(center, ellipse cover, $color-light-gray 0%,white 100%); /* IE10+ */
+        background: radial-gradient(ellipse at center, $color-light-gray 0%,white 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-light-gray', endColorstr='white',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        border: 1px solid $color-light-gray;
+
+        h3{
+          font-weight: bold;
+        }
+
+        table.extra{
+          tr.total{
+            border-top: 1px solid $color-gray;
+            font-weight: bold;
+            text-align: right;
+          }
+
+        }
+      }
+
+      .baseprice{
+        color: $color-blue;
+        font-weight: bold;
       }
     }
 
