@@ -106,6 +106,7 @@
 		pp_slideshow;
 		
 		doresize = true, scroll_pos = _get_scroll();
+
 	
 		// Window/Keyboard events
 		$(window).unbind('resize.prettyphoto').bind('resize.prettyphoto',function(){ _center_overlay(); _resize_overlay(); });
@@ -134,6 +135,7 @@
 				};
 			});
 		};
+
 		
 		/**
 		* Initialize prettyPhoto.
@@ -163,12 +165,16 @@
 			
 			if(settings.allow_resize)
 				$(window).bind('scroll.prettyphoto',function(){ _center_overlay(); });
-			
-			
+
 			$.prettyPhoto.open();
 			
 			return false;
 		}
+
+        $.prettyPhoto.changePreviewImage = function(imageURL){
+            var previewContainer =  $('#gallery-container img');
+            previewContainer.attr('src', imageURL);
+        };
 
 
 		/**

@@ -3,7 +3,9 @@ $(document).on("ready", onReady);
 function onReady() {
 
     fixFooter();
-    $("a[rel^='prettyPhoto']").prettyPhoto();
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+        social_tools: '<div></div>'
+    });
 
     $('.addon-description').popover({
         trigger: 'hover'
@@ -16,6 +18,15 @@ function onReady() {
             wrap:true
         });
     }
+
+    var items = $('a[rel=prettyPhoto]');
+
+    if(items){
+        $('#gallery-container img').attr('src',items[0].href);
+    }
+    items.bind('mouseover', function(){
+        $('#gallery-container img').attr('src',this.href);
+    });
 }
 
 function fixFooter(){
