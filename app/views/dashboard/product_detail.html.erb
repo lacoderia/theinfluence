@@ -54,19 +54,15 @@
                     <td>
                       <% if addon_combo.purchasable then %>
                           <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
-
                             <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
                                 <% if ix = @current_user_addons[:addons].index(addon_combo.addon) %>
-                                    <input class="input-addon" value='<%= @current_user_addons[:quantity][ix]%>'/>
+                                    <input class="input-addon" value='<%= @current_user_addons[:quantity][ix]%>' id="addon_<%= addon_combo.addon.id %>" />
                                 <% else %>
-                                    <input class="input-addon"  value='0'/>
+                                    <input class="input-addon"  value='0' id="addon_<%= addon_combo.addon.id %>"/>
                                 <% end %>
-                                <%= link_to "#", :current => false, :title => "Comprar componenete adicional", :class => "btn btn-a btn-small btn-blue" do %>
-                                    <i class="fa fa-shopping-cart"></i> Comprar
-                                <% end %>
+                                <%= link_to(raw("<i class='fa fa-shopping-cart'></i> Comprar"), "javascript:void(0);", :current => false, :title => "Comprar componenete adicional", :onclick => "cotizar_addons(#{current_user.id}, #{addon_combo.addon.id}, #{@product.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get) %>
                                 <% current_combo = addon_combo.combo %>
                             <% end %>
-
                       <% elsif addon_combo.active then %>
                           <span class="glyphicon glyphicon-ok addon-included"></span>
                       <% elsif addon_combo.quantity && !addon_combo.description then %>
@@ -100,7 +96,6 @@
         </div>
     <% end %>
 </div>
-
 
 <div class="modal fade" id="mensaje_enviado_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

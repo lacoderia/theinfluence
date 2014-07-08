@@ -90,11 +90,19 @@ class DashboardController < ApplicationController
 
     @product = Product.find(params[:product_id])
     @user = User.find(params[:user_id])
-    
     UserMailer.cotiza_email(@product, @user).deliver
     
     redirect_to product_detail_path(:id => @product.id)
+  end
 
+  def send_addons_cotiza_email
+    @addon = Addon.find(params[:addon_id])
+    @product = Product.find(params[:product_id])
+    @user = User.find(params[:user_id])
+    @quantity = params[:quantity]
+    UserMailer.addons_cotiza_email(@addon, @quantity, @user).deliver
+    
+    redirect_to product_detail_path(:id => @product.id)
   end
 
 end

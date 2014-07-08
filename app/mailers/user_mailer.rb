@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
     @combo = combo
     @addon_combo = addon_combo 
     @user = user
-    mail(to: "todos@theinfluence.co", subject: "Petición de compra desde la página") 
+    mail(to: "todos@theinfluence.co", subject: "Petición de compra de producto desde la página") 
   end
 
   def cotiza_email(product, user)
@@ -19,7 +19,14 @@ class UserMailer < ActionMailer::Base
     @user = user
 
     mail(to: "todos@theinfluence.co", subject: "Petición de cotización desde la página")
+  end
 
+  def addons_cotiza_email(addon, quantity, user)
+    @addon = addon
+    @user = user
+    @quantity = quantity
+
+    mail(to: "todos@theinfluence.co", subject: "Petición de compra de addon desde la página")
   end
 
 end
