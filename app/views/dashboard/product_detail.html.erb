@@ -90,7 +90,7 @@
         <%= link_to('Cotiza aquí', "javascript:void(0);", :onclick => "enviar_cotizacion(#{current_user.id}, #{@product.id})", :class => 'btn btn-a btn-big btn-blue', :method => :get) %>
       </div>
     <% end %>
-    <% if @product.footnote then %>
+    <% if @product.footnote.to_s != '' then %>
         <div id="footnote">
           <p><%= @product.footnote %></p>
         </div>
