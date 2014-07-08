@@ -3,17 +3,11 @@ $(document).on("ready", onReady);
 function onReady() {
 
     fixFooter();
+    $("a[rel^='prettyPhoto']").prettyPhoto();
 
-    if($('#product-gallery').length){
-        $('#product-gallery').slider({
-            auto: false,
-            assetTypesAllowed: ['Imagen', 'Video']
-        });
-
-        $('.addon-description').popover({
-            trigger: 'hover'
-        });
-    }
+    $('.addon-description').popover({
+        trigger: 'hover'
+    });
 
     if($('#solucion').length){
         $('#carousel-example-generic-dashboard').carousel({

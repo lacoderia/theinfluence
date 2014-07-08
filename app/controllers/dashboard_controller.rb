@@ -63,7 +63,7 @@ class DashboardController < ApplicationController
 
         #Get the product assets
         if @product.assets
-          @assets_json = @product.assets.to_json
+          @assets_json = @product.assets
         end
 
 
