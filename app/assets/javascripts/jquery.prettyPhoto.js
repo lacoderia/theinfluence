@@ -136,14 +136,60 @@
 			});
 		};
 
-		
+        $.galleryContainer = $('#gallery-container img');
+        $.galleryWrapperWidth = $('#gallery-container').width();
+        $.galleryWrapperHeight = $('#gallery-container').height();
+
+        matchedObjects.bind('mouseover',function(){
+            $.galleryContainer.hide();
+
+            var imageURL = this.href;
+            if(_getFileType(imageURL).trim() == 'image'){
+                $.galleryContainer.attr('src',imageURL);
+
+                var imageWidth = $.galleryContainer.width()-32;
+                var imageHeight = $.galleryContainer.height()-32;
+
+                if(imageWidth >= imageHeight){
+                    if(imageWidth > $.galleryWrapperWidth){
+                        $.galleryContainer.width($.galleryWrapperWidth);
+                    }
+                }else{
+                    if(imageHeight > $.galleryWrapperHeight){
+                        $.galleryContainer.height($.galleryWrapperHeight);
+                    }
+                }
+                $.galleryContainer.show();
+            }else{
+                var youtoubeID = this.href.split('v=')[1];
+
+                $.galleryContainer.attr('src','http://img.youtube.com/vi/' + youtoubeID + '/0.jpg');
+
+                var imageWidth = $.galleryContainer.width()-32;
+                var imageHeight = $.galleryContainer.height()-32;
+
+
+                if(imageWidth >= imageHeight){
+                    console.log(imageWidth + " " + $.galleryWrapperWidth)
+                    if(imageWidth > $.galleryWrapperWidth){
+                        $.galleryContainer.width($.galleryWrapperWidth);
+                    }
+                }else{
+                    if(imageHeight > $.galleryWrapperHeight){
+                        $.galleryContainer.height($.galleryWrapperHeight);
+                    }
+                }
+                $.galleryContainer.show();
+            }
+        });
+
+
 		/**
 		* Initialize prettyPhoto.
 		*/
 		$.prettyPhoto.initialize = function() {
 			
 			settings = pp_settings;
-			
 			if(settings.theme == 'pp_default') settings.horizontal_padding = 16;
 			
 			// Find out if the picture is part of a set
@@ -172,8 +218,8 @@
 		}
 
         $.prettyPhoto.changePreviewImage = function(imageURL){
-            var previewContainer =  $('#gallery-container img');
-            previewContainer.attr('src', imageURL);
+
+
         };
 
 
@@ -744,6 +790,7 @@
 				$.prettyPhoto.changeGalleryPage(goToPage);
 				
 				$pp_gallery_li.filter(':eq('+set_position+')').addClass('selected');
+
 			}else{
 				$pp_pic_holder.find('.pp_content').unbind('mouseenter mouseleave');
 				// $pp_gallery.hide();

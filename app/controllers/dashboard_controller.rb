@@ -63,9 +63,8 @@ class DashboardController < ApplicationController
 
         #Get the product assets
         if @product.assets
-          @assets_json = @product.assets
+          @assets_json = @product.assets.order('asset_type DESC')
         end
-
 
       end
 

@@ -18,15 +18,6 @@ function onReady() {
             wrap:true
         });
     }
-
-    var items = $('a[rel=prettyPhoto]');
-
-    if(items){
-        $('#gallery-container img').attr('src',items[0].href);
-    }
-    items.bind('mouseover', function(){
-        $('#gallery-container img').attr('src',this.href);
-    });
 }
 
 function fixFooter(){
