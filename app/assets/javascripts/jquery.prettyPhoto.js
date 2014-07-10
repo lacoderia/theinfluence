@@ -136,50 +136,97 @@
 			});
 		};
 
-        $.galleryContainer = $('#gallery-container img');
-        $.galleryWrapperWidth = $('#gallery-container').width();
-        $.galleryWrapperHeight = $('#gallery-container').height();
+        $.galleryContainer = $('#gallery-container');
+        $.galleryWrapperWidth = $.galleryContainer.width() - 32;
+        $.galleryWrapperHeight = $.galleryContainer.height() - 32;
 
         matchedObjects.bind('mouseover',function(){
-            $.galleryContainer.hide();
 
             var imageURL = this.href;
             if(_getFileType(imageURL).trim() == 'image'){
-                $.galleryContainer.attr('src',imageURL);
+                $.galleryContainer.empty();
 
-                var imageWidth = $.galleryContainer.width()-32;
-                var imageHeight = $.galleryContainer.height()-32;
+                var image = new Image();
+                image.onload = function(){
+                    var imageWidth = image.width;
+                    var imageHeight = image.height;
 
-                if(imageWidth >= imageHeight){
-                    if(imageWidth > $.galleryWrapperWidth){
-                        $.galleryContainer.width($.galleryWrapperWidth);
+                    if(imageWidth >= imageHeight){
+                        if(imageWidth > $.galleryWrapperWidth){
+                            if(imageHeight <= $.galleryWrapperHeight){
+                                image.height = $.galleryWrapperHeight;
+                            }else{
+                                image.width = $.galleryWrapperWidth;
+                            }
+                        }else{
+                            if(imageHeight <= $.galleryWrapperHeight){
+                                image.height = $.galleryWrapperHeight;
+                            }
+                        }
+                    }else{
+
+                        if(imageWidth > $.galleryWrapperWidth){
+                            if(imageHeight <= $.galleryWrapperHeight){
+                                image.height = $.galleryWrapperHeight;
+                            }else{
+                                image.width = $.galleryWrapperWidth;
+                            }
+                        }else{
+                            if(imageHeight <= $.galleryWrapperHeight){
+                                image.height = $.galleryWrapperHeight;
+                            }
+                        }
                     }
-                }else{
-                    if(imageHeight > $.galleryWrapperHeight){
-                        $.galleryContainer.height($.galleryWrapperHeight);
-                    }
+                    $.galleryContainer.append(image);
                 }
-                $.galleryContainer.show();
+                image.src = imageURL;
+
+
             }else{
-                var youtoubeID = this.href.split('v=')[1];
 
-                $.galleryContainer.attr('src','http://img.youtube.com/vi/' + youtoubeID + '/0.jpg');
+                $.galleryContainer.empty();
 
-                var imageWidth = $.galleryContainer.width()-32;
-                var imageHeight = $.galleryContainer.height()-32;
+                var image = new Image();
+                image.onload = function(){
+                    var imageWidth = image.width;
+                    var imageHeight = image.height;
 
+                    if(imageWidth >= imageHeight){
+                        if(imageWidth > $.galleryWrapperWidth){
+                            if(imageHeight <= $.galleryWrapperHeight){
+                                image.width = $.galleryWrapperWidth;
+                            }else{
+                                image.height = $.galleryWrapperHeight;
+                            }
+                        }else{
+                            if(imageHeight <= $.galleryWrapperHeight){
 
-                if(imageWidth >= imageHeight){
-                    console.log(imageWidth + " " + $.galleryWrapperWidth)
-                    if(imageWidth > $.galleryWrapperWidth){
-                        $.galleryContainer.width($.galleryWrapperWidth);
+                            }else{
+                                image.height = $.galleryWrapperHeight;
+                            }
+                        }
+                    }else{
+
+                        if(imageWidth > $.galleryWrapperWidth){
+                            if(imageHeight <= $.galleryWrapperHeight){
+                                image.width = $.galleryWrapperWidth;
+                            }else{
+                                image.height = $.galleryWrapperHeight;
+                            }
+                        }else{
+                            if(imageHeight <= $.galleryWrapperHeight){
+
+                            }else{
+                                image.height = $.galleryWrapperHeight;
+                            }
+                        }
                     }
-                }else{
-                    if(imageHeight > $.galleryWrapperHeight){
-                        $.galleryContainer.height($.galleryWrapperHeight);
-                    }
+                    $.galleryContainer.append(image);
                 }
-                $.galleryContainer.show();
+
+                var youtoubeID = this.href.split('v=')[1];
+                image.src = 'http://img.youtube.com/vi/' + youtoubeID + '/0.jpg';
+
             }
         });
 
