@@ -140,94 +140,16 @@
         $.galleryWrapperWidth = $.galleryContainer.width() - 32;
         $.galleryWrapperHeight = $.galleryContainer.height() - 32;
 
+        if(matchedObjects){
+            setImage(matchedObjects[0]);
+        }
+
         matchedObjects.bind('mouseover',function(){
 
             var imageURL = this.href;
-            if(_getFileType(imageURL).trim() == 'image'){
-                $.galleryContainer.empty();
+            var typeOfFile = _getFileType(imageURL).trim();
+            setImage(this);
 
-                var image = new Image();
-                image.onload = function(){
-                    var imageWidth = image.width;
-                    var imageHeight = image.height;
-
-                    if(imageWidth >= imageHeight){
-                        if(imageWidth > $.galleryWrapperWidth){
-                            if(imageHeight <= $.galleryWrapperHeight){
-                                image.height = $.galleryWrapperHeight;
-                            }else{
-                                image.width = $.galleryWrapperWidth;
-                            }
-                        }else{
-                            if(imageHeight <= $.galleryWrapperHeight){
-                                image.height = $.galleryWrapperHeight;
-                            }
-                        }
-                    }else{
-
-                        if(imageWidth > $.galleryWrapperWidth){
-                            if(imageHeight <= $.galleryWrapperHeight){
-                                image.height = $.galleryWrapperHeight;
-                            }else{
-                                image.width = $.galleryWrapperWidth;
-                            }
-                        }else{
-                            if(imageHeight <= $.galleryWrapperHeight){
-                                image.height = $.galleryWrapperHeight;
-                            }
-                        }
-                    }
-                    $.galleryContainer.append(image);
-                }
-                image.src = imageURL;
-
-
-            }else{
-
-                $.galleryContainer.empty();
-
-                var image = new Image();
-                image.onload = function(){
-                    var imageWidth = image.width;
-                    var imageHeight = image.height;
-
-                    if(imageWidth >= imageHeight){
-                        if(imageWidth > $.galleryWrapperWidth){
-                            if(imageHeight <= $.galleryWrapperHeight){
-                                image.width = $.galleryWrapperWidth;
-                            }else{
-                                image.height = $.galleryWrapperHeight;
-                            }
-                        }else{
-                            if(imageHeight <= $.galleryWrapperHeight){
-
-                            }else{
-                                image.height = $.galleryWrapperHeight;
-                            }
-                        }
-                    }else{
-
-                        if(imageWidth > $.galleryWrapperWidth){
-                            if(imageHeight <= $.galleryWrapperHeight){
-                                image.width = $.galleryWrapperWidth;
-                            }else{
-                                image.height = $.galleryWrapperHeight;
-                            }
-                        }else{
-                            if(imageHeight <= $.galleryWrapperHeight){
-
-                            }else{
-                                image.height = $.galleryWrapperHeight;
-                            }
-                        }
-                    }
-                    $.galleryContainer.append(image);
-                }
-
-                var youtoubeID = this.href.split('v=')[1];
-                image.src = 'http://img.youtube.com/vi/' + youtoubeID + '/0.jpg';
-
-            }
         });
 
 
@@ -264,8 +186,99 @@
 			return false;
 		}
 
-        $.prettyPhoto.changePreviewImage = function(imageURL){
 
+        function setImage(item){
+
+            var imageURL = item.href;
+            var typeOfFile = _getFileType(imageURL).trim();
+            var ratio = 0;
+            var image = new Image();
+
+            var loader = new Image();
+            loader.src = '/assets/gallery/prettyPhoto/default/loader.gif';
+            $(loader).css('left',($.galleryContainer.width()/2 - loader.width/2 + 16));
+            $(loader).css('top',($.galleryContainer.height()/2 - loader.height/2 + 16));
+            $.galleryContainer.append(loader);
+
+            switch(typeOfFile){
+                case 'image':
+
+                    image.onload =function(){
+                        if(image.width > $.galleryWrapperWidth){
+                            ratio = $.galleryWrapperWidth/image.width;
+                            image.width = $.galleryWrapperWidth;
+                            image.height = image.height*ratio;
+
+                            if(image.height > $.galleryWrapperHeight){
+                                ratio = $.galleryWrapperHeight/image.height;
+                                image.width = image.width*ratio;
+                                image.height = $.galleryWrapperHeight;
+
+                            }
+                        }else if(image.height > $.galleryWrapperHeight){
+                            ratio = $.galleryWrapperHeight/image.height;
+                            image.width = image.width*ratio;
+                            image.height = $.galleryWrapperHeight;
+
+                            if(image.width > $.galleryWrapperWidth){
+                                ratio = $.galleryWrapperWidth/image.width;
+                                image.width = $.galleryWrapperWidth;
+                                image.height = image.height*ratio;
+                            }
+
+                        }
+
+                        $(image).css('left',($.galleryContainer.width()/2 - image.width/2 + 16));
+                        $(image).css('top',($.galleryContainer.height()/2 - image.height/2 + 16));
+
+                        $.galleryContainer.empty();
+                        $.galleryContainer.append(image);
+
+                    }
+                    image.src = imageURL;
+
+                    break;
+                case 'youtube':
+                    image.onload =function(){
+                        if(image.width > $.galleryWrapperWidth){
+                            ratio = $.galleryWrapperWidth/image.width;
+                            image.width = $.galleryWrapperWidth;
+                            image.height = image.height*ratio;
+
+                            if(image.height > $.galleryWrapperHeight){
+                                ratio = $.galleryWrapperHeight/image.height;
+                                image.width = image.width*ratio;
+                                image.height = $.galleryWrapperHeight;
+
+                            }
+                        }else if(image.height > $.galleryWrapperHeight){
+                            ratio = $.galleryWrapperHeight/image.height;
+                            image.width = image.width*ratio;
+                            image.height = $.galleryWrapperHeight;
+
+                            if(image.width > $.galleryWrapperWidth){
+                                ratio = $.galleryWrapperWidth/image.width;
+                                image.width = $.galleryWrapperWidth;
+                                image.height = image.height*ratio;
+                            }
+
+                        }
+
+                        $(image).css('left',($.galleryContainer.width()/2 - image.width/2 + 16));
+                        $(image).css('top',($.galleryContainer.height()/2 - image.height/2 + 16));
+
+                        $.galleryContainer.empty();
+                        $.galleryContainer.append(image);
+
+                    }
+                    var youtoubeID = item.href.split('v=')[1];
+                    image.src = 'http://img.youtube.com/vi/' + youtoubeID + '/0.jpg';
+                    break;
+            }
+
+        };
+
+        function setLargeImage(item, typeOfFile){
 
         };
 

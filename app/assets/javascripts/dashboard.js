@@ -1,7 +1,7 @@
 $(document).on("ready", onReady);
 
 function onReady() {
-    console.log('ENTRAR')
+
     fixFooter();
     $("a[rel^='prettyPhoto']").prettyPhoto({
         social_tools: '<div></div>'
