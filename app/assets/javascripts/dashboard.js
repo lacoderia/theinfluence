@@ -3,9 +3,11 @@ $(document).on("ready", onReady);
 function onReady() {
 
     fixFooter();
-    $("a[rel^='prettyPhoto']").prettyPhoto({
-        social_tools: '<div></div>'
-    });
+    if($("a[rel^='prettyPhoto']")){
+        $("a[rel^='prettyPhoto']").prettyPhoto({
+            social_tools: '<div></div>'
+        });
+    }
 
     $('.addon-description').popover({
         trigger: 'hover'
