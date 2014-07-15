@@ -17,7 +17,7 @@
 			opacity: 0.80, /* Value between 0 and 1 */
 			show_title: true, /* true/false */
 			allow_resize: true, /* Resize the photos bigger than viewport. true/false */
-			allow_expand: true, /* Allow the user to expand a resized image. true/false */
+			allow_expand: false, /* Allow the user to expand a resized image. true/false */
 			default_width: 500,
 			default_height: 344,
 			counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
@@ -137,8 +137,8 @@
 		};
 
         $.galleryContainer = $('#gallery-container');
-        $.galleryWrapperWidth = $.galleryContainer.width() - 32;
-        $.galleryWrapperHeight = $.galleryContainer.height() - 32;
+        $.galleryWrapperWidth = $.galleryContainer.width();
+        $.galleryWrapperHeight = $.galleryContainer.height();
 
         if(matchedObjects){
             setImage(matchedObjects[0]);
@@ -196,8 +196,8 @@
 
             var loader = new Image();
             loader.src = '/assets/gallery/prettyPhoto/default/loader.gif';
-            $(loader).css('left',($.galleryContainer.width()/2 - loader.width/2 + 16));
-            $(loader).css('top',($.galleryContainer.height()/2 - loader.height/2 + 16));
+            $(loader).css('left',($.galleryContainer.width()/2 - loader.width/2));
+            $(loader).css('top',($.galleryContainer.height()/2 - loader.height/2));
             $.galleryContainer.append(loader);
 
             switch(typeOfFile){
@@ -228,8 +228,8 @@
 
                         }
 
-                        $(image).css('left',($.galleryContainer.width()/2 - image.width/2 + 16));
-                        $(image).css('top',($.galleryContainer.height()/2 - image.height/2 + 16));
+                        $(image).css('left',($.galleryContainer.width()/2 - image.width/2));
+                        $(image).css('top',0);
 
                         $.galleryContainer.empty();
                         $.galleryContainer.append(image);
@@ -264,8 +264,8 @@
 
                         }
 
-                        $(image).css('left',($.galleryContainer.width()/2 - image.width/2 + 16));
-                        $(image).css('top',($.galleryContainer.height()/2 - image.height/2 + 16));
+                        $(image).css('left',($.galleryContainer.width()/2 - image.width/2));
+                        $(image).css('top',0);
 
                         $.galleryContainer.empty();
                         $.galleryContainer.append(image);
@@ -668,7 +668,8 @@
 		* @param setCount {integer} The total number of items in the set
 		*/
 		function _checkPosition(setCount){
-			(setCount > 1) ? $('.pp_nav').show() : $('.pp_nav').hide(); // Hide the bottom nav if it's not a set.
+			//(setCount > 1) ? $('.pp_nav').show() : $('.pp_nav').hide(); // Hide the bottom nav if it's not a set.
+            $('.pp_nav').hide();
 		};
 	
 		/**

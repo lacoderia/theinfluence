@@ -17,9 +17,21 @@ function onReady() {
         $('#carousel-example-generic-dashboard').carousel({
             interval: 5000,
             pause:'hover',
-            wrap:true
+            wrap:true,
+            height: 300
         });
     }
+
+    $('.combo').bind('mouseover', function(){
+        $('.combo').removeClass('combo-selected');
+
+        var elementClass = ($(this).attr('class').split(' ')[1]);
+        $('.'+elementClass).addClass('combo-selected');
+    });
+
+    $('.combo').bind('mouseout', function(){
+        $('.combo').removeClass('combo-selected');
+    })
 }
 
 function fixFooter(){

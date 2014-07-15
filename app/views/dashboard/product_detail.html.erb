@@ -8,17 +8,17 @@
     </div>
 
     <div id="product-detail">
-      <div id="product-gallery" class="col-md-6" data-items="<%= @assets_json %>">
+      <div id="product-gallery" class="col-md-6">
         <div id="gallery-container">
         </div>
         <ul id="thumb-gallery">
           <% @assets_json.each do |asset| %>
-            <li><a href="<%= asset.url %>" rel="prettyPhoto"><img src="<%= asset.url_thumb %>" width="60" height="60"></a></li>
+            <li><a href="<%= asset.url %>" rel="prettyPhoto[pp_gal]" title="<%= asset.name %>."><img src="<%= asset.url_thumb %>" width="60" height="60"></a></li>
           <% end %>
         </ul>
       </div>
       <div class="col-md-6">
-        <p><%= @product.description.html_safe %></p>
+        <p><%= simple_format(@product.description) %></p>
         <ul class="benefits">
           <% @benefits_array.each do |benefit| %>
               <li><%= benefit %></li>
@@ -35,7 +35,7 @@
           <tr>
             <th class="addon"></th>
             <% @combos_array.each do |combo| %>
-                <th>
+                <th class="combo combo-<%= combo.id %>">
                   <span class="combo-title"><%= combo.name %></span>
                   <span class="combo-price"><%= number_to_currency(combo.price, precision: 0, locale: :en) %></span>
                   <span class="combo-description"><%= combo.description %></span>
@@ -49,12 +49,12 @@
               <tr>
                 <td class="addon-title">
                   <% if not addon.description.to_s == '' then %>
-                      <i class="fa fa-info-circle addon-description" data-toggle="popover"  title="<%= addon.name %>" data-content="<%= addon.description %>"></i>
+                      <i class="fa fa-info-circle addon-description" data-toggle="popover" data-content="<%= addon.description %>"></i>
                   <% end %>
                   <%= addon.name %>
                 </td>
                 <% addon.addons_combos.each do |addon_combo| %>
-                    <td>
+                    <td class="combo combo-<%= addon_combo.combo.id %>">
                       <% if addon_combo.purchasable then %>
                           <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
                             <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
@@ -80,7 +80,7 @@
           <tr class="select-combo-button">
             <td class="addon-title"></td>
             <% @combos_array.each do |combo| %>
-              <td><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get) unless current_combo == combo %></td>
+              <td class="combo combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get) unless current_combo == combo %></td>
             <% end %>
           </tr>
           </tbody>

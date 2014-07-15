@@ -10,18 +10,16 @@ $color-green: #3c763d;
 
   #gallery-container{
     display: inline-block;
-    background-color: black;
-    border: 1px solid $color-light-gray;
-    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);
     box-sizing: border-box;
     height: 350px;
     overflow: hidden;
-    padding: 1em;
+    padding: 0em;
     position: relative;
     text-align: center;
     width: 100%;
 
     > img {
+      border: 1px solid $color-light-gray;
       display: inline-block;
       position: absolute;
     }

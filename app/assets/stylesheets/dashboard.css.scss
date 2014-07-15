@@ -9,6 +9,7 @@ $color-dark-blue: #017DD2;
 $color-gray: #555;
 $color-light-gray: #f2f2f2;
 $color-green: #3c763d;
+$color-light-yellow: #FBFBFB;
 
 ul.nav{
 
@@ -170,15 +171,25 @@ ul.dropdown-menu{
   margin-bottom: 2em;
   padding: 2em;
 
+  th.combo-selected{
+    background-color: $color-dark-blue;
+  }
+
+  td.combo-selected{
+    background-color: $color-light-yellow;
+  }
+
   table{
     border-collapse: separate;
     border-spacing: 1em 0em;
+    cursor: pointer;
     margin: 0px auto;
     table-layout: fixed;
     width: 90%;
 
     th{
       background-color: $color-blue;
+      border: 1px solid white;
       border-radius: 10px 10px 0px 0px;
       color: white;
       font-size: 1em;
@@ -324,13 +335,17 @@ ul.dropdown-menu{
       font-weight: bold;
     }
 
+    h3{
+      margin: 0px;
+    }
+
     hr{
       margin: 0.8em auto;
       width: 80%;
     }
 
     img{
-      width: 50%;
+      width: 100%;
     }
 
     p{

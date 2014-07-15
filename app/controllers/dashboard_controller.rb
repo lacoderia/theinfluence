@@ -41,11 +41,11 @@ class DashboardController < ApplicationController
         @assets_json = ''
 
         if @product.description
-          @description = (@product.description).gsub("\n",'<br />')
+          @description = @product.description
         end
 
         if @product.benefits
-          @benefits_array = (@product.benefits).split("\r\n")
+          @benefits_array = (@product.benefits).split("<br>")
         end
 
         #Get the combos product
