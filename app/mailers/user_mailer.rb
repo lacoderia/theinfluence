@@ -29,4 +29,10 @@ class UserMailer < ActionMailer::Base
     mail(to: "todos@theinfluence.co", subject: "Petición de compra de addon desde la página")
   end
 
+  def crea_cuenta_email(user, password)
+    @user = user
+    @password = password
+    mail(to: user.email, subject: "¡Bienvenido a The Influence!")
+  end
+
 end

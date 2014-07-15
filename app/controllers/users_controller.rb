@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         flash[:notice] = "El usuario fue creado exitosamente."
+        UserMailer.crea_cuenta_email(@user, user_params[:password]).deliver
         format.html { render :new, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
