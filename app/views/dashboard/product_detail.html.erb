@@ -80,7 +80,7 @@
           <tr class="select-combo-button">
             <td class="addon-title"></td>
             <% @combos_array.each do |combo| %>
-              <td><%= link_to('Contratá el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get) unless current_combo == combo %></td>
+              <td><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get) unless current_combo == combo %></td>
             <% end %>
           </tr>
           </tbody>
