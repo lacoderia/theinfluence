@@ -26,10 +26,5 @@ module Theinfluence
 
     # Precompile additional assets
     config.assets.precompile += %w( .svg .eot .woff .ttf )
-
-    #Change devise layout
-    config.to_prepare do
-      Devise::RegistrationsController.layout proc{ current_user.roles[0] == 1 ? "admin_dashboard" : "dashboard" }
-    end
   end
 end

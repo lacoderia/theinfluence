@@ -35,4 +35,12 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.to_prepare do
+    Devise::SessionsController.layout "display"
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "dashboard"   : "display" }
+    Devise::ConfirmationsController.layout "display"
+    Devise::UnlocksController.layout "display"
+    Devise::PasswordsController.layout "display"
+  end
 end
