@@ -107,6 +107,9 @@ a:after {
     padding: 80px 0px;
     background-color: #11a7fc;
     color: #fff;
+    min-height: 394px;
+    max-height: 394px;
+    overflow: hidden;
 }
 
 .intro h1 {
