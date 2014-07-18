@@ -50,7 +50,9 @@ class DashboardController < ApplicationController
 
         #Get the combos product
         @combos_array = @product.combos
-        @product_addons_array = Addon.joins(combos: :product).where('product_id =?', @product_id).distinct('id').order('addon_order')
+        @product_addons_array = Addon.joins(combos: :product).where('product_id =? and addons_combos.purchasable = ?', @product_id, false).distinct('id').order('addon_order')
+        
+        @product_purchasable_addons_array = Addon.joins(combos: :product).where('product_id =? and addons_combos.purchasable = ?', @product_id, true).distinct('id').order('addon_order')
         
         @current_user_addons = {}
         @current_user_addons[:addons] = []
@@ -95,11 +97,14 @@ class DashboardController < ApplicationController
   end
 
   def send_addons_cotiza_email
-    @addon = Addon.find(params[:addon_id])
     @product = Product.find(params[:product_id])
     @user = User.find(params[:user_id])
-    @quantity = params[:quantity]
-    UserMailer.addons_cotiza_email(@addon, @quantity, @user).deliver
+    @addons = []
+    @total = params[:total]
+    params[:addons].each do |addon|
+      @addons << {:addon => Addon.find(addon[1]["addon_id"]), :quantity => addon[1]["quantity"] }
+    end
+    UserMailer.addons_cotiza_email(@addons, @user, @product, @total).deliver
     
     redirect_to product_detail_path(:id => @product.id)
   end

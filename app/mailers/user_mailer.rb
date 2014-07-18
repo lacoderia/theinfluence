@@ -21,11 +21,11 @@ class UserMailer < ActionMailer::Base
     mail(to: "todos@theinfluence.co", subject: "Petición de cotización desde la página")
   end
 
-  def addons_cotiza_email(addon, quantity, user)
-    @addon = addon
+  def addons_cotiza_email(addons, user, product, total)
+    @addons = addons
     @user = user
-    @quantity = quantity
-
+    @product = product
+    @total = total
     mail(to: "todos@theinfluence.co", subject: "Petición de compra de addon desde la página")
   end
 

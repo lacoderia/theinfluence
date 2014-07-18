@@ -1,5 +1,13 @@
 <p>Nombre: <%= @user.name %></p>
 <p>Email: <%= @user.email %></p>
 <p>Nombre: <%= @user.name %></p>
-<p>Addon: <%= @addon.name %></p>
-<p>Cantidad: <%= @quantity %></p>
+<p>Producto: <%= @product.name %></p>
+<br/>
+<p>Addons</p>
+<% @addons.each do |addon| %>
+  
+  <p>Addon: <%= addon[:addon].name %></p>
+  <p>Cantidad: <%= addon[:quantity] %></p>
+  <br/>
+<% end %>
+<p>Total: <%= @total %></p>

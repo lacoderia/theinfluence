@@ -1,3 +1,10 @@
+function recalculateTotals(){
+  var subtotal = 0.0;
+  $.each($(".purchased"), function(key, item) {
+    subtotal += (parseInt(item.value)*parseFloat(item.dataset.price));
+  });
+  $("#total_addons").html("$" + subtotal.toFixed(2));
+}
 
 function enviar_compra(user_id, combo_id, addon_combo_id){
   if (addon_combo_id != null){
@@ -37,8 +44,14 @@ function enviar_cotizacion(user_id, product_id){
   });
 } 
 
-function cotizar_addons(user_id, addon_id, product_id){
-  var data = {user_id: user_id, addon_id: addon_id, quantity: $("#addon_"+addon_id).val(), product_id: product_id};
+function cotizar_addons(user_id, product_id){
+  var addons = [];
+
+  $.each($(".purchased"), function(key, item) {
+    addons.push( {addon_id: item.dataset.addon, quantity: item.value} );
+  });
+
+  var data = {user_id: user_id, product_id: product_id, addons: addons, total: $("#total_addons").html() }
 
   $('html').loader('show');
   $.ajax({
