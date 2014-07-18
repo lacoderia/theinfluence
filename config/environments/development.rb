@@ -1,5 +1,10 @@
 # -*- encoding : utf-8 -*-
 Rails.application.configure do
+
+  ENV['DOMAIN_NAME'] = ""
+  ENV['GMAIL_USERNAME'] = "" 
+  ENV['GMAIL_PASSWORD'] = "" 
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -33,14 +38,29 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.action_mailer.smtp_settings = {
+    address: "theinfluence.co",
+    port: 587,
+    domain: ENV["DOMAIN_NAME"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
   config.to_prepare do
     Devise::SessionsController.layout "display"
-    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "dashboard"   : "display" }
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "dashboard" : "display" }    
     Devise::ConfirmationsController.layout "display"
-    Devise::UnlocksController.layout "display"
-    Devise::PasswordsController.layout "display"
+    Devise::UnlocksController.layout "display"            
+    Devise::PasswordsController.layout "display"        
   end
 end
