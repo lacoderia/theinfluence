@@ -16,6 +16,10 @@
     * <%= f.label "Teléfono" %><br>
     <%= f.text_field :phone, :required => true %>
   </div>
+  <div class="contactform-group">
+    * <%= f.label "Mensaje" %><br>
+    <%= f.text_field :message, :required => false %>
+  </div>
   <div class="actions">
     <%= f.submit "Enviar", :class => 'btn btn btn-blue btn-small' %>
   </div>
