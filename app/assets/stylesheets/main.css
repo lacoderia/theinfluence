@@ -107,9 +107,14 @@ a:after {
     padding: 80px 0px;
     background-color: #11a7fc;
     color: #fff;
-    min-height: 394px;
-    max-height: 394px;
+    min-height: 500px;
+    max-height: 500px;
     overflow: hidden;
+}
+
+.intro.img{
+    min-height: 200px;
+    max-height: 200px;
 }
 
 .intro h1 {
@@ -438,8 +443,22 @@ border-radius: 15px 15px 15px 15px / 50% 50% 50% 50%;
     width: 150px;
     text-align: center;
     background-color: #fff;
+
+    }
+
+    .intro {
+        background: url('/assets/shattered.png');
+        background-repeat: repeat;
+        padding: 80px 0px;
+        background-color: #11a7fc;
+        color: #fff;
+        min-height: 390px;
+        max-height: 390px;
+        overflow: hidden;
     }
 }
+
+
 
 .navbar-default .navbar-nav > li > a {
   background-color: #fff;

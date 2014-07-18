@@ -79,6 +79,7 @@
           </tbody>
         </table>
 
+        <% if not @product_purchasable_addons_array.empty?%>
         <h2>Agrega</h2>
         <table>
           <thead>
@@ -87,11 +88,11 @@
           </tr>
           </thead>
           <tbody>
-          <% 
-            current_combo = nil 
+          <%
+            current_combo = nil
             total_addons = 0
           %>
-          <% @product_purchasable_addons_array.each do |addon| %>
+          <% @product_purchasable_addons_array.each_with_index do |addon, index| %>
               <tr>
                 <td class="addon-title">
                   <% if not addon.description.to_s == '' then %>
@@ -100,7 +101,11 @@
                   <%= addon.name %>
                 </td>
                 <% addon.addons_combos.each do |addon_combo| %>
+                  <% if index == @product_purchasable_addons_array.size - 1 %>
+                  <td class="combo combo-<%= addon_combo.combo.id %>" style="border: 1px solid #f2f2f2; border-radius: 0px 0px 10px 10px;">
+                  <% else %>
                   <td class="combo combo-<%= addon_combo.combo.id %>">
+                  <% end %>
                     <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
                       <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
                           <% if ix = @current_user_addons[:addons].index(addon_combo.addon) %>
@@ -116,7 +121,7 @@
               </tr>
           <% end %>
 
-          <% if current_combo %>      
+          <% if current_combo %>
             <tr class="select-combo-button">
               <td class="addon-title">Total</td>
               <% @combos_array.each do |combo| %>
@@ -127,17 +132,11 @@
                 </td>
               <% end %>
             </tr>
-          <% else %>
-            <tr class="select-combo-button">
-              <td class="addon-title"></td>
-              <% @combos_array.each do |combo| %>
-                <td></td>
-              <% end %>
-            </tr>
           <% end %>
 
           </tbody>
         </table>
+        <% end %>
 
       </div>
     <% else %>
