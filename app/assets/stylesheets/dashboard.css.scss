@@ -11,42 +11,7 @@ $color-light-gray: #f2f2f2;
 $color-green: #3c763d;
 $color-light-yellow: #FBFBFB;
 
-ul.nav{
 
-  margin-right: 0px !important;
-
-  li{
-    display: inline-block;
-    min-width: 150px;
-    text-overflow: ellipsis;
-    width: auto;
-
-    a{
-      padding-left: 1em;
-      padding-right: 1em;
-      width: 100%;
-    }
-  }
-
-  .caret{
-    margin-left: 0.4em;
-  }
-
-  span.glyphicon-user{
-    margin-right: 6px;
-  }
-}
-
-ul.dropdown-menu{
-  li{
-
-    width: 100%;
-
-    a{
-      width: 100%;
-    }
-  }
-}
 
 #contract{
   background: white;
@@ -376,4 +341,18 @@ ul.dropdown-menu{
   margin: 0.2em auto;
   text-align: center;
   width: 40px;
+}
+
+@media(min-width: 768px){
+  .navbar-right:last-child{
+    margin-right: 0px !important;
+  }
+
+  .caret{
+    margin-left: 0.4em;
+  }
+
+  span.glyphicon-user{
+    margin-right: 6px;
+  }
 }

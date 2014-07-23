@@ -411,10 +411,6 @@ border-radius: 15px 15px 15px 15px / 50% 50% 50% 50%;
 
 /*NAVBAR*/
 
-#navigation {
-
-}
-
 
 
 .navbar {
@@ -435,6 +431,10 @@ border-radius: 15px 15px 15px 15px / 50% 50% 50% 50%;
     right: 0px;
     z-index: 1030;
     height: 70px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+    background-color: #ffffff;
 }
 
 @media(min-width:768px){
@@ -482,9 +482,6 @@ background-color: #f2f2f2;
     margin-left: 16px;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
- }
 
 .dropdown-menu > li > a {
 width: 148px;
@@ -598,10 +595,10 @@ box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 #solucion {
     background: url('/assets/shattered.png');
     background-repeat: repeat;
-  background-color: #11a7fc;
-  padding: 40px 0px 0px 0px;
-  font-weight: 300;
-  vertical-align: middle;
+    background-color: #11a7fc;
+    padding: 40px 0px 0px 0px;
+    font-weight: 300;
+    vertical-align: middle;
 }
 
 #solucion h1 {
@@ -611,6 +608,7 @@ box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
 @media(max-width:767px){
+
     #solucion h1 {
         font-size: 29px;
     }
@@ -909,19 +907,6 @@ h5.upgrade{
 }
 
 /* Sidebar navigation */
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-}
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.nav-sidebar > .active > a {
-  color: #fff;
-  background-color: #428bca;
-}
 
 
 /*
