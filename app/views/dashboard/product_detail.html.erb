@@ -75,7 +75,7 @@
             <% @combos_array.each do |combo| %>
               <% if current_combo == combo %>
                 <td class="combo combo-<%= combo.id %>"><strong>Contratado</strong></td>
-              <% elsif current_combo != combo and current_combo.price < combo.price %>
+              <% elsif current_combo and current_combo != combo and current_combo.price < combo.price %>
                 <td class="combo combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get) %></td>
               <% else %>
                 <td class="combo combo-<%= combo.id %>"></td>
