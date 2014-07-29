@@ -215,9 +215,9 @@ AddonsCombo.create(addon_id: addon_ecpv.id, combo_id: viraliza_combo_10000.id, d
 AddonsCombo.create(addon_id: addon_ecpv.id, combo_id: viraliza_combo_20000.id, description: '$ 0.136')
 AddonsCombo.create(addon_id: addon_ecpv.id, combo_id: viraliza_combo_50000.id, description: '$ 0.131')
 
-AddonsCombo.create(addon_id: addon_viraliza_cantidad.id, combo_id: viraliza_combo_10000.id, purchasable: true, price: 10000)
-AddonsCombo.create(addon_id: addon_viraliza_cantidad.id, combo_id: viraliza_combo_20000.id, purchasable: true, price: 20000)
-AddonsCombo.create(addon_id: addon_viraliza_cantidad.id, combo_id: viraliza_combo_50000.id, purchasable: true, price: 50000)
+#AddonsCombo.create(addon_id: addon_viraliza_cantidad.id, combo_id: viraliza_combo_10000.id, purchasable: true, price: 10000)
+#AddonsCombo.create(addon_id: addon_viraliza_cantidad.id, combo_id: viraliza_combo_20000.id, purchasable: true, price: 20000)
+#AddonsCombo.create(addon_id: addon_viraliza_cantidad.id, combo_id: viraliza_combo_50000.id, purchasable: true, price: 50000)
 
 #addons_combos_monitorea
 AddonsCombo.create(addon_id: addon_monitorea_menciones_personas_audiencia.id, combo_id: monitorea_combo_basico.id, active: true)
