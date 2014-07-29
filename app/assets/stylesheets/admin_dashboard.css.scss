@@ -105,6 +105,16 @@ a.btn{
       display: inline-block;
       vertical-align: top;
 
+      .buttons-combos{
+        margin: 2em 0em 1em;
+
+        button.selected{
+          color: #333333;
+          background-color: #e6e6e6;
+          border-color: #adadad;
+        }
+      }
+
       .product-info{
         border-radius: 10px;
         box-sizing: border-box;

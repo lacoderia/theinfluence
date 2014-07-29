@@ -47,61 +47,20 @@
             </div>
             <div class="purchases-combos col-lg-8 col-md-9 col-sm-12">
               <h4>Paquetes disponibles</h4>
-              <div class="product-info assigned">
-                <h3><%= pc.combo.name %></h3>
-                <p class="baseprice">Precio base: <%= number_to_currency(pc.combo.price, precision: 2, locale: :en) %></p>
-                <% purchasable_addons = pc.combo.addons_combos.where("purchasable = ?", true) %>
-                <% if not purchasable_addons.empty? %>
-                    <% subtotal = 0 %>
-                    <h4>Adicionales</h4>
-                    <div>
-                      <table class="extra">
-                        <% purchasable_addons.each do |addon_combo| %>
-
-                            <tr>
-                              <td><%= addon_combo.addon.name %></td>
-                              <td><%= addon_combo.quantity %></td>
-                              <td><%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %></td>
-                              <td class="extra-tools">
-                                <% nuevo_addon = true %>
-                                <% if not @user_pa.empty? %>
-                                    <% @user_pa.each do |pa| %>
-                                        <% if pa.addon == addon_combo.addon %>
-                                            <% nuevo_addon = false %>
-                                            <% subtotal += pa.total_price %>
-                                            <strong><span class="hidden-sm hidden-xs"></span>(<%= pa.quantity %>)</strong>
-                                        <% end %>
-                                    <% end %>
-                                <% end %>
-                                <% if pc.combo %>
-                                    <% if nuevo_addon then %>
-                                        <%= link_to assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => false, :combo_id => pc.combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este addon?' }, :title => "Agregar componenete adicional" do %>
-                                            <i class="fa fa-plus-circle"></i>
-                                        <% end %>
-                                    <% else %>
-                                        <%= link_to remove_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :combo_id => pc.combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres remover este addon?' }, :title => "Eliminar componenete adicional", :class => "delete-action" do %>
-                                            <i class="fa fa-minus-circle"></i>
-                                        <% end %>
-                                        <%= link_to assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => true, :combo_id => pc.combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres aumentar este addon?' }, :title => "Agregar componenete adicional" do %>
-                                            <i class="fa fa-plus-circle"></i>
-                                        <% end %>
-                                    <% end %>
-                                <% end %>
-                              </td>
-                            </tr>
-                        <% end %>
-                        <tr class="total">
-                          <td>Total mensual:</td>
-                          <td colspan="2"><%= number_to_currency((pc.total_price + subtotal), precision: 2, locale: :en) %></td>
-                        </tr>
-                      </table>
-                    </div>
-                <% end %>
-              </div>
+              <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
+                  <% paquete_actual = (combo == pc.combo) %>
+                  <div class="btn-group buttons-combos">
+                    <% if paquete_actual then %>
+                        <button type="button" data-combo="<%= combo.name %>" class="btn btn-default selected"><%= combo.name %></button>
+                    <% else %>
+                        <button type="button" data-combo="<%= combo.name %>" class="btn btn-default"><%= combo.name %></button>
+                    <% end %>
+                  </div>
+              <% end %>
               <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
                   <% paquete_actual = (combo == pc.combo) %>
                   <% if not paquete_actual then %>
-                      <div class="product-info">
+                      <div class="product-info product-info-<%= combo.name %>" style="display: none;">
                         <h3><%= combo.name %></h3>
                         <p class="baseprice"><%= number_to_currency(combo.price, precision: 2, locale: :en) %></p>
                         <div class="tools">
@@ -124,8 +83,58 @@
                             </table>
                         <% end %>
                       </div>
-                  <%end %>
-
+                  <% else %>
+                      <div class="product-info product-info-<%= combo.name %> assigned">
+                        <h3><%= pc.combo.name %></h3>
+                        <p class="baseprice">Precio base: <%= number_to_currency(pc.combo.price, precision: 2, locale: :en) %></p>
+                        <% purchasable_addons = pc.combo.addons_combos.where("purchasable = ?", true) %>
+                        <% if not purchasable_addons.empty? %>
+                            <% subtotal = 0 %>
+                            <h4>Adicionales</h4>
+                            <div>
+                              <table class="extra">
+                                <% purchasable_addons.each do |addon_combo| %>
+                                    <tr>
+                                      <td><%= addon_combo.addon.name %></td>
+                                      <td><%= addon_combo.quantity %></td>
+                                      <td><%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %></td>
+                                      <td class="extra-tools">
+                                        <% nuevo_addon = true %>
+                                        <% if not @user_pa.empty? %>
+                                            <% @user_pa.each do |pa| %>
+                                                <% if pa.addon == addon_combo.addon %>
+                                                    <% nuevo_addon = false %>
+                                                    <% subtotal += pa.total_price %>
+                                                    <strong><span class="hidden-sm hidden-xs"></span>(<%= pa.quantity %>)</strong>
+                                                <% end %>
+                                            <% end %>
+                                        <% end %>
+                                        <% if pc.combo %>
+                                            <% if nuevo_addon then %>
+                                                <%= link_to assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => false, :combo_id => pc.combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres asignar este addon?' }, :title => "Agregar componenete adicional" do %>
+                                                    <i class="fa fa-plus-circle"></i>
+                                                <% end %>
+                                            <% else %>
+                                                <%= link_to remove_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :combo_id => pc.combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres remover este addon?' }, :title => "Eliminar componenete adicional", :class => "delete-action" do %>
+                                                    <i class="fa fa-minus-circle"></i>
+                                                <% end %>
+                                                <%= link_to assign_addon_path(:user_id => @user.id, :addon_id => addon_combo.addon.id, :current => true, :combo_id => pc.combo.id), method: :get, data: { confirm: '¿Estás seguro que quieres aumentar este addon?' }, :title => "Agregar componenete adicional" do %>
+                                                    <i class="fa fa-plus-circle"></i>
+                                                <% end %>
+                                            <% end %>
+                                        <% end %>
+                                      </td>
+                                    </tr>
+                                <% end %>
+                                <tr class="total">
+                                  <td>Total mensual:</td>
+                                  <td colspan="2"><%= number_to_currency((pc.total_price + subtotal), precision: 2, locale: :en) %></td>
+                                </tr>
+                              </table>
+                            </div>
+                        <% end %>
+                      </div>
+                  <% end %>
               <% end %>
               <div class="clearfix"></div>
             </div>

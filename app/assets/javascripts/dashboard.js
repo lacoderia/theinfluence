@@ -32,6 +32,7 @@ function onReady() {
     $('.combo').bind('mouseout', function(){
         $('.combo').removeClass('combo-selected');
     })
+
 }
 
 function fixFooter(){
