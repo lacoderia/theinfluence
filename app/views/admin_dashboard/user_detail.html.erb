@@ -26,7 +26,7 @@
       </div>
       <% @user_pc.each do |pc| %>
           <div class="purchase-account col-lg-12 col-md-12 col-sm-12">
-            <div class="purchase-info col-lg-4 col-md-3 col-sm-12">
+            <div class="purchase-info col-lg-4 col-md-3 col-sm-6 col-xs-12">
               <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
               <h3><strong><%= pc.combo.product.name %></strong></h3>
               <div class="tools">
@@ -45,7 +45,7 @@
               <hr>
               <div class="clearfix"></div>
             </div>
-            <div class="purchases-combos col-lg-8 col-md-9 col-sm-12">
+            <div class="purchases-combos col-lg-8 col-md-9 col-sm-6 col-xs-12">
               <h4>Paquetes disponibles</h4>
               <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
                   <% paquete_actual = (combo == pc.combo) %>
@@ -96,8 +96,6 @@
                                 <% purchasable_addons.each do |addon_combo| %>
                                     <tr>
                                       <td><%= addon_combo.addon.name %></td>
-                                      <td><%= addon_combo.quantity %></td>
-                                      <td><%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %></td>
                                       <td class="extra-tools">
                                         <% nuevo_addon = true %>
                                         <% if not @user_pa.empty? %>
