@@ -343,6 +343,12 @@ $color-light-yellow: #FBFBFB;
   width: 40px;
 }
 
+.banners{
+  img{
+    width: 100%;
+  }
+}
+
 @media(min-width: 768px){
   .navbar-right:last-child{
     margin-right: 0px !important;
