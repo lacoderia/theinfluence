@@ -305,6 +305,17 @@ a.btn{
   }
 }
 
+.pp_gallery{
+  box-sizing: content-box;
+  background-color: rgba(0,0,0,0.5);
+  padding: 0.5em;
+}
+
+.pp_description{
+  background-color: rgba(0,0,0,0.2);
+  padding: 0.5em;
+}
+
 
 @media (max-width: $screen-sm-min) {
 
