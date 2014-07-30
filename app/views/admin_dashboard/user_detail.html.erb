@@ -96,6 +96,8 @@
                                 <% purchasable_addons.each do |addon_combo| %>
                                     <tr>
                                       <td><%= addon_combo.addon.name %></td>
+                                      <td><%= addon_combo.quantity %></td>
+                                      <td class="hidden-xs"><%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %></td>
                                       <td class="extra-tools">
                                         <% nuevo_addon = true %>
                                         <% if not @user_pa.empty? %>
