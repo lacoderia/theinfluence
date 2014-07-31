@@ -49,10 +49,26 @@ class DashboardController < ApplicationController
         end
 
         #Get the combos product
+				@modal_tables = []
         @combos_array = @product.combos
         @product_addons_array = Addon.joins(combos: :product).where('product_id =? and addons_combos.purchasable = ?', @product_id, false).distinct('id').order('addon_order')
-        
+ 
         @product_purchasable_addons_array = Addon.joins(combos: :product).where('product_id =? and addons_combos.purchasable = ?', @product_id, true).distinct('id').order('addon_order')
+
+				@current_combo = nil
+				@discount = nil
+				@total_price = nil
+				
+				@product_addons_array.each do |addon|
+					addon.addons_combos.each do |addon_combo| 
+						current_combos = current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id)
+						if not current_combos.empty?
+							@current_combo = addon_combo.combo
+							@discount = current_combos.first.discount
+              @total_price = current_combos.first.total_price - @discount
+						end
+					end
+				end
         
         @current_user_addons = {}
         @current_user_addons[:addons] = []
@@ -99,12 +115,27 @@ class DashboardController < ApplicationController
   def send_addons_cotiza_email
     @product = Product.find(params[:product_id])
     @user = User.find(params[:user_id])
+		@discount = params[:discount]
     @addons = []
     @total = params[:total]
     params[:addons].each do |addon|
       @addons << {:addon => Addon.find(addon[1]["addon_id"]), :quantity => addon[1]["quantity"] }
     end
-    UserMailer.addons_cotiza_email(@addons, @user, @product, @total).deliver
+    UserMailer.addons_cotiza_email(@addons, @user, @product, @total, @discount).deliver
+    
+    redirect_to product_detail_path(:id => @product.id)
+  end
+
+	def send_combos_cotiza_email
+    @product = Product.find(params[:product_id])
+    @combo = Combo.find(params[:combo_id])
+    @user = User.find(params[:user_id])
+    @addons = []
+    @total = params[:total]
+    params[:addons].each do |addon|
+      @addons << {:addon => Addon.find(addon[1]["addon_id"]), :quantity => addon[1]["quantity"] }
+    end
+    UserMailer.combos_cotiza_email(@addons, @user, @combo, @total, @product).deliver
     
     redirect_to product_detail_path(:id => @product.id)
   end

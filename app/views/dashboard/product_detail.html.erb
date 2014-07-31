@@ -44,7 +44,6 @@
           </tr>
           </thead>
           <tbody>
-          <% current_combo = nil %>
           <% @product_addons_array.each do |addon| %>
               <tr>
                 <td class="addon-title">
@@ -55,9 +54,7 @@
                 </td>
                 <% addon.addons_combos.each do |addon_combo| %>
                     <td class="combo combo-<%= addon_combo.combo.id %>">
-                      <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
-                        <% current_combo = addon_combo.combo %>
-                      <% end %>
+                      <% current_combos = current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id) %>
                       <% if addon_combo.active then %>
                           <span class="glyphicon glyphicon-ok addon-included"></span>
                       <% elsif addon_combo.quantity && !addon_combo.description then %>
@@ -73,10 +70,11 @@
           <tr class="select-combo-button">
             <td class="addon-title"></td>
             <% @combos_array.each do |combo| %>
-              <% if current_combo == combo %>
-                <td class="combo combo-<%= combo.id %>"><strong>Contratado</strong></td>
-              <% elsif current_combo and current_combo != combo and current_combo.price < combo.price %>
-                <td class="combo combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "enviar_compra(#{current_user.id}, #{combo.id}, null)", :class => 'btn btn-a btn-small btn-blue', :method => :get) %></td>
+              <% if @current_combo == combo %>
+                <td class="combo combo-<%= combo.id %>"><strong>Contratado <br/> $ <%= @total_price %></strong></td>
+              <% elsif @current_combo and @current_combo != combo and @current_combo.price < combo.price %>
+								<% @modal_tables << combo %>
+                <td class="combo combo-<%= combo.id %>" id="combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "contratar_plan(#{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get, :id => "combo_#{combo.id}") %></td>
               <% else %>
                 <td class="combo combo-<%= combo.id %>"></td>
               <% end %>
@@ -85,66 +83,7 @@
           </tbody>
         </table>
 
-        <% if not @product_purchasable_addons_array.empty?%>
-        <h2>Agrega</h2>
-        <table>
-          <thead>
-          <tr>
-            <th class="addon"></th>
-          </tr>
-          </thead>
-          <tbody>
-          <%
-            current_combo = nil
-            total_addons = 0
-          %>
-          <% @product_purchasable_addons_array.each_with_index do |addon, index| %>
-              <tr>
-                <td class="addon-title">
-                  <% if not addon.description.to_s == '' then %>
-                      <i class="fa fa-info-circle addon-description" data-toggle="popover" data-content="<%= addon.description %>"></i>
-                  <% end %>
-                  <%= addon.name %>
-                </td>
-                <% addon.addons_combos.each do |addon_combo| %>
-                  <% if index == @product_purchasable_addons_array.size - 1 %>
-                  <td class="combo combo-<%= addon_combo.combo.id %>" style="border: 1px solid #f2f2f2; border-radius: 0px 0px 10px 10px;">
-                  <% else %>
-                  <td class="combo combo-<%= addon_combo.combo.id %>">
-                  <% end %>
-                    <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
-                      <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
-                          <% if ix = @current_user_addons[:addons].index(addon_combo.addon) %>
-                          <input class="input-addon purchased" onchange="recalculateTotals()" value='<%= @current_user_addons[:quantity][ix]%>' id="addon_<%= addon_combo.addon.id %>" data-price="<%= addon_combo.price %>" data-addon="<%= addon.id %>" />
-                              <% total_addons += (addon_combo.price*@current_user_addons[:quantity][ix]) %>
-                          <% else %>
-                              <input class="input-addon purchased" onchange="recalculateTotals()" value='0' id="addon_<%= addon_combo.addon.id %>" data-price="<%= addon_combo.price %>" data-addon="<%= addon.id %>"/>
-                          <% end %>
-                          <% current_combo = addon_combo.combo %>
-                      <% end %>
-                    <% end %>
-                  </td>
-              </tr>
-          <% end %>
-
-          <% if current_combo %>
-            <tr class="select-combo-button">
-              <td class="addon-title">Total</td>
-              <% @combos_array.each do |combo| %>
-                <td class="combo combo-<%= combo.id %>">
-                <% if current_combo == combo %>
-                  <p id="total_addons">$<%= total_addons %></p><%= link_to(raw("<i class='fa fa-shopping-cart'></i> Agrégalo"), "javascript:void(0);", :onclick => "cotizar_addons(#{current_user.id}, #{@product.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get) %>
-                <% end %>
-                </td>
-              <% end %>
-            </tr>
-          <% end %>
-
-          </tbody>
-        </table>
-        <% end %>
-
-      </div>
+       
     <% else %>
       <!-- SIN PAQUETES -->
       <div id="product-combos">
@@ -157,6 +96,50 @@
           <p><%= @product.footnote %></p>
         </div>
     <% end %>
+<% @modal_tables.each do |combo| %>
+
+	<div class="modal fade" id="modal_combo_<%= combo.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Paquete: <%= combo.name %></h4>
+				</div>
+				<div class="modal-body">
+					<table>
+						<thead>
+							<tr>
+								<th class="addon"></th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="addon-title">Precio</td>
+							<td class="combo combo-<%= combo.id %>"><%= number_to_currency(combo.price, precision: 2, locale: :en) %></td>
+						</tr>
+						<% combo.addons_combos.where("purchasable = ?", true).each do |addon_combo| %>
+							<tr>
+								<td class="addon-title"><%= addon_combo.addon.name %></td>
+								<td class="combo combo-<%= addon_combo.combo.id %>">
+									<%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
+									<input class="input-addon purchased_<%= combo.id %>" onchange="recalculateTotals(<%= combo.price%>, <%= combo.id %>)" value='0' id="addon_<%= addon_combo.addon.id %>" data-price="<%= addon_combo.price %>" data-addon="<%= addon_combo.addon.id %>"/>
+								</td>
+							</tr>
+						<% end %>
+						<tr class="select-combo-button">
+							<td class="addon-title">Total</td>
+							<td class="combo combo-<%= combo.id %>">
+								<p id="total_addons_<%= combo.id %>"><%= number_to_currency(combo.price, precision: 2, locale: :en)  %></p><%= link_to(raw("<i class='fa fa-shopping-cart'></i> Agrégalo"), "javascript:void(0);", :onclick => "cotizar_plan(#{current_user.id}, #{@product.id}, #{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get) %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<% end %>
+
 </div>
 
 <div class="modal fade" id="mensaje_enviado_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

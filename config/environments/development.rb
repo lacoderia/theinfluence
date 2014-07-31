@@ -1,9 +1,9 @@
 # -*- encoding : utf-8 -*-
 Rails.application.configure do
 
-  ENV['DOMAIN_NAME'] = ""
-  ENV['GMAIL_USERNAME'] = "" 
-  ENV['GMAIL_PASSWORD'] = "" 
+  ENV['DOMAIN_NAME'] = "gmail.com"
+  ENV['GMAIL_USERNAME'] = "tonklis@gmail.com" 
+  ENV['GMAIL_PASSWORD'] = "Oportunidad2013" 
 
   # Settings specified here will take precedence over those in config/application.rb.
 

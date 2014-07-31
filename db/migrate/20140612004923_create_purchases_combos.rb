@@ -6,6 +6,7 @@ class CreatePurchasesCombos < ActiveRecord::Migration
       t.integer :combo_id
       t.float :total_price
       t.boolean :upgrade
+      t.float :discount, :default => 0
 
       t.timestamps
     end

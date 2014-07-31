@@ -46,6 +46,7 @@ Theinfluence::Application.routes.draw do
   get "send_compra_email" => "dashboard#send_compra_email", :as => :send_compra_email
   get "send_cotiza_email" => "dashboard#send_cotiza_email", :as => :send_cotiza_email
   get "send_addons_cotiza_email" => "dashboard#send_addons_cotiza_email", :as => :send_addons_cotiza_email
+  get "send_combos_cotiza_email" => "dashboard#send_combos_cotiza_email", :as => :send_combos_cotiza_email
 
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => 'sessions'}
   scope "/admin" do
