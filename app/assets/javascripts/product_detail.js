@@ -96,6 +96,8 @@ function cotizar_plan(user_id, product_id, combo_id){
     success: function(){
       $('html').loader('hide');
       $('#mensaje_enviado_modal').modal('show');
+			$("#combo_" + combo_id).hide();
+      $("#combo-" + combo_id).append("<strong>En proceso</strong>");
     },error: function(){
       $('html').loader('hide');
       alert("No se pudo enviar el correo, por favor intenta más tarde.");
