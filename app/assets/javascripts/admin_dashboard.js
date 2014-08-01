@@ -14,11 +14,13 @@ function onReady() {
 function changeComboInfo(event){
 
     var selectedCombo = $(event.target).attr('data-combo');
+    var pc = selectedCombo.split('-')[0];
 
-    $('.btn-group button.selected').removeClass('selected');
+    $('.buttons-combos-' + pc + ' button.selected').removeClass('selected');
     $(event.target).addClass('selected');
 
-    $('.product-info').hide();
+    $('.pc-' + pc).hide();
+    console.log(selectedCombo)
     $('.product-info-' + selectedCombo).show();
 }
 

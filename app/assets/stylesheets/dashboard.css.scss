@@ -232,6 +232,17 @@ $color-light-yellow: #FBFBFB;
 
     }
   }
+
+  .buttons-combos{
+    float: right;
+    margin: 2em 5em 1em 0em;
+
+    button.selected{
+      color: #333333;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
+  }
 }
 
 #product-detail{

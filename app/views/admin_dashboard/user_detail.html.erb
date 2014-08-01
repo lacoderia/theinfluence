@@ -49,18 +49,18 @@
               <h4>Paquetes disponibles</h4>
               <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
                   <% paquete_actual = (combo == pc.combo) %>
-                  <div class="btn-group buttons-combos">
+                  <div class="btn-group buttons-combos buttons-combos-<%= pc.id %>" role="toolbar">
                     <% if paquete_actual then %>
-                        <button type="button" data-combo="<%= combo.name %>" class="btn btn-default selected"><%= combo.name %></button>
+                        <button type="button" data-combo="<%= pc.id %>-<%= combo.id %>" class="btn btn-default selected"><%= combo.name %></button>
                     <% else %>
-                        <button type="button" data-combo="<%= combo.name %>" class="btn btn-default"><%= combo.name %></button>
+                        <button type="button" data-combo="<%= pc.id %>-<%= combo.id %>" class="btn btn-default"><%= combo.name %></button>
                     <% end %>
                   </div>
               <% end %>
               <% Combo.where("product_id = ?", pc.combo.product_id).each do |combo| %>
                   <% paquete_actual = (combo == pc.combo) %>
                   <% if not paquete_actual then %>
-                      <div class="product-info product-info-<%= combo.name %>" style="display: none;">
+                      <div class="product-info pc-<%= pc.id %> product-info-<%= pc.id %>-<%= combo.id %>" style="display: none;">
                         <h3><%= combo.name %></h3>
                         <p class="baseprice"><%= number_to_currency(combo.price, precision: 2, locale: :en) %></p>
                         <div class="tools">
@@ -84,7 +84,7 @@
                         <% end %>
                       </div>
                   <% else %>
-                      <div class="product-info product-info-<%= combo.name %> assigned">
+                      <div class="product-info pc-<%= pc.id %> product-info-<%= pc.id %>-<%= combo.id %> assigned">
                         <h3><%= pc.combo.name %></h3>
                         <p class="baseprice">Precio base: <%= number_to_currency(pc.combo.price, precision: 2, locale: :en) %></p>
                         <% purchasable_addons = pc.combo.addons_combos.where("purchasable = ?", true) %>

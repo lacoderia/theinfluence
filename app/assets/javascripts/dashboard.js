@@ -35,6 +35,10 @@ function onReady() {
 
 }
 
+function changeComboInfo(event){
+
+}
+
 function recalculateTotals(base_price, id){
   var subtotal = base_price;
   $.each($(".purchased_"+id), function(key, item) {

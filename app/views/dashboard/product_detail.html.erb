@@ -1,35 +1,44 @@
 <div id="dashboard-container" class="col-lg-12">
 
-    <div id="product-resume">
-      <img src="<%= @product.image %>" alt="<%= @product.name %>" class="col-md-2">
-      <h3 class="col-md-10 product-name"><%= @product.name %></h3>
-      <p  class="col-md-10"><%= @product.short_description %></p>
-      <div class="clearfix"></div>
-    </div>
+  <div id="product-resume">
+    <img src="<%= @product.image %>" alt="<%= @product.name %>" class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+    <h3 class="col-xs-12 col-sm-8 col-md-10 col-lg-10 product-name"><%= @product.name %></h3>
+    <p  class="col-xs-12 col-sm-8 col-md-10 col-lg-10"><%= @product.short_description %></p>
+    <div class="clearfix"></div>
+  </div>
 
-    <div id="product-detail">
-      <div id="product-gallery" class="col-md-6">
-        <div id="gallery-container">
-        </div>
-        <ul id="thumb-gallery">
-          <% @assets_json.each do |asset| %>
+  <div id="product-detail">
+    <div id="product-gallery" class="col-md-6">
+      <div id="gallery-container">
+      </div>
+      <ul id="thumb-gallery">
+        <% @assets_json.each do |asset| %>
             <li><a href="<%= asset.url %>" rel="prettyPhoto[pp_gal]" title="<%= asset.name %>."><img src="<%= asset.url_thumb %>" width="60" height="60"></a></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="col-md-6">
-        <p><%= simple_format(@product.description) %></p>
-        <ul class="benefits">
-          <% @benefits_array.each do |benefit| %>
-              <li><%= benefit %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="clearfix"></div>
+        <% end %>
+      </ul>
     </div>
-    <% if not @combos_array.empty? %>
+    <div class="col-md-6">
+      <p><%= simple_format(@product.description) %></p>
+      <ul class="benefits">
+        <% @benefits_array.each do |benefit| %>
+            <li><%= benefit %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <% if not @combos_array.empty? %>
       <div id="product-combos">
         <h2>Elige tu paquete</h2>
+        <div class="btn-group buttons-combos" role="toolbar">
+          <% @combos_array.each_with_index do |combo, index| %>
+              <% if index == 1 then %>
+                  <button type="button" data-combo="<%= combo.name %>" class="btn btn-default selected"><%= combo.name %></button>
+              <% else %>
+                  <button type="button" data-combo="<%= combo.name %>" class="btn btn-default"><%= combo.name %></button>
+              <% end %>
+          <% end %>
+        </div>
         <table>
           <thead>
           <tr>
@@ -66,93 +75,94 @@
                 <% end %>
               </tr>
           <% end %>
-                        
+
           <tr class="select-combo-button">
             <td class="addon-title"></td>
             <% @combos_array.each do |combo| %>
-              <% if @current_combo == combo %>
-                <td class="combo combo-<%= combo.id %>"><strong>Contratado <br/> $ <%= @total_price %></strong></td>
-              <% elsif @current_combo and @current_combo != combo and @current_combo.price > combo.price %>
-                <td class="combo combo-<%= combo.id %>"></td>
-              <% else %>
-								<% @modal_tables << combo %>
-                <td class="combo combo-<%= combo.id %>" id="combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "contratar_plan(#{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get, :id => "combo_#{combo.id}") %></td>
-              <% end %>
+                <% if @current_combo == combo %>
+                    <td class="combo combo-<%= combo.id %>"><strong>Contratado <br/> $ <%= @total_price %></strong></td>
+                <% elsif @current_combo and @current_combo != combo and @current_combo.price > combo.price %>
+                    <td class="combo combo-<%= combo.id %>"></td>
+                <% else %>
+                    <% @modal_tables << combo %>
+                    <td class="combo combo-<%= combo.id %>" id="combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "contratar_plan(#{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get, :id => "combo_#{combo.id}") %></td>
+                <% end %>
             <% end %>
           </tr>
           </tbody>
         </table>
 
-       
-    <% else %>
+
+  <% else %>
       <!-- SIN PAQUETES -->
       <div id="product-combos">
         <p>Solicita una cotización para conocer los precios del producto.</p>
         <%= link_to('Cotiza aquí', "javascript:void(0);", :onclick => "enviar_cotizacion(#{current_user.id}, #{@product.id})", :class => 'btn btn-a btn-big btn-blue', :method => :get) %>
       </div>
-    <% end %>
-    <% if @product.footnote.to_s != '' then %>
-        <div id="footnote">
-          <p><%= @product.footnote %></p>
-        </div>
-    <% end %>
-<% @modal_tables.each do |combo| %>
-
-	<div class="modal fade" id="modal_combo_<%= combo.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">Paquete: <%= combo.name %></h4>
-				</div>
-				<div class="modal-body">
-					<table>
-						<thead>
-							<tr>
-								<th class="addon"></th>
-							</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td class="addon-title">Precio</td>
-							<td class="combo combo-<%= combo.id %>"><%= number_to_currency(combo.price, precision: 2, locale: :en) %></td>
-						</tr>
-						<% combo.addons_combos.where("purchasable = ?", true).each do |addon_combo| %>
-							<tr>
-								<td class="addon-title"><%= addon_combo.addon.name %></td>
-								<td class="combo combo-<%= addon_combo.combo.id %>">
-									<%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
-									<input class="input-addon purchased_<%= combo.id %>" onchange="recalculateTotals(<%= combo.price%>, <%= combo.id %>)" value='0' id="addon_<%= addon_combo.addon.id %>" data-price="<%= addon_combo.price %>" data-addon="<%= addon_combo.addon.id %>"/>
-								</td>
-							</tr>
-						<% end %>
-						<tr class="select-combo-button">
-							<td class="addon-title">Total</td>
-							<td class="combo combo-<%= combo.id %>">
-								<p id="total_addons_<%= combo.id %>"><%= number_to_currency(combo.price, precision: 2, locale: :en)  %></p><%= link_to(raw("<i class='fa fa-shopping-cart'></i> Agrégalo"), "javascript:void(0);", :onclick => "cotizar_plan(#{current_user.id}, #{@product.id}, #{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get) %>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-
-<% end %>
-
-</div>
-
-<div class="modal fade" id="mensaje_enviado_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Solicitud Exitosa</h4>
+  <% end %>
+  <% if @product.footnote.to_s != '' then %>
+      <div id="footnote">
+        <p><%= @product.footnote %></p>
       </div>
-      <div class="modal-body">
-        <p>¡Muchas gracias!</p>
-        <p>Tu solicitud ha sido ingresada exitosamente.</p>
-        <p>Pronto recibirás un correo electrónico para finalizar tu compra. En caso que no lo recibieras, haz clic <a href="mailto:todos@theinfluence.co?subject=Problemas procesando mi compra">aquí</a> para notificarnos.</p>
+  <% end %>
+  <% @modal_tables.each do |combo| %>
+
+      <div class="modal fade" id="modal_combo_<%= combo.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Paquete: <%= combo.name %></h4>
+            </div>
+            <div class="modal-body">
+              <table>
+                <thead>
+                <tr>
+                  <th class="addon"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td class="addon-title">Precio</td>
+                  <td class="combo combo-<%= combo.id %>"><%= number_to_currency(combo.price, precision: 2, locale: :en) %></td>
+                </tr>
+                <% combo.addons_combos.where("purchasable = ?", true).each do |addon_combo| %>
+                    <tr>
+                      <td class="addon-title"><%= addon_combo.addon.name %></td>
+                      <td class="combo combo-<%= addon_combo.combo.id %>">
+                        <%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
+                        <input class="input-addon purchased_<%= combo.id %>" onchange="recalculateTotals(<%= combo.price%>, <%= combo.id %>)" value='0' id="addon_<%= addon_combo.addon.id %>" data-price="<%= addon_combo.price %>" data-addon="<%= addon_combo.addon.id %>"/>
+                      </td>
+                    </tr>
+                <% end %>
+                <tr class="select-combo-button">
+                  <td class="addon-title">Total</td>
+                  <td class="combo combo-<%= combo.id %>">
+                    <p id="total_addons_<%= combo.id %>"><%= number_to_currency(combo.price, precision: 2, locale: :en)  %></p><%= link_to(raw("<i class='fa fa-shopping-cart'></i> Agrégalo"), "javascript:void(0);", :onclick => "cotizar_plan(#{current_user.id}, #{@product.id}, #{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get) %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <% end %>
+
+  </div>
+
+  <div class="modal fade" id="mensaje_enviado_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Solicitud Exitosa</h4>
+        </div>
+        <div class="modal-body">
+          <p>¡Muchas gracias!</p>
+          <p>Tu solicitud ha sido ingresada exitosamente.</p>
+          <p>Pronto recibirás un correo electrónico para finalizar tu compra. En caso que no lo recibieras, haz clic <a href="mailto:todos@theinfluence.co?subject=Problemas procesando mi compra">aquí</a> para notificarnos.</p>
+        </div>
       </div>
     </div>
   </div>
