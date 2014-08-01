@@ -30,39 +30,44 @@
   <% if not @combos_array.empty? %>
       <div id="product-combos">
         <h2>Elige tu paquete</h2>
-        <div class="btn-group buttons-combos" role="toolbar">
-          <% @combos_array.each_with_index do |combo, index| %>
-              <% if index == 1 then %>
-                  <button type="button" data-combo="<%= combo.name %>" class="btn btn-default selected"><%= combo.name %></button>
-              <% else %>
-                  <button type="button" data-combo="<%= combo.name %>" class="btn btn-default"><%= combo.name %></button>
-              <% end %>
-          <% end %>
+        <% if @combos_array.count > 1 %>
+        <div class="btn-group-wrapper">
+          <div class="btn-group btn-group-xs buttons-combos hidden-md hidden-lg">
+            <% @combos_array.each_with_index do |combo, index| %>
+                <% if index == 0 then %>
+                    <button type="button" data-combo="<%= combo.id %>" class="btn btn-default selected"><%= combo.name %></button>
+                <% else %>
+                    <button type="button" data-combo="<%= combo.id %>" class="btn btn-default"><%= combo.name %></button>
+                <% end %>
+            <% end %>
+          </div>
         </div>
+        <% end %>
         <table>
           <thead>
-          <tr>
-            <th class="addon"></th>
-            <% @combos_array.each do |combo| %>
-                <th class="combo combo-<%= combo.id %>">
-                  <span class="combo-title"><%= combo.name %></span>
-                  <span class="combo-price"><%= number_to_currency(combo.price, precision: 0, locale: :en) %></span>
-                  <span class="combo-description"><%= combo.description %></span>
-                </th>
-            <% end %>
-          </tr>
+              <tr>
+                <th class="addon hidden-xs"></th>
+                <% @combos_array.each_with_index do |combo, index| %>
+                    <th class="combo combo-<%= combo.id %>" data-id="<%= combo.id %>">
+                      <span class="combo-title"><%= combo.name %></span>
+                      <span class="combo-price"><%= number_to_currency(combo.price, precision: 0, locale: :en) %></span>
+                      <span class="combo-description"><%= combo.description %></span>
+                    </th>
+                <% end %>
+              </tr>
           </thead>
           <tbody>
           <% @product_addons_array.each do |addon| %>
               <tr>
-                <td class="addon-title">
+                <td class="addon-title hidden-xs">
                   <% if not addon.description.to_s == '' then %>
                       <i class="fa fa-info-circle addon-description" data-toggle="popover" data-content="<%= addon.description %>"></i>
                   <% end %>
                   <%= addon.name %>
                 </td>
                 <% addon.addons_combos.each do |addon_combo| %>
-                    <td class="combo combo-<%= addon_combo.combo.id %>">
+                    <td class="combo combo-<%= addon_combo.combo.id %>" data-id="<%= addon_combo.combo.id %>">
+                      <div class="hidden-lg hidden-md hidden-sm"><%= addon.name %></div>
                       <% current_combos = current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id) %>
                       <% if addon_combo.active then %>
                           <span class="glyphicon glyphicon-ok addon-included"></span>
@@ -77,15 +82,15 @@
           <% end %>
 
           <tr class="select-combo-button">
-            <td class="addon-title"></td>
+            <td class="addon-title hidden-xs"></td>
             <% @combos_array.each do |combo| %>
                 <% if @current_combo == combo %>
-                    <td class="combo combo-<%= combo.id %>"><strong>Contratado <br/> $ <%= @total_price %></strong></td>
+                    <td class="combo combo-<%= combo.id %>" data-id="<%= combo.id %>"><strong>Contratado <br/> $ <%= @total_price %></strong></td>
                 <% elsif @current_combo and @current_combo != combo and @current_combo.price > combo.price %>
-                    <td class="combo combo-<%= combo.id %>"></td>
+                    <td class="combo combo-<%= combo.id %>" data-id="<%= combo.id %>"></td>
                 <% else %>
                     <% @modal_tables << combo %>
-                    <td class="combo combo-<%= combo.id %>" id="combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "contratar_plan(#{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get, :id => "combo_#{combo.id}") %></td>
+                    <td class="combo combo-<%= combo.id %>" data-id="<%= combo.id %>" id="combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "contratar_plan(#{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get, :id => "combo_#{combo.id}") %></td>
                 <% end %>
             <% end %>
           </tr>

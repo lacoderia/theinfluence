@@ -33,10 +33,55 @@ function onReady() {
         $('.combo').removeClass('combo-selected');
     })
 
+    $('.btn-group button.btn').on('click', changeComboInfo);
+
+    resizeTable();
+
+    $(window).resize(function(){
+        resizeTable();
+    });
+
+}
+
+function resizeTable(){
+    if($(window).width() <= 970){
+        var comboId = undefined;
+
+
+        $.each($('#product-combos table th.combo'), function(index, item){
+            if(index > 0){
+                $(item).hide();
+            }else{
+                comboId = $(item).attr('data-id');
+            }
+        });
+
+        $.each($('#product-combos table td.combo'), function(index, item){
+
+            var itemId = $(item).attr('data-id');
+            if(typeof itemId != 'undefined'){
+                if(itemId != comboId){
+                    $(item).hide();
+                }
+            }
+        });
+
+
+    }else{
+        $('#product-combos table th.combo').show();
+        $('#product-combos table td.combo').show();
+    }
 }
 
 function changeComboInfo(event){
 
+    var selectedCombo = $(event.target).attr('data-combo');
+
+    $('.buttons-combos button.selected').removeClass('selected');
+    $(event.target).addClass('selected');
+
+    $('.combo').hide();
+    $('.combo-' + selectedCombo).show();
 }
 
 function recalculateTotals(base_price, id){
