@@ -44,9 +44,9 @@
                   <%= addon.name %>
                 </td>
                 <% addon.addons_combos.each do |addon_combo| %>
-                  <% if index == @product_purchasable_addons_array.size - 1 %>
+                  <% if index == @product_purchasable_addons_array.size - 1 and addon_combo.combo.id == pc.combo_id %>
                   <td class="combo combo-<%= addon_combo.combo.id %>" style="border: 1px solid #f2f2f2; border-radius: 0px 0px 10px 10px;">
-                  <% else %>
+                  <% elsif addon_combo.combo.id == pc.combo_id %>
                   <td class="combo combo-<%= addon_combo.combo.id %>">
                   <% end %>
                       <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
