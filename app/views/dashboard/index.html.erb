@@ -3,22 +3,107 @@
       <div id="purchases">
         <h2>Productos contratados</h2>
         <% current_user.purchases_combos.each do |pc| %>
+
+<!-- -->
+
+<div class="modal fade" id="modal_combo_<%= pc.combo.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Paquete: <%= pc.combo.name %></h4>
+			</div>
+			<div class="modal-body">
+        <table>
+          <thead>
+          <tr>
+            <th class="addon"></th>
+          </tr>
+          </thead>
+          <tbody>
+						<tr>
+							<td class="addon-title">Precio</td>
+							<td class="combo combo-<%= pc.combo.id %>"><%= number_to_currency(pc.combo.price, precision: 2, locale: :en) %></td>
+						</tr>
+						<% if pc.discount %>
+							<tr>
+								<td class="addon-title">Descuento</td>
+								<td class="combo combo-<%= pc.combo.id %>"><%= number_to_currency(pc.discount, precision: 2, locale: :en) %></td>
+							</tr>
+						<% end %>
+					<%
+            total_addons = 0
+         		@product_purchasable_addons_array = Addon.joins(combos: :product).where('product_id =? and addons_combos.purchasable = ?', pc.combo.product_id, true).distinct('id').order('addon_order') 
+					%>
+          <% @product_purchasable_addons_array.each_with_index do |addon, index| %>
+              <tr>
+                <td class="addon-title">
+                  <% if not addon.description.to_s == '' then %>
+                      <i class="fa fa-info-circle addon-description" data-toggle="popover" data-content="<%= addon.description %>"></i>
+                  <% end %>
+                  <%= addon.name %>
+                </td>
+                <% addon.addons_combos.each do |addon_combo| %>
+                  <% if index == @product_purchasable_addons_array.size - 1 %>
+                  <td class="combo combo-<%= addon_combo.combo.id %>" style="border: 1px solid #f2f2f2; border-radius: 0px 0px 10px 10px;">
+                  <% else %>
+                  <td class="combo combo-<%= addon_combo.combo.id %>">
+                  <% end %>
+                      <% if not current_user.purchases_combos.where("combo_id = ?" , addon_combo.combo.id).empty? %>
+                    			<%= number_to_currency(addon_combo.price, precision: 2, locale: :en) %>
+                          <% if ix = @current_user_addons[:addons].index(addon_combo.addon) %>
+                          <input class="input-addon purchased_<%= pc.combo.id %>" onchange="recalculateTotals(<%= pc.combo.price %>, <%= pc.combo.id %>)" value='<%= @current_user_addons[:quantity][ix]%>' id="addon_<%= addon_combo.addon.id %>" data-price="<%= addon_combo.price %>" data-addon="<%= addon.id %>" />
+                              <% total_addons += (addon_combo.price*@current_user_addons[:quantity][ix]) %>
+                          <% else %>
+                              <input class="input-addon purchased_<%= pc.combo.id %>" onchange="recalculateTotals(<%= pc.combo.price %>, <%= pc.combo.id %>)" value='0' id="addon_<%= addon_combo.addon.id %>" data-price="<%= addon_combo.price %>" data-addon="<%= addon.id %>"/>
+                          <% end %>
+                      <% end %>
+                    <% end %>
+                  </td>
+              </tr>
+          <% end %>
+
+ 
+            <tr class="select-combo-button">
+              <td class="addon-title">Total</td>
+                	<td class="combo combo-<%= pc.combo.id %>">
+	                  <p id="total_addons_<%= pc.combo.id %>"><%= number_to_currency(pc.total_price - pc.discount + total_addons, precision: 2, locale: :en)  %></p><%= link_to(raw("<i class='fa fa-shopping-cart'></i> Agrégalo"), "javascript:void(0);", :onclick => "cotizarAddons(#{current_user.id}, #{ Product.where('id = ?', pc.combo.product_id).first.id }, #{pc.combo.id}, #{pc.discount})", :class => 'btn btn-a btn-small btn-blue', :method => :get) %>
+                	</td>
+            </tr>
+
+          </tbody>
+        </table>
+				
+								
+			</div>
+		</div>
+	</div> 
+</div>
+<!-- -->
+
         <div class="purchase-account col-lg-4 col-med-4 col-sm-6 col-xs-12">
           <div style="display: inline-block; vertical-align: top; width: 30%;">
             <img src="<%= pc.combo.product.image %>" alt="<%= pc.combo.product.name %>">
-            <h3 class="product-name"><%= pc.combo.product.name %></h3>
+            <h3 class="product-name" style="margin-bottom: .8em;"><a href="product-detail/<%= pc.combo.product.id %>"><%= pc.combo.product.name %></a></h3>
+						<%= link_to pc.combo.product.signin_link, :target => '_blank', :title => 'Ingresa a tu cuenta' do %>
+                <i class="fa fa-external-link"></i> Ingresa
+            <% end %>	
           </div>
           <div style="display: inline-block; vertical-align: top; width: 65%;">
             <% Combo.all.each do |combo| %>
                 <% if combo == pc.combo %>
-                    <h4><%= combo.name %></h4>
+                    <h4 style="margin-bottom: 0;"><%= combo.name %></h4>
+										<p><strong><%= number_to_currency(pc.total_price - pc.discount + total_addons, precision: 2, locale: :en) %></strong></p>
+										<p style="margin-bottom: 1em;" id="combo-<%=combo.id%>">
+											<% if not combo.addons_combos.where("purchasable = ?", true).empty? %>
+												<a href='javascript:void(0);' onclick='actualizarPlan(<%= pc.combo.id %>)'>Actualiza</a>
+											<% end %>
+										</p> 
                 <% end %>
             <% end %>
+						<p></p>
             <p><strong>Usuario:</strong> <%= pc.user_name %></p>
-            <p><strong>Password:</strong> <%= pc.password %></p>
-            <%= link_to pc.combo.product.signin_link, :target => '_blank', :title => 'Ingresa a tu cuenta' do %>
-                <i class="fa fa-external-link"></i> Ingresa a tu cuenta
-            <% end %>
+            <p><strong>Password:</strong> <%= pc.password %></p>	
           </div>
         </div>
       <% end %>
@@ -105,4 +190,20 @@
   </div>
 
   <div class="clearfix"></div>
+</div>
+
+<div class="modal fade" id="mensaje_enviado_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Solicitud Exitosa</h4>
+      </div>
+      <div class="modal-body">
+        <p>¡Muchas gracias!</p>
+        <p>Tu solicitud ha sido ingresada exitosamente.</p>
+        <p>Pronto recibirás un correo electrónico para finalizar tu compra. En caso que no lo recibieras, haz clic <a href="mailto:todos@theinfluence.co?subject=Problemas procesando mi compra">aquí</a> para notificarnos.</p>
+      </div>
+    </div>
+  </div>
 </div>

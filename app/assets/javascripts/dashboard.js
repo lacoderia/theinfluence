@@ -35,6 +35,48 @@ function onReady() {
 
 }
 
+function recalculateTotals(base_price, id){
+  var subtotal = base_price;
+  $.each($(".purchased_"+id), function(key, item) {
+    subtotal += (parseInt(item.value)*parseFloat(item.dataset.price));
+  });
+  $("#total_addons_"+ id).html("$" + subtotal.toFixed(2));
+}
+
+function actualizarPlan(combo_id){	
+	$("#modal_combo_"+combo_id).modal('show');
+}
+
+
+function cotizarAddons(user_id, product_id, combo_id, discount){
+  var addons = [];
+
+  $.each($(".purchased_"+combo_id), function(key, item) {
+    addons.push( {addon_id: item.dataset.addon, quantity: item.value} );
+  });
+
+  var data = {user_id: user_id, product_id: product_id, addons: addons, total: $("#total_addons_"+combo_id).html(), discount: discount }
+
+  $('html').loader('show');
+  $.ajax({
+    url: "/send_addons_cotiza_email",
+    data: data,
+    success: function(){
+      $('html').loader('hide');
+      $('#mensaje_enviado_modal').modal('show');
+			$("#modal_combo_"+combo_id).modal('hide');
+      $("#combo-" + combo_id).html("");
+      $("#combo-" + combo_id).append("<strong>En proceso</strong>");
+    },error: function(){
+      $('html').loader('hide');
+      alert("No se pudo enviar el correo, por favor intenta más tarde.");
+    }, complete: function(){
+			$("#current_combo").modal('hide');
+		}
+  });
+
+}
+
 function fixFooter(){
 
     var footerHeight = 0,

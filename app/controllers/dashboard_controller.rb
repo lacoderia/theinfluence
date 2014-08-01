@@ -10,6 +10,15 @@ class DashboardController < ApplicationController
       redirect_to :root
     else
       @products = Product.all
+			@current_user_addons = {}
+      @current_user_addons[:addons] = []
+      @current_user_addons[:quantity] = []
+
+      current_user.purchases_addons.each do |cu_pa|
+        @current_user_addons[:addons] << cu_pa.addon
+        @current_user_addons[:quantity] << cu_pa.quantity
+      end
+
     end
   end
 
@@ -118,9 +127,11 @@ class DashboardController < ApplicationController
 		@discount = params[:discount]
     @addons = []
     @total = params[:total]
-    params[:addons].each do |addon|
-      @addons << {:addon => Addon.find(addon[1]["addon_id"]), :quantity => addon[1]["quantity"] }
-    end
+    if params[:addons] 
+			params[:addons].each do |addon|
+      	@addons << {:addon => Addon.find(addon[1]["addon_id"]), :quantity => addon[1]["quantity"] }
+	    end
+		end
     UserMailer.addons_cotiza_email(@addons, @user, @product, @total, @discount).deliver
     
     redirect_to product_detail_path(:id => @product.id)
@@ -132,9 +143,11 @@ class DashboardController < ApplicationController
     @user = User.find(params[:user_id])
     @addons = []
     @total = params[:total]
-    params[:addons].each do |addon|
-      @addons << {:addon => Addon.find(addon[1]["addon_id"]), :quantity => addon[1]["quantity"] }
-    end
+    if params[:addons]
+			params[:addons].each do |addon|
+      	@addons << {:addon => Addon.find(addon[1]["addon_id"]), :quantity => addon[1]["quantity"] }
+	    end
+		end
     UserMailer.combos_cotiza_email(@addons, @user, @combo, @total, @product).deliver
     
     redirect_to product_detail_path(:id => @product.id)

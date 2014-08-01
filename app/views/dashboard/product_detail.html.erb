@@ -72,11 +72,11 @@
             <% @combos_array.each do |combo| %>
               <% if @current_combo == combo %>
                 <td class="combo combo-<%= combo.id %>"><strong>Contratado <br/> $ <%= @total_price %></strong></td>
-              <% elsif @current_combo and @current_combo != combo and @current_combo.price < combo.price %>
+              <% elsif @current_combo and @current_combo != combo and @current_combo.price > combo.price %>
+                <td class="combo combo-<%= combo.id %>"></td>
+              <% else %>
 								<% @modal_tables << combo %>
                 <td class="combo combo-<%= combo.id %>" id="combo-<%= combo.id %>"><%= link_to('Contrata el plan', "javascript:void(0);", :onclick => "contratar_plan(#{combo.id})", :class => 'btn btn-a btn-small btn-blue', :method => :get, :id => "combo_#{combo.id}") %></td>
-              <% else %>
-                <td class="combo combo-<%= combo.id %>"></td>
               <% end %>
             <% end %>
           </tr>
