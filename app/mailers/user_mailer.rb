@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def contact_email(contact)
     @contact = contact 
-    mail(to: "tonklis@gmail.com", subject: "Nuevo contacto desde la página - #{@contact.name}")
+    mail(to: "todos@theinfluence.co", subject: "Nuevo contacto desde la página - #{@contact.name}")
   end
 
   def compra_email(product, combo, addon_combo, user)
@@ -11,14 +11,14 @@ class UserMailer < ActionMailer::Base
     @combo = combo
     @addon_combo = addon_combo 
     @user = user
-    mail(to: "tonklis@gmail.com", subject: "Petición de compra de producto desde la página") 
+    mail(to: "todos@theinfluence.co", subject: "Petición de compra de producto desde la página") 
   end
 
   def cotiza_email(product, user)
     @product = product
     @user = user
 
-    mail(to: "tonklis@gmail.com", subject: "Petición de cotización desde la página")
+    mail(to: "todos@theinfluence.co", subject: "Petición de cotización desde la página")
   end
 
   def addons_cotiza_email(addons, user, product, total, discount)
@@ -27,7 +27,7 @@ class UserMailer < ActionMailer::Base
     @product = product
     @total = total
 		@discount = discount
-    mail(to: "tonklis@gmail.com", subject: "Petición de compra de addon desde la página")
+    mail(to: "todos@theinfluence.co", subject: "Petición de compra de addon desde la página")
   end
 
 	def combos_cotiza_email(addons, user, combo, total, product)
@@ -36,7 +36,7 @@ class UserMailer < ActionMailer::Base
 		@product = product
 		@combo = combo
 		@total = total
-    mail(to: "tonklis@gmail.com", subject: "Petición de mejora desde la página")
+    mail(to: "todos@theinfluence.co", subject: "Petición de mejora desde la página")
 	end
 
   def crea_cuenta_email(user, password)
