@@ -293,6 +293,95 @@ $color-light-yellow: #FBFBFB;
   margin-bottom: 2em;
   padding: 2em;
 
+  table{
+    border-collapse: separate;
+    border-spacing: 1em 0em;
+    cursor: pointer;
+    margin: 0px auto;
+    table-layout: fixed;
+    width: 90%;
+
+    th{
+      background-color: $color-blue;
+      border: 1px solid white;
+      border-radius: 10px 10px 0px 0px;
+      color: white;
+      font-size: 1em;
+      padding: 1em;
+      text-align: center;
+
+      span{
+        display: inline-block;
+        width: 100%;
+      }
+
+      span.combo-title{
+        font-size: 1.3em;
+      }
+      span.combo-price{
+        font-size: 3em;
+        letter-spacing: -2px;
+      }
+      span.combo-description{
+        font-size: 1em;
+        height: 50px;
+        line-height: 1em;
+      }
+    }
+
+    td{
+      border: 1px solid $color-light-gray;
+      border-bottom: none;
+      padding: 0.8em;
+      text-align: center;
+    }
+
+    tr.section{
+      td{
+        color: $color-gray;
+        background-color: $color-light-gray;
+        font-weight: bolder;
+      }
+
+      td.addon-title{
+        background-color: transparent;
+      }
+    }
+
+    tr.select-combo-button{
+      td{
+        border: 1px solid $color-light-gray;
+        border-radius: 0px 0px 10px 10px;
+      }
+
+      td.addon-title{
+        border: none;
+
+      }
+    }
+
+    .addon{
+      background-color: transparent;
+      width: 30%;
+    }
+
+    .addon-included{
+      color: $color-green;
+    }
+
+    .addon-title{
+      border: none;
+      font-weight: bold;
+      text-align: right;
+
+      .popover{
+        text-align: left;
+        font-weight: 300;
+      }
+
+    }
+  }
+
   .purchase-account{
     background: #eeeeee; /* Old browsers */
     background: -moz-radial-gradient(center, ellipse cover, $color-light-gray 0%, white 100%); /* FF3.6+ */
