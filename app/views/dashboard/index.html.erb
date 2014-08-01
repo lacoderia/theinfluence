@@ -73,7 +73,6 @@
 
           </tbody>
         </table>
-				
 								
 			</div>
 		</div>
@@ -97,6 +96,8 @@
 										<p style="margin-bottom: 1em;" id="combo-<%=combo.id%>">
 											<% if not combo.addons_combos.where("purchasable = ?", true).empty? %>
 												<a href='javascript:void(0);' onclick='actualizarPlan(<%= pc.combo.id %>)'>Actualiza</a>
+											<% else %>
+												<div style="height: 1em;"></div>
 											<% end %>
 										</p> 
                 <% end %>

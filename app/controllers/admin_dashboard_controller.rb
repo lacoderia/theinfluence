@@ -137,4 +137,14 @@ class AdminDashboardController < ApplicationController
     redirect_to admin_user_detail_path(:user_id => params[:user_id])
   end
 
+	def apply_discount
+		
+		pc = PurchasesCombo.where("user_id = ? and combo_id = ?", params[:user_id], params[:combo_id]).first
+		pc.discount = params[:discount].to_f;
+		pc.save!
+
+    redirect_to admin_user_detail_path(:user_id => params[:user_id])
+
+	end
+
 end

@@ -39,6 +39,7 @@ Theinfluence::Application.routes.draw do
   get "assign_addon" => "admin_dashboard#assign_addon", :as => :assign_addon
   get "remove_addon" => "admin_dashboard#remove_addon", :as => :remove_addon
   get "remove_combo" => "admin_dashboard#remove_combo", :as => :remove_combo
+  get "apply_discount" => "admin_dashboard#apply_discount", :as => :apply_discount
 
   get "dashboard" => "dashboard#index", :as => :dashboard
   get "product-detail/:id" => "dashboard#product_detail", :as => :product_detail

@@ -88,6 +88,9 @@
                         <h3><%= pc.combo.name %></h3>
                         <p class="baseprice">Precio base: <%= number_to_currency(pc.combo.price, precision: 2, locale: :en) %></p>
                         <% purchasable_addons = pc.combo.addons_combos.where("purchasable = ?", true) %>
+												<div>
+													<p>Descuento: $<input style='margin: 5px; border: 1px solid; border-radius: 5px; text-align: right;' size="4" id="discount_<%= pc.combo.id %>" <%= pc.discount > 0 ? "value=#{pc.discount}" : "value=0.00"  %> ></input><a href="javascript:void(0);" onclick="aplicar_descuento(<%= @user.id %>, <%= pc.combo.id %>, <%= pc.combo.product.id %>)">Aplicar</a></p>
+												</div>
                         <% if not purchasable_addons.empty? %>
                             <% subtotal = 0 %>
                             <h4>Adicionales</h4>
@@ -126,13 +129,24 @@
                                       </td>
                                     </tr>
                                 <% end %>
-                                <tr class="total">
-                                  <td>Total mensual:</td>
-                                  <td colspan="2"><%= number_to_currency((pc.total_price + subtotal), precision: 2, locale: :en) %></td>
+                                <tr>
+                                  <td></td>
                                 </tr>
                               </table>
+															<div>
+																<p>Total mensual: <strong><%= number_to_currency((pc.total_price - pc.discount + subtotal), precision: 2, locale: :en) %></strong></p>
+															</div>
                             </div>
-                        <% end %>
+                        <% else %>
+													<div>
+														<table>
+															<tr class="total">
+                              	<td></td>
+                              </tr>
+														</table>	
+														<p>Total mensual: <strong><%= number_to_currency((pc.total_price - pc.discount), precision: 2, locale: :en) %></strong></p>
+													</div>
+												<% end %>
                       </div>
                   <% end %>
               <% end %>
