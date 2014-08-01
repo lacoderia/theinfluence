@@ -20,7 +20,6 @@ function changeComboInfo(event){
     $(event.target).addClass('selected');
 
     $('.pc-' + pc).hide();
-    console.log(selectedCombo)
     $('.product-info-' + selectedCombo).show();
 }
 

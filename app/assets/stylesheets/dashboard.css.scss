@@ -233,9 +233,12 @@ $color-light-yellow: #FBFBFB;
     }
   }
 
+  .btn-group-wrapper{
+    text-align: center;
+  }
+
   .buttons-combos{
-    float: right;
-    margin: 2em 5em 1em 0em;
+    margin: 0em 3em 1em 0em;
 
     button.selected{
       color: #333333;
