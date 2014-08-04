@@ -21,6 +21,7 @@ gem 'thin'
 gem 'mail_form'
 gem 'rake'
 gem 'rspec'
+gem 'newrelic_rpm'
 
 gem "font-awesome-rails"
 
