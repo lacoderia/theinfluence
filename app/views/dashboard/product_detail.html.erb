@@ -2,7 +2,13 @@
 
   <div id="product-resume">
     <img src="<%= @product.image %>" alt="<%= @product.name %>" class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-    <h3 class="col-xs-12 col-sm-8 col-md-10 col-lg-10 product-name"><%= @product.name %></h3>
+		<% if @product.id == 3 %>
+	    <h3 class="col-xs-12 col-sm-8 col-md-10 col-lg-10 product-name" style="margin-bottom: 0px;"><%= @product.name %></h3>
+			<p class="col-xs-12 col-sm-8 col-md-10 col-lg-10" style="font-size: .8em; margin: 0px;">Powered by Unified Technology</p>
+			<p>
+		<% else %>
+	    <h3 class="col-xs-12 col-sm-8 col-md-10 col-lg-10 product-name"><%= @product.name %></h3>
+		<% end %>
     <p  class="col-xs-12 col-sm-8 col-md-10 col-lg-10"><%= @product.short_description %></p>
     <div class="clearfix"></div>
   </div>
